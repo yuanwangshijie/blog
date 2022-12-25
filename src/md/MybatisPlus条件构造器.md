@@ -16,7 +16,7 @@ tag:
 
 queryWrapper是mybatis plus中实现查询的对象封装操作类，他的层级关系如下
 
-![](../static/img/mybatis-01.png)
+![](/img/mybatis-01.png)
 
 在上面的图片中<br>
 **Wrapper** ：条件构造抽象类，最顶端父类，抽象类中提供4个方法西面贴源码展示<br>
@@ -105,7 +105,7 @@ public interface IPbListBlackMapper extends BaseMapper<PbListBlack> {
 
 ## 三、QueryWrapper的方法
 
-![](../static/img/mybatis-02.png)
+![](/img/mybatis-02.png)
 
 ## 四、总结
 

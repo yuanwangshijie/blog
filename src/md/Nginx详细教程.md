@@ -22,11 +22,11 @@ tag:
 
 **服务器搭建集群后**
 
-![](../static/img/nginx-01.png)
+![](/img/nginx-01.png)
 
 **在搭建集群后，使用Nginx做反向代理**
 
-![](../static/img/nginx-02.png)
+![](/img/nginx-02.png)
 
 ### 1.2 Nginx介绍
 
@@ -209,14 +209,14 @@ docker-compose restart
 > 2. 客户端了解代理服务器和目标服务器都是谁
 > 3. 帮助咱们实现突破访问权限，提高访问的速度，对目标服务器隐藏客户端的ip地址
 
-![](../static/img/nginx-03.png)
+![](/img/nginx-03.png)
 
 > 反向代理：
 >1. 反向代理服务器是配置在服务端的
 >2. 客户端不知道访问的到底是哪一台服务器
 >3. 达到负载均衡，并且可以隐藏服务器真正的ip地址
 
-![](../static/img/nginx-04.png)
+![](/img/nginx-04.png)
 
 ### 3.2 基于Nginx实现反向代理
 
@@ -465,7 +465,7 @@ docker-compose restart
 > * 准备keepalived，监听nginx的健康情况
 > * 准备haproxy，提供一个虚拟的路径，统一的去接收用户的请求
 
-![](../static/img/nginx-05.png)
+![](/img/nginx-05.png)
 
 ### 6.2 搭建
 
