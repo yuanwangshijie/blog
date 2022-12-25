@@ -3,7 +3,6 @@ import {zhNavbar} from "./navbar";
 import {zhSidebar} from "./sidebar";
 
 export default hopeTheme({
-
     hostname: "https://blog.wqsa.cc",
     author: {
         name: "远望世界",
