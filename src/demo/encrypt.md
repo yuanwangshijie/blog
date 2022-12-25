@@ -1,6 +1,7 @@
 ---
 title: 文章加密
 icon: lock
+date: 2020-01-01
 category:
   - 使用指南
 tag:
