@@ -11,6 +11,7 @@ export default hopeTheme({
     iconAssets: "iconfont",
     logo: "/logo.png",
     repo: "https://github.com/yuanwangshijie/yuanwangshijie.github.io",
+    docsDir: "src",
     metaLocales: {
         editLink: "在GitHub上编辑此页",
     },
@@ -51,7 +52,7 @@ export default hopeTheme({
              * Using Giscus
              */
             provider: "Giscus",
-            repo: "yuanwangshijie/yuanwangshijie.github.io",
+            repo: "yuanwangshijie/blog",
             repoId: "R_kgDOIrD_tg",
             category: "Announcements",
             categoryId: "DIC_kwDOIrD_ts4CTQNO",
