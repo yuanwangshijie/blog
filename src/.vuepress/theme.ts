@@ -11,7 +11,6 @@ export default hopeTheme({
     iconAssets: "iconfont",
     logo: "/logo.png",
     repo: "https://github.com/yuanwangshijie/yuanwangshijie.github.io",
-    docsDir:"src",
     metaLocales: {
         editLink: "在GitHub上编辑此页",
     },
