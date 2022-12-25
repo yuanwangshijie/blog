@@ -1,4 +1,5 @@
 ---
+title: MybatisPlus条件构造器
 icon: edit
 date: 2022-01-01
 category:
@@ -7,9 +8,7 @@ tag:
   - MybatisPlus
 ---
 
-# MybatisPlus条件构造器
-
-> 2022年12月24日，本文转自 https://blog.csdn.net/bird_tp/article/details/105587582<br>
+> 本文转自 https://blog.csdn.net/bird_tp/article/details/105587582<br>
 > 看本博客有不清晰的地方，可以查看mybatis plus的官方文档 https://baomidou.com/
 
 ## 一、queryWrapper是什么
@@ -109,4 +108,5 @@ public interface IPbListBlackMapper extends BaseMapper<PbListBlack> {
 
 ## 四、总结
 
-上面的博客内容虽然简单，也只展示了一个查询的功能。在你实际使用的时候，可以按照 条件构造器上面包含的的方法，设置你查询数据的条件，调用BaseMapper里相应的方法即可
+上面的博客内容虽然简单，也只展示了一个查询的功能。在你实际使用的时候，可以按照
+条件构造器上面包含的的方法，设置你查询数据的条件，调用BaseMapper里相应的方法即可

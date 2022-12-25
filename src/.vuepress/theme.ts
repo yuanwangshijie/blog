@@ -12,7 +12,7 @@ export default hopeTheme({
 
     iconAssets: "iconfont",
 
-    logo: "/img/touxiang.png",
+    logo: "/logo.png",
 
     repo: "vuepress-theme-hope/vuepress-theme-hope",
 
@@ -67,8 +67,7 @@ export default hopeTheme({
             footer: "这里是页脚",
             displayFooter: true,
             blog: {
-                description: "一个前端开发者",
-                intro: "/intro.html",
+                description: "一个严重拖延症患者",
             },
             metaLocales: {
                 editLink: "在 GitHub 上编辑此页",
@@ -93,10 +92,10 @@ export default hopeTheme({
              * Using Giscus
              */
             provider: "Giscus",
-            repo: "vuepress-theme-hope/giscus-discussions",
-            repoId: "R_kgDOG_Pt2A",
+            repo: "yuanwangshijie/yuanwangshijie.github.io",
+            repoId: "R_kgDOIrD_tg",
             category: "Announcements",
-            categoryId: "DIC_kwDOG_Pt2M4COD69",
+            categoryId: "DIC_kwDOIrD_ts4CTQNO",
 
             /**
              * Using Twikoo

@@ -1,4 +1,5 @@
 ---
+title: 文章加密
 icon: lock
 category:
   - 使用指南

@@ -1,4 +1,5 @@
 ---
+title: Docker常用命令整理
 icon: edit
 date: 2022-01-01
 category:
@@ -7,9 +8,7 @@ tag:
   - Docker
 ---
 
-# Docker常用命令整理
-
-> 2022年12月24日，本文转自 https://zhuanlan.zhihu.com/p/54946336
+> 本文转自 https://zhuanlan.zhihu.com/p/54946336
 
 ## 一、常用命令
 

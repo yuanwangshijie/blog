@@ -2,8 +2,8 @@
 home: true
 layout: BlogHome
 icon: home
-title: 博客首页
-heroImage: /logo.svg
+title: 主页
+heroImage: /logo.png
 heroText: 远望世界' Blog
 heroFullScreen: true
 tagline: 作者自用的博客，用于学习记录

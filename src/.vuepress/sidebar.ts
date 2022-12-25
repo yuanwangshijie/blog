@@ -1,26 +1,29 @@
-import { sidebar } from "vuepress-theme-hope";
+import {sidebar} from "vuepress-theme-hope";
 
-export const zhSidebar = sidebar({
-  "/": [
-    "",
+export const zhSidebar = sidebar([
+    "/",
     {
-      text: "如何使用",
-      icon: "creative",
-      prefix: "guide/",
-      children: "structure",
+        text: "演示",
+        icon: "discover",
+        prefix: "/demo/",
+        link: "/demo/page",
+        children: ["page", "markdown", "encrypt", "disable",],
     },
     {
-      text: "文章",
-      icon: "note",
-      prefix: "posts/",
-      children: "structure",
+        text: "文章",
+        icon: "note",
+        prefix: "/md/",
+        link: "/md/MarkDown学习笔记",
+        children: ["MarkDown学习笔记", "Docker常用命令整理", "MybatisPlus条件构造器", "Nginx详细教程"],
     },
     {
-      text: "文档",
-      icon: "note",
-      prefix: "md/",
-      children: "structure",
+        text: "日记",
+        icon: "note",
+        link: "/md/日记",
     },
-    "intro",
-  ],
-});
+    {
+        text: "V2 文档",
+        icon: "note",
+        link: "https://vuepress-theme-hope.github.io/v2/",
+    },
+]);
