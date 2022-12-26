@@ -4,9 +4,11 @@ layout: BlogHome
 icon: home
 title: 主页
 heroImage: /logo.png
+heroAlt: logo.png
 heroText: 远望世界' Blog
-heroFullScreen: true
 tagline: 作者自用的博客，用于学习记录
+heroFullScreen: true
+bgImage: https://www.dmoe.cc/random.php
 projects:
   - icon: project
     name: 项目名称

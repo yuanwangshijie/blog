@@ -13,7 +13,7 @@ export default hopeTheme({
     repo: "https://github.com/yuanwangshijie/yuanwangshijie.github.io",
     docsDir: "src", // 用于editLink地址拼接
     metaLocales: {
-        editLink: "在GitHub上编辑此页",
+        editLink: "编辑此页",
     },
 
     pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
