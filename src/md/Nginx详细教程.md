@@ -1,7 +1,7 @@
 ---
 title: Nginx详细教程
 icon: edit
-date: 2022-01-01
+date: 2022-07-01
 category:
   - 教程
 tag:

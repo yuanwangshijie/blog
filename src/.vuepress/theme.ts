@@ -1,24 +1,26 @@
 import {hopeTheme} from "vuepress-theme-hope";
 import {zhNavbar} from "./navbar";
 import {zhSidebar} from "./sidebar";
+import {searchProPlugin} from "vuepress-plugin-search-pro";
 
 export default hopeTheme({
     // 页面配置
-    hostname: "https://blog.wqsa.cc",
     logo: "", // 导航栏左侧logo
     pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
     displayFooter: true,
     copyright: false,
     footer: "MIT Licensed | Copyright © 2022-2023 远望世界",
 
-    // 图标库
-    iconAssets: "iconfont",
-
-    // 文章作者信息配置
+    // 网站信息配置 用于SEO
+    hostname: "https://blog.wqsa.cc",
     author: {
         name: "远望世界",
         url: "https://blog.wqsa.cc",
+        email: "yuanwangshijie@gmail.com"
     },
+
+    // 图标库
+    iconAssets: "iconfont",
 
     // 编辑此页配置
     repo: "https://github.com/yuanwangshijie/yuanwangshijie.github.io",
@@ -48,7 +50,7 @@ export default hopeTheme({
     // 加密页面，开发模式依然可以获取页面信息
     encrypt: {
         config: {
-            "/demo/encrypt.html": ["1234"],
+            "/demo/encrypt.html": ["123456"],
         },
     },
 
