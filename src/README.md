@@ -3,8 +3,8 @@ home: true
 layout: BlogHome
 icon: home
 title: 主页
-heroImage: /logo.png
-heroAlt: logo.png
+heroImage: 
+heroAlt: 
 heroText: 远望世界' Blog
 tagline: 
 heroFullScreen: true

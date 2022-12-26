@@ -3,28 +3,38 @@ import {zhNavbar} from "./navbar";
 import {zhSidebar} from "./sidebar";
 
 export default hopeTheme({
+    // 基础配置
     hostname: "https://blog.wqsa.cc",
+    logo: "",
+    pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
+    displayFooter: true,
+    copyright: false,
+    footer: "MIT Licensed | Copyright © 2022-2023 远望世界",
+
+    // 图标库
+    iconAssets: "iconfont",
+
+    // 文章作者信息配置
     author: {
         name: "远望世界",
         url: "https://blog.wqsa.cc",
     },
-    iconAssets: "iconfont",
-    logo: "/logo.png",
+
+    // 编辑此页配置
     repo: "https://github.com/yuanwangshijie/yuanwangshijie.github.io",
     docsDir: "src", // 用于editLink地址拼接
     metaLocales: {
         editLink: "编辑此页",
     },
 
-    pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
-    copyright: false,
-    displayFooter: true,
-    footer: "MIT Licensed | Copyright © 2022-2023 远望世界",
-
+    // 导航栏和侧边栏
     navbar: zhNavbar,
     sidebar: zhSidebar,
 
+    // 博主信息配置
     blog: {
+        avatar: "/logo.png",
+        name: "远望世界",
         description: "一个严重拖延症患者",
         medias: {
             GitHub: "https://github.com/yuanwangshijie",
@@ -35,12 +45,14 @@ export default hopeTheme({
         },
     },
 
+    // 加密页面，开发模式依然可以获取页面信息
     encrypt: {
         config: {
             "/demo/encrypt.html": ["1234"],
         },
     },
 
+    // 插件配置
     plugins: {
         blog: true,
 
