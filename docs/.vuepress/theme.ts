@@ -24,7 +24,7 @@ export default hopeTheme({
 
     // 编辑此页配置
     repo: "https://github.com/yuanwangshijie/yuanwangshijie.github.io",
-    docsDir: "src", // 用于editLink地址拼接
+    docsDir: "docs", // 用于editLink地址拼接
     metaLocales: {
         editLink: "编辑此页",
     },
