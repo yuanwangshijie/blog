@@ -18,8 +18,8 @@ export const zhSidebar = sidebar([
     },
     "/md/日记",
     {
-        text: "V2 文档",
+        text: "主题文档",
         icon: "note",
-        link: "https://vuepress-theme-hope.github.io/v2/",
+        link: "https://vuepress-theme-hope.github.io/v2/zh/",
     },
 ]);

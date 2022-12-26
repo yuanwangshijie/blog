@@ -10,7 +10,7 @@ export default hopeTheme({
     copyright: false,
     footer: "MIT Licensed | Copyright © 2022-2023 远望世界",
 
-    // 网站信息配置 用于SEO
+    // 网站信息配置，用于SEO
     hostname: "https://blog.wqsa.cc",
     author: {
         name: "远望世界",
@@ -41,7 +41,8 @@ export default hopeTheme({
 
     // 编辑此页配置
     repo: "https://github.com/yuanwangshijie/yuanwangshijie.github.io",
-    docsDir: "docs", // 用于editLink地址拼接
+    docsBranch: "main",
+    docsDir: "docs",
     metaLocales: {
         editLink: "编辑此页",
     },

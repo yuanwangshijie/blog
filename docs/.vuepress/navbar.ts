@@ -14,10 +14,10 @@ export const zhNavbar = navbar([
         prefix: "/md/",
         children: ["Docker常用命令整理", "MarkDown学习笔记", "MybatisPlus条件构造器", "Nginx详细教程"],
     },
-    "/md/日记" ,
+    "/md/日记",
     {
-        text: "V2 文档",
+        text: "主题文档",
         icon: "note",
-        link: "https://vuepress-theme-hope.github.io/v2/",
+        link: "https://vuepress-theme-hope.github.io/v2/zh/",
     },
 ]);
