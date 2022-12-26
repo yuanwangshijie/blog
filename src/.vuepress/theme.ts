@@ -3,7 +3,7 @@ import {zhNavbar} from "./navbar";
 import {zhSidebar} from "./sidebar";
 
 export default hopeTheme({
-    // 主页页面配置
+    // 页面配置
     hostname: "https://blog.wqsa.cc",
     logo: "", // 导航栏左侧logo
     pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
