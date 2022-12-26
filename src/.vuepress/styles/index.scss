@@ -1,1 +1,15 @@
 // place your custom styles here
+.blog-hero h1 {
+  font-size: 40px !important ;
+  font-style: italic;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 100px !important ;
+  backdrop-filter: saturate(150%) contrast(50%) blur(8px);
+  background-color: rgba(0, 0, 0, .3);
+  box-shadow: 2px 2px 5px #000;
+}
+
+.site-name {
+  font-style: italic;
+}
