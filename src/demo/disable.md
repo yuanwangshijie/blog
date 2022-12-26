@@ -1,6 +1,7 @@
 ---
 title: 布局与功能禁用
 icon: config
+date: 2020-01-01
 category:
   - 使用指南
 tag:
