@@ -21,7 +21,7 @@ export default defineUserConfig({
                 {
                     getter: (page) => page.frontmatter.tag as string,
                     formatter: "标签：$content",
-                },
+                }
             ],
         }),
     ],
