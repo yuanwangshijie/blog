@@ -45,7 +45,7 @@ jobs:
           folder: docs/.vuepress/dist
           
       - name: 上传打好的包到服务器中
-        uses: mdallasanta/ssh-scp-deploy@{version}
+        uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
           local: 'docs/.vuepress/dist/*'                               # Local file path - REQUIRED false - DEFAULT ./
           remote: '/var/www/blog'                                      # Remote file path - REQUIRED false - DEFAULT ~/
