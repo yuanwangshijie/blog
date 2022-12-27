@@ -46,4 +46,7 @@ jobs:
           
       - name: 上传打好的包到服务器中
         run: sshpass -p ${{secrets.SERVER_PWD}} scp -r -o StrictHostKeyChecking=no docs/.vuepress/dist ${{secrets.SERVER_USER}}@${{secrets.SERVER_IP}}:/var/www/blog
+        
+      - name: 启动项目
+        run: sshpass -p ${{secrets.SERVER_PWD}} ssh -o StrictHostKeyChecking=no ${{secrets.SERVER_USER}}@${{secrets.SERVER_IP}} "cp -r /var/www/blog/dist /var/www/blog && rm -rf /var/www/blog/dist"
 
