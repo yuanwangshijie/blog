@@ -46,20 +46,12 @@ export default hopeTheme({
         editLink: "编辑此页",
     },
 
-    // 加密页面，开发模式依然可以获取页面信息
-    encrypt: {
-        config: {
-            "/demo/encrypt.html": ["123456"],
-        },
-    },
-
     // 插件配置
     plugins: {
+        // 博客插件开关
         blog: true,
 
-        // If you don’t need comment feature, you can remove following option
-        // The following config is for demo ONLY, if you need comment feature, please generate and use your own config, see comment plugin documentation for details.
-        // To avoid disturbing the theme developer and consuming his resources, please DO NOT use the following config directly in your production environment!!!!!
+        // 评论插件配置
         comment: {
             /**
              * Using Giscus
@@ -83,7 +75,7 @@ export default hopeTheme({
             // serverURL: "https://vuepress-theme-hope-comment.vercel.app",
         },
 
-        // Disable features you don’t want here
+        // MarkDown增强插件配置
         mdEnhance: {
             align: true,
             attrs: true,
