@@ -50,12 +50,12 @@ jobs:
           # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: 上传构建好的项目到服务器
-        uses: mdallasanta/ssh-scp-deploy@v1.2.0
-        with:
-          local: 'docs/.vuepress/dist/*'                               # Local file path - REQUIRED false - DEFAULT ./
-          remote: '/var/www/blog'                                      # Remote file path - REQUIRED false - DEFAULT ~/
-          host: ${{secrets.SERVER_IP}}                                 # Remote server address - REQUIRED true
-          user: ${{secrets.SERVER_USER}}                               # Remote server user - REQUIRED true
-          password: ${{secrets.SERVER_PWD}}                            # User password - REQUIRED at least one of "password" or "key" 
-          pre_upload: rm -rf /var/www/blog_bak && mv /var/www/blog /var/www/blog_bak              # Command to run via ssh before scp upload - REQUIRED false
+#      - name: 上传构建好的项目到服务器
+#        uses: mdallasanta/ssh-scp-deploy@v1.2.0
+#        with:
+#          local: 'docs/.vuepress/dist/*'                               # Local file path - REQUIRED false - DEFAULT ./
+#          remote: '/var/www/blog'                                      # Remote file path - REQUIRED false - DEFAULT ~/
+#          host: ${{secrets.SERVER_IP}}                                 # Remote server address - REQUIRED true
+#          user: ${{secrets.SERVER_USER}}                               # Remote server user - REQUIRED true
+#          password: ${{secrets.SERVER_PWD}}                            # User password - REQUIRED at least one of "password" or "key"
+#          pre_upload: rm -rf /var/www/blog_bak && mv /var/www/blog /var/www/blog_bak              # Command to run via ssh before scp upload - REQUIRED false
