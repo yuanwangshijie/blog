@@ -1,6 +1,6 @@
 ---
 title: MarkDown学习笔记
-icon: note
+icon: blog
 date: 2022-03-01
 category:
   - 教程

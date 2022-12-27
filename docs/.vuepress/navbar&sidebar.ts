@@ -4,12 +4,13 @@ export const bar = [
     "/",
     "/notes/日记",
     {
-        text: "教程",
+        text: "学习笔记",
         icon: "note",
         prefix: "/notes/",
         children: [
             {
                 text: "教程",
+                icon: "read",
                 children: [
                     "CSS3毛玻璃效果",
                     "Docker常用命令整理",
@@ -20,6 +21,7 @@ export const bar = [
             },
             {
                 text: "工具",
+                icon: "tool",
                 children: [
                     "随机图片api接口",
                 ]

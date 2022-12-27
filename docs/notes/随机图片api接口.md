@@ -1,6 +1,6 @@
 ---
 title: 随机图片api接口
-icon: note
+icon: blog
 date: 2022-12-27
 category:
   - 资源
