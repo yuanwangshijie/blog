@@ -44,7 +44,7 @@ jobs:
           branch: gh-pages
           folder: docs/.vuepress/dist
           
-      - name: 上传打好的包到服务器中
+      - name: 上传构建好的包到服务器
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
           local: 'docs/.vuepress/dist/*'                               # Local file path - REQUIRED false - DEFAULT ./
