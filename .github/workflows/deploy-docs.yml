@@ -53,6 +53,6 @@ jobs:
           user: ${{secrets.SERVER_USER}}                               # Remote server user - REQUIRED true
           password: ${{secrets.SERVER_PWD}}                            # User password - REQUIRED at least one of "password" or "key" 
           pre_upload: rm -rf /var/www/blog_bak && mv /var/www/blog /var/www/blog_bak         # Command to run via ssh before scp upload - REQUIRED false
-          ssh_options: -o StrictHostKeyChecking=no                     # A set of ssh_option separated by -o - REQUIRED false - DEFAULT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+          ssh_options: -o StrictHostKeyChecking=no  
           scp_options: -v  
           
