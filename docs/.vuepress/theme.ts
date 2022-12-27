@@ -1,6 +1,5 @@
 import {hopeTheme} from "vuepress-theme-hope";
-import {zhNavbar} from "./navbar";
-import {zhSidebar} from "./sidebar";
+import {myNavbar, mySidebar} from "./navbar&sidebar";
 
 export default hopeTheme({
     // 页面配置
@@ -22,8 +21,8 @@ export default hopeTheme({
     iconAssets: "iconfont",
 
     // 导航栏和侧边栏
-    navbar: zhNavbar,
-    sidebar: zhSidebar,
+    navbar: myNavbar,
+    sidebar: mySidebar,
 
     // 博主信息配置
     blog: {

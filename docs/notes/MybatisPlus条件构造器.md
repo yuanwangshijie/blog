@@ -8,8 +8,8 @@ tag:
   - MybatisPlus
 ---
 
-> 本文转自 https://blog.csdn.net/bird_tp/article/details/105587582<br>
-> 看本博客有不清晰的地方，可以查看mybatis plus的官方文档 https://baomidou.com/
+> 本文转自：https://blog.csdn.net/bird_tp/article/details/105587582<br>
+> 看本博客有不清晰的地方，可以查看mybatis plus的官方文档：https://baomidou.com/
 
 ## 一、queryWrapper是什么
 
