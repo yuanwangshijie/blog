@@ -1,6 +1,6 @@
 ---
 title: Docker常用命令整理
-icon: edit
+icon: note
 date: 2022-05-01
 category:
   - 教程

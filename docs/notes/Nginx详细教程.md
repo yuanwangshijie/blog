@@ -1,6 +1,6 @@
 ---
 title: Nginx详细教程
-icon: edit
+icon: note
 date: 2022-07-01
 category:
   - 教程

@@ -1,6 +1,6 @@
 ---
 title: MybatisPlus条件构造器
-icon: edit
+icon: note
 date: 2022-06-01
 category:
   - 教程
