@@ -35,15 +35,11 @@ tag:
 
 * 调用地址：https://www.dmoe.cc/random.php
 
-![](https://www.dmoe.cc/random.php)
-
 ### 2.2 搏天
 
 > 网站：https://api.btstu.cn/doc/sjbz.php
 
 * 调用地址：https://api.btstu.cn/sjbz/api.php
-
-![](https://api.btstu.cn/sjbz/api.php)
 
 ### 2.3 樱道
 
@@ -87,8 +83,6 @@ tag:
 * 日本COS中国COS：https://api.r10086.com/img-api.php?type=日本COS中国COS
 * 橘里橘气(横竖屏)：https://api.r10086.com/img-api.php?type=橘里橘气横屏系列1
 
-![](https://api.r10086.com/img-api.php?type=动漫综合1)
-
 ### 2.4 小歪
 
 > 网站：https://api.ixiaowai.cn/
@@ -98,15 +92,11 @@ tag:
 * mc酱动漫：https://api.ixiaowai.cn/mcapi/mcapi.php
 * 高清壁纸：https://api.ixiaowai.cn/gqapi/gqapi.php
 
-![](https://api.ixiaowai.cn/api/api.php)
-
 ### 2.5 保罗
 
 > 网站：https://api.paugram.com/help/wallpaper
 
 * 调用地址：https://api.paugram.com/wallpaper/
-
-![](https://api.paugram.com/wallpaper/)
 
 ### 2.6 墨天逸
 
@@ -114,23 +104,17 @@ tag:
 
 * 调用地址：https://api.mtyqx.cn/api/random.php
 
-![](https://api.mtyqx.cn/api/random.php)
-
 ### 2.7 EEE.DOG
 
 > 网站：https://www.eee.dog/tech/rand-pic-api.html
 
 * 调用地址：https://api.yimian.xyz/img
 
-![](https://api.yimian.xyz/img)
-
 ### 2.8 东方Project
 
 > 网站：https://img.paulzzh.tech/
 
 * 调用地址：https://img.paulzzh.com/touhou/random
-
-![](https://img.paulzzh.com/touhou/random)
 
 ### 2.9 likepoems随机图
 
@@ -144,15 +128,11 @@ tag:
 * nature壁纸：https://api.likepoems.com/img/sina/nature
 * 必应壁纸：https://api.likepoems.com/img/sina/bing
 
-![](https://api.likepoems.com/img/sina/mc)
-
 ### 2.10 洛川唧上的萌部图片
 
 > 网站：https://tu-api.df100.ltd/
 
 * ~~调用地址：<span>https://service-5z0sdahv-1306777571.sh.apigw.tencentcs.com/release/</span>~~
-
-![](https://service-5z0sdahv-1306777571.sh.apigw.tencentcs.com/release/)
 
 ### 2.11 Unsplash Image
 
@@ -160,23 +140,17 @@ tag:
 
 * 调用地址：https://source.unsplash.com/random
 
-![](https://source.unsplash.com/random)
-
 ### 2.12 缙哥哥博客
 
 > 网站：https://api.dujin.org/pic/yuanshen/
 
 * 调用地址：https://api.dujin.org/pic/yuanshen/
 
-![](https://api.dujin.org/pic/yuanshen/)
-
 ### 2.13 其它随机图
 
 > 网站：https://api.wuque.cc/random/images
 
 * 调用地址：https://api.wuque.cc/random/images
-
-![](https://api.wuque.cc/random/images)
 
 ## 三、怎么自制随机图
 

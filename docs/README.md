@@ -25,6 +25,11 @@ projects:
     desc: 书籍详细描述
     link: https://你的书籍链接
 
+  - icon: link
+    name: 链接名称
+    desc: 链接详细描述
+    link: https://链接地址   
+
 footer: MIT Licensed | Copyright © 2022-2023 远望世界
 
 ---
