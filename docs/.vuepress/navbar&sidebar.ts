@@ -17,6 +17,7 @@ export const bar = [
                     "MarkDown学习笔记",
                     "MybatisPlus条件构造器",
                     "Nginx详细教程",
+                    "NPM与XUI共存",
                 ]
             },
             {
