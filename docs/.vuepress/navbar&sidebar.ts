@@ -11,6 +11,7 @@ export const bar = [
             {
                 text: "教程",
                 icon: "read",
+                prefix: "教程/",
                 children: [
                     "CSS3毛玻璃效果",
                     "Docker常用命令整理",
@@ -23,8 +24,10 @@ export const bar = [
             {
                 text: "工具",
                 icon: "tool",
+                prefix: "工具/",
                 children: [
                     "随机图片api接口",
+                    "好用的Docker应用汇总",
                 ]
             }
         ],
