@@ -8,7 +8,7 @@ heroAlt:
 heroText: 远望世界' Blog
 tagline: 
 heroFullScreen: true
-bgImage: https://api.ixiaowai.cn/api/api.php
+bgImage: https://api.likepoems.com/img/pc
 projects:
   - icon: project
     name: 项目名称

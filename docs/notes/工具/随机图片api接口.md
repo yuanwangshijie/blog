@@ -121,12 +121,12 @@ tag:
 > 网站：https://api.likepoems.com/
 
 * 调用地址：
-* 二次元PC壁纸：https://api.likepoems.com/img/sina/pc
-* 二次元PE壁纸：https://api.likepoems.com/img/sina/pe
-* mc酱壁纸：https://api.likepoems.com/img/sina/mc
-* pixiv壁纸：https://api.likepoems.com/img/sina/pixiv
-* nature壁纸：https://api.likepoems.com/img/sina/nature
-* 必应壁纸：https://api.likepoems.com/img/sina/bing
+* 二次元PC壁纸：https://api.likepoems.com/img/pc
+* 二次元PE壁纸：https://api.likepoems.com/img/pe
+* mc酱壁纸：https://api.likepoems.com/img/mc
+* pixiv壁纸：https://api.likepoems.com/img/pixiv
+* nature壁纸：https://api.likepoems.com/img/nature
+* 必应壁纸：https://api.likepoems.com/img/bing
 
 ### 2.10 洛川唧上的萌部图片
 
