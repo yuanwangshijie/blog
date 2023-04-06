@@ -59,9 +59,9 @@ export default hopeTheme({
              */
             provider: "Giscus",
             repo: "yuanwangshijie/blog",
-            repoId: "R_kgDOIrD_tg",
+            repoId: "R_kgDOJTjjZA",
             category: "Announcements",
-            categoryId: "DIC_kwDOIrD_ts4CTQNO",
+            categoryId: "DIC_kwDOJTjjZM4CVl69",
 
             /**
              * Using Twikoo
