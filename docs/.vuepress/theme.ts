@@ -62,6 +62,7 @@ export default hopeTheme({
             repoId: "R_kgDOJTjjZA",
             category: "Announcements",
             categoryId: "DIC_kwDOJTjjZM4CVl69",
+            mapping: "url",
 
             /**
              * Using Twikoo
