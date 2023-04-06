@@ -40,7 +40,7 @@ export default hopeTheme({
     },
 
     // 编辑此页配置
-    repo: "https://github.com/yuanwangshijie/yuanwangshijie.github.io",
+    repo: "https://github.com/yuanwangshijie/blog",
     docsBranch: "main",
     docsDir: "docs",
     metaLocales: {
