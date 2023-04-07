@@ -83,7 +83,7 @@ services:
 
 ### jenkins
 > [镜像地址](https://hub.docker.com/r/jenkins/jenkins)<br>
-> 部署完成后访问设定的`8082`端口
+> 部署完成后访问设定的`82`端口
 ```yaml
 version: '3.7'
 services:                                      # 集合
@@ -93,7 +93,7 @@ services:                                      # 集合
     image: jenkins/jenkins:latest              # 指定服务所使用的镜像
     container_name: jenkins                    # 容器名称
     ports:                                     # 对外暴露的端口定义
-      - '8082:8080'                            # 访问Jenkins服务端口
+      - '82:8080'                            # 访问Jenkins服务端口
       - '50000:50000'
     volumes:                                   # 卷挂载路径
       - ./jenkins_home/:/var/jenkins_home      # 这是我们一开始创建的目录挂载到容器内的jenkins_home目录
