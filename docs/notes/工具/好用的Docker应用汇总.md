@@ -161,7 +161,7 @@ services:
 ### 9. frpc
 > [镜像地址](https://hub.docker.com/r/stilleshan/frpc)
 ```yaml
-docker run -d --name=frpc --restart=always --network host -v ./frpc.ini:/frp/frpc.ini stilleshan/frpc
+docker run -d --name=frpc --restart=always --network host -v /mnt/usb1-1/Apps/Frpc/frpc.ini:/frp/frpc.ini stilleshan/frpc
 ```
 ```yaml
 version: '3.7'
@@ -170,7 +170,7 @@ services:
     image: stilleshan/frpc
     container_name: frpc
     volumes:
-      - ./frpc.ini:/frp/frpc.ini
+      - /mnt/usb1-1/Apps/Frpc/frpc.ini:/frp/frpc.ini
     restart: always
     network_mode: host
 ```
