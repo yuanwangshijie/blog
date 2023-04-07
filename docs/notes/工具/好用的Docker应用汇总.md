@@ -135,7 +135,7 @@ services:
   web1:
     image: httpd:latest
     volumes:
-      - ./你的文件路径:/usr/local/apache2/htdocs/
+      - ./web1:/usr/local/apache2/htdocs/
     ports:
       - 8001:80
     restart: always
@@ -173,4 +173,26 @@ services:
       - ./frpc.ini:/frp/frpc.ini
     restart: always
     network_mode: host
+```
+
+### 10. Alist(预装aria2)
+> [镜像地址](https://hub.docker.com/r/xhofe/alist-aria2)
+```yaml
+docker run -d --name=alist --restart=always -p 5244:5244 -v /mnt/usb1-1/Apps/Alist:/opt/alist/data -e PUID=0 -e PGID=0 -e UMASK=022 xhofe/alist-aria2:latest
+```
+```yaml
+version: '3.7'
+services:
+  alist:
+    image: xhofe/alist-aria2:latest
+    container_name: alist
+    volumes:
+      - /mnt/usb1-1/Apps/Alist:/opt/alist/data
+    ports:
+      - '5244:5244'
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+    restart: always
 ```
