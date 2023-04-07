@@ -27,7 +27,7 @@ services:
     container_name: nginx-web-ui
     volumes:
       - ./data:/home/nginxWebUI          # 应用文件夹
-      - /appdata/www:/home/www           # 静态页面文件夹，根据实际情况修改
+      - /appdata/www:/www                # 静态页面文件夹，根据实际情况修改
     environment:
       BOOT_OPTIONS: "--server.port=81"   # 设置端口
     restart: always
