@@ -18,8 +18,8 @@ star: true
 ## 二、应用汇总
 
 ### 1. NPM汉化版（Nginx代理管理器）
-> [镜像地址](https://hub.docker.com/r/chishin/nginx-proxy-manager-zh)
-> 部署成功后访问服务器`81`端口, 默认账号密码: `admin@example.com``changeme`
+> [镜像地址](https://hub.docker.com/r/chishin/nginx-proxy-manager-zh)<br>
+> 部署成功后访问服务器`81`端口, 默认账号密码: `admin@example.com`/`changeme`
 ```yaml
 version: '3.7'
 services:
@@ -66,8 +66,8 @@ services:
 ```
 
 ### 4. x-ui（xray面板）
-> [镜像地址](https://hub.docker.com/r/stilleshan/x-ui)
-> 部署完成后访问服务器`54321`端口, 默认账号密码: `admin``admin`
+> [镜像地址](https://hub.docker.com/r/stilleshan/x-ui)<br>
+> 部署完成后访问服务器`54321`端口, 默认账号密码: `admin`/`admin`
 ```yaml
 version: '3.7'
 services:
@@ -82,7 +82,7 @@ services:
 ```
 
 ### 5. jenkins
-> [镜像地址](https://hub.docker.com/r/jenkins/jenkins)
+> [镜像地址](https://hub.docker.com/r/jenkins/jenkins)<br>
 > 部署完成后访问设定的`8082`端口
 ```yaml
 version: '3.7'
@@ -104,7 +104,7 @@ services:                                      # 集合
 ```
 
 ### 6. nginx-web-ui
-> [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui)
+> [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui)<br>
 > 部署完成后访问设定的`8080`端口, 首次登录要求初始化管理员账号
 ```yaml
 version: '3.7'
@@ -169,8 +169,8 @@ services:
 ```
 
 ### 10. Alist(预装aria2)
-> [镜像地址](https://hub.docker.com/r/xhofe/alist-aria2)
-> 部署完成后访问设定的5244端口, 获取初始账号密码: 在宿主机执行`docker exec -it 容器ID bash`进入容器, 执行`./alist admin`
+> [镜像地址](https://hub.docker.com/r/xhofe/alist-aria2)<br>
+> 部署完成后访问设定的`5244`端口, 获取初始账号密码: 在宿主机执行`docker exec -it 容器ID bash`进入容器, 执行`./alist admin`
 ```yaml
 docker run -d --name=alist --restart=always -p 5244:5244 -v /mnt/usb1-1/Apps/Alist:/opt/alist/data -e PUID=0 -e PGID=0 -e UMASK=022 xhofe/alist-aria2:latest
 ```
