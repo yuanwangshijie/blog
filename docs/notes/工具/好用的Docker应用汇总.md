@@ -16,24 +16,24 @@ star: true
 * 安装 `docker` 和 `docker-compose` [安装教程](https://www.runoob.com/docker/centos-docker-install.html)
 
 ## 二、应用汇总
-
-### 1. NPM汉化版（Nginx代理管理器）
-> [镜像地址](https://hub.docker.com/r/chishin/nginx-proxy-manager-zh)<br>
-> 部署成功后访问服务器`81`端口, 默认账号密码: `admin@example.com`/`changeme`
+### nginx-web-ui
+> [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui)<br>
+> 部署完成后访问设定的`81`端口, 首次登录要求初始化管理员账号
 ```yaml
 version: '3.7'
 services:
-  app:
-    image: chishin/nginx-proxy-manager-zh:latest
-    container_name: nginx-proxy-manager-zh
-    restart: always
+  nginx-web-ui:
+    image: cym1102/nginxwebui:latest
+    container_name: nginx-web-ui
     volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
+      - ./data:/home/nginxWebUI
+    environment:
+      BOOT_OPTIONS: "--server.port=81"
+    restart: always
     network_mode: host
 ```
 
-### 2. portainer-ce汉化版（Docker管理面板）
+### portainer-ce汉化版（Docker管理面板）
 > [镜像地址](https://hub.docker.com/r/6053537/portainer-ce)
 ```yaml
 version: '3.7'
@@ -49,7 +49,7 @@ services:
       - ./data:/data
 ```
 
-### 3. Gogs（自建git服务）
+### Gogs（自建git服务）
 > [镜像地址](https://hub.docker.com/r/gogs/gogs)
 ```yaml
 version: '3.7'
@@ -65,7 +65,7 @@ services:
       - ./data:/data
 ```
 
-### 4. x-ui（xray面板）
+### x-ui（xray面板）
 > [镜像地址](https://hub.docker.com/r/stilleshan/x-ui)<br>
 > 部署完成后访问服务器`54321`端口, 默认账号密码: `admin`/`admin`
 ```yaml
@@ -81,7 +81,7 @@ services:
     network_mode: host
 ```
 
-### 5. jenkins
+### jenkins
 > [镜像地址](https://hub.docker.com/r/jenkins/jenkins)<br>
 > 部署完成后访问设定的`8082`端口
 ```yaml
@@ -103,24 +103,7 @@ services:                                      # 集合
 
 ```
 
-### 6. nginx-web-ui
-> [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui)<br>
-> 部署完成后访问设定的`8080`端口, 首次登录要求初始化管理员账号
-```yaml
-version: '3.7'
-services:
-  nginx-web-ui:
-    image: cym1102/nginxwebui:latest
-    container_name: nginx-web-ui
-    volumes:
-      - ./data:/home/nginxWebUI
-    environment:
-      BOOT_OPTIONS: "--server.port=8080"
-    restart: always
-    network_mode: host
-```
-
-### 7. httpd
+### httpd
 > [镜像地址](https://hub.docker.com/_/httpd)
 ```yaml
 version: "3.7"
@@ -134,7 +117,7 @@ services:
     restart: always
 ```
 
-### 8. frps
+### frps
 > [镜像地址](https://hub.docker.com/r/stilleshan/frps)
 ```yaml
 docker run -d --name=frps --restart=always --network host -v ./frps.ini:/frp/frps.ini stilleshan/frps
@@ -151,7 +134,7 @@ services:
     network_mode: host
 ```
 
-### 9. frpc
+### frpc
 > [镜像地址](https://hub.docker.com/r/stilleshan/frpc)
 ```yaml
 docker run -d --name=frpc --restart=always --network host -v /mnt/usb1-1/Apps/Frpc/frpc.ini:/frp/frpc.ini stilleshan/frpc
@@ -168,7 +151,7 @@ services:
     network_mode: host
 ```
 
-### 10. Alist(预装aria2)
+### Alist(预装aria2)
 > [镜像地址](https://hub.docker.com/r/xhofe/alist-aria2)<br>
 > 部署完成后访问设定的`5244`端口, 获取初始账号密码: 在宿主机执行`docker exec -it 容器ID bash`进入容器, 执行`./alist admin`
 ```yaml
