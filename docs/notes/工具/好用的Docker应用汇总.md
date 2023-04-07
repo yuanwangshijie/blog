@@ -26,8 +26,8 @@ services:
     image: cym1102/nginxwebui:latest
     container_name: nginx-web-ui
     volumes:
-      - ./data:/home/nginxWebUI          # 应用文件夹
-      - /appdata/www:/www                # 静态页面文件夹，根据实际情况修改
+      - ./data:/home/nginxWebUI          # 挂载应用文件夹
+      - /appdata/www:/www                # 挂载静态页面文件夹，根据实际情况配置
     environment:
       BOOT_OPTIONS: "--server.port=81"   # 设置端口
     restart: always
