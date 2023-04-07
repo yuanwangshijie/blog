@@ -19,8 +19,7 @@ star: true
 
 ### 1. NPM汉化版（Nginx代理管理器）
 > [镜像地址](https://hub.docker.com/r/chishin/nginx-proxy-manager-zh)
-
-`docker-compose.yml`
+> 部署成功后访问服务器`81`端口, 默认账号密码: `admin@example.com``changeme`
 ```yaml
 version: '3.7'
 services:
@@ -28,19 +27,14 @@ services:
     image: chishin/nginx-proxy-manager-zh:latest
     container_name: nginx-proxy-manager-zh
     restart: always
-    ports:
-      - '80:80'
-      - '81:81'
-      - '443:443'
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+    network_mode: host
 ```
 
 ### 2. portainer-ce汉化版（Docker管理面板）
 > [镜像地址](https://hub.docker.com/r/6053537/portainer-ce)
-
-`docker-compose.yml`
 ```yaml
 version: '3.7'
 services:
@@ -57,8 +51,6 @@ services:
 
 ### 3. Gogs（自建git服务）
 > [镜像地址](https://hub.docker.com/r/gogs/gogs)
-
-`docker-compose.yml`
 ```yaml
 version: '3.7'
 services:
@@ -75,8 +67,7 @@ services:
 
 ### 4. x-ui（xray面板）
 > [镜像地址](https://hub.docker.com/r/stilleshan/x-ui)
-
-`docker-compose.yml`
+> 部署完成后访问服务器`54321`端口, 默认账号密码: `admin``admin`
 ```yaml
 version: '3.7'
 services:
@@ -101,8 +92,8 @@ services:                                      # 集合
     image: jenkins/jenkins:latest              # 指定服务所使用的镜像
     container_name: jenkins                    # 容器名称
     ports:                                     # 对外暴露的端口定义
-      - 8082:8080                              # 访问Jenkins服务端口
-      - 50000:50000
+      - '8082:8080'                            # 访问Jenkins服务端口
+      - '50000:50000'
     volumes:                                   # 卷挂载路径
       - ./jenkins_home/:/var/jenkins_home  # 这是我们一开始创建的目录挂载到容器内的jenkins_home目录
       - /var/run/docker.sock:/var/run/docker.sock
@@ -113,6 +104,7 @@ services:                                      # 集合
 
 ### 6. nginx-web-ui
 > [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui)
+> 部署完成后访问`8080`端口, 首次登录要求初始化管理员账号
 ```yaml
 version: '3.7'
 services:
@@ -122,13 +114,14 @@ services:
     volumes:
       - ./data:/home/nginxWebUI
     environment:
-      BOOT_OPTIONS: "--server.port=81"
+      BOOT_OPTIONS: "--server.port=8080"
     restart: always
     network_mode: host
 ```
 
 ### 7. httpd
 > [镜像地址](https://hub.docker.com/_/httpd)
+
 ```yaml
 version: "3.7"
 services:
@@ -137,7 +130,7 @@ services:
     volumes:
       - ./web1:/usr/local/apache2/htdocs/
     ports:
-      - 8001:80
+      - '8001:80'
     restart: always
 ```
 
