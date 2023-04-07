@@ -26,9 +26,10 @@ services:
     image: cym1102/nginxwebui:latest
     container_name: nginx-web-ui
     volumes:
-      - ./data:/home/nginxWebUI
+      - ./data:/home/nginxWebUI          # 应用文件夹
+      - /appdata/www:/home/www           # 静态页面文件夹，根据实际情况修改
     environment:
-      BOOT_OPTIONS: "--server.port=81"
+      BOOT_OPTIONS: "--server.port=81"   # 设置端口
     restart: always
     network_mode: host
 ```
@@ -93,7 +94,7 @@ services:                                      # 集合
     image: jenkins/jenkins:latest              # 指定服务所使用的镜像
     container_name: jenkins                    # 容器名称
     ports:                                     # 对外暴露的端口定义
-      - '82:8080'                            # 访问Jenkins服务端口
+      - '82:8080'                              # 访问Jenkins服务端口
       - '50000:50000'
     volumes:                                   # 卷挂载路径
       - ./jenkins_home/:/var/jenkins_home      # 这是我们一开始创建的目录挂载到容器内的jenkins_home目录
