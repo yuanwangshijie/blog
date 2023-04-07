@@ -144,6 +144,9 @@ services:
 ### 8. frps
 > [镜像地址](https://hub.docker.com/r/stilleshan/frps)
 ```yaml
+docker run -d --name=frps --restart=always --network host -v ./frps.ini:/frp/frps.ini stilleshan/frps
+```
+```yaml
 version: '3.7'
 services:
   frps:
@@ -156,15 +159,18 @@ services:
 ```
 
 ### 9. frpc
-> [镜像地址](https://hub.docker.com/r/stilleshan/frps)
+> [镜像地址](https://hub.docker.com/r/stilleshan/frpc)
+```yaml
+docker run -d --name=frpc --restart=always --network host -v ./frpc.ini:/frp/frpc.ini stilleshan/frpc
+```
 ```yaml
 version: '3.7'
 services:
   frps:
-    image: stilleshan/frps
-    container_name: frps
+    image: stilleshan/frpc
+    container_name: frpc
     volumes:
-      - ./frps.ini:/frp/frps.ini
+      - ./frpc.ini:/frp/frpc.ini
     restart: always
     network_mode: host
 ```
