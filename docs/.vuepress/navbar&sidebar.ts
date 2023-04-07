@@ -9,6 +9,15 @@ export const bar = [
         prefix: "/notes/",
         children: [
             {
+                text: "工具",
+                icon: "tool",
+                prefix: "工具/",
+                children: [
+                    "随机图片api接口",
+                    "好用的Docker应用汇总",
+                ]
+            },
+            {
                 text: "教程",
                 icon: "read",
                 prefix: "教程/",
@@ -21,15 +30,6 @@ export const bar = [
                     "NPM与XUI共存",
                 ]
             },
-            {
-                text: "工具",
-                icon: "tool",
-                prefix: "工具/",
-                children: [
-                    "随机图片api接口",
-                    "好用的Docker应用汇总",
-                ]
-            }
         ],
     },
     {
