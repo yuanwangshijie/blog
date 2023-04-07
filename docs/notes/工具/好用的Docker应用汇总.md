@@ -83,6 +83,7 @@ services:
 
 ### 5. jenkins
 > [镜像地址](https://hub.docker.com/r/jenkins/jenkins)
+> 部署完成后访问设定的`8082`端口
 ```yaml
 version: '3.7'
 services:                                      # 集合
@@ -95,16 +96,16 @@ services:                                      # 集合
       - '8082:8080'                            # 访问Jenkins服务端口
       - '50000:50000'
     volumes:                                   # 卷挂载路径
-      - ./jenkins_home/:/var/jenkins_home  # 这是我们一开始创建的目录挂载到容器内的jenkins_home目录
+      - ./jenkins_home/:/var/jenkins_home      # 这是我们一开始创建的目录挂载到容器内的jenkins_home目录
+      - /usr/bin/docker:/usr/bin/docker        # 这是为了我们可以在容器内使用docker命令
       - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/bin/docker:/usr/bin/docker                # 这是为了我们可以在容器内使用docker命令
       - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
 
 ```
 
 ### 6. nginx-web-ui
 > [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui)
-> 部署完成后访问`8080`端口, 首次登录要求初始化管理员账号
+> 部署完成后访问设定的`8080`端口, 首次登录要求初始化管理员账号
 ```yaml
 version: '3.7'
 services:
@@ -121,7 +122,6 @@ services:
 
 ### 7. httpd
 > [镜像地址](https://hub.docker.com/_/httpd)
-
 ```yaml
 version: "3.7"
 services:
@@ -170,6 +170,7 @@ services:
 
 ### 10. Alist(预装aria2)
 > [镜像地址](https://hub.docker.com/r/xhofe/alist-aria2)
+> 部署完成后访问设定的5244端口, 获取初始账号密码: 在宿主机执行`docker exec -it 容器ID bash`进入容器, 执行`./alist admin`
 ```yaml
 docker run -d --name=alist --restart=always -p 5244:5244 -v /mnt/usb1-1/Apps/Alist:/opt/alist/data -e PUID=0 -e PGID=0 -e UMASK=022 xhofe/alist-aria2:latest
 ```
