@@ -105,13 +105,13 @@ services:                                      # 集合
 ```
 
 ### minio(分布式部署)
-> [镜像地址](https://quay.io/repository/minio/minio)<br>
+> [镜像地址](https://hub.docker.com/r/minio/minio)<br>
 > [教程地址](https://www.jb51.net/article/258178.htm)
 ```yaml
 version: "3.7"
 services:
   minio:
-    image: "quay.io/minio/minio"
+    image: "minio/minio"
     ports:
       - "9000:9000"
       - "9001:9001"
