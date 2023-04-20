@@ -112,6 +112,7 @@ version: "3.7"
 services:
   minio:
     image: "minio/minio"
+    container_name: minio
     ports:
       - "9000:9000"
       - "9001:9001"
