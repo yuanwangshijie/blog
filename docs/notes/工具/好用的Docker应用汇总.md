@@ -36,6 +36,7 @@ services:
 
 ### portainer-ce汉化版（Docker管理面板）
 > [镜像地址](https://hub.docker.com/r/6053537/portainer-ce)
+> 部署完成后访问设定的`83`端口, 首次登录要求初始化管理员账号
 ```yaml
 version: '3.7'
 services:
@@ -44,7 +45,7 @@ services:
     container_name: portainer-ce
     restart: always
     ports:
-      - '9000:9000'
+      - '83:9000'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data:/data
