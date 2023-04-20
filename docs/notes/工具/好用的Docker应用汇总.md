@@ -106,7 +106,7 @@ services:                                      # 集合
 
 ### minio(单机部署)
 > [镜像地址](https://hub.docker.com/r/minio/minio)<br>
-> 分布式部署至少需要四台服务器 [教程地址1](https://blog.csdn.net/qq_57581439/article/details/126192492) [教程地址2](https://www.jb51.net/article/258178.htm)
+> [教程地址1](https://blog.csdn.net/qq_57581439/article/details/126192492) [教程地址2](https://www.jb51.net/article/258178.htm)
 ```yaml
 version: "3.7"
 services:
