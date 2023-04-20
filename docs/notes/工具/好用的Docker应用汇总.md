@@ -106,7 +106,7 @@ services:                                      # 集合
 
 ### minio(分布式部署)
 > [镜像地址](https://hub.docker.com/r/minio/minio)<br>
-> [教程地址](https://www.jb51.net/article/258178.htm)
+> 分布式部署至少需要四台服务器 [教程地址](https://www.jb51.net/article/258178.htm)
 ```yaml
 version: "3.7"
 services:
@@ -121,7 +121,7 @@ services:
       - "./data/data2:/data2"
       - "./data/data3:/data3"
       - "./data/data4:/data4"
-    command: server --console-address ":9001" http://ip1:9000/data{1...4} http://ip2:9000/data{1...4}
+    command: server --console-address ":9001" http://ip1:9000/data{1...4} http://ip2:9000/data{1...4} http://ip3:9000/data{1...4} http://ip4:9000/data{1...4}
     environment:
       - MINIO_ROOT_USER=admin
       - MINIO_ROOT_PASSWORD=12345678
@@ -130,6 +130,7 @@ services:
       interval: 30s
       timeout: 20s
       retries: 3
+    restart: always
 ```
 
 ### httpd
