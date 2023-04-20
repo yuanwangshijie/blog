@@ -23,7 +23,7 @@ star: true
 version: '3.7'
 services:
   nginx-web-ui:
-    image: cym1102/nginxwebui:latest
+    image: cym1102/nginxwebui
     container_name: nginx-web-ui
     volumes:
       - ./data:/home/nginxWebUI          # 挂载应用文件夹
@@ -92,7 +92,7 @@ services:                                      # 集合
   docker_jenkins:
     user: root                                 # 为了避免一些权限问题 在这我使用了root
     restart: always                            # 重启方式
-    image: jenkins/jenkins:latest              # 指定服务所使用的镜像
+    image: jenkins/jenkins                     # 指定服务所使用的镜像
     container_name: jenkins                    # 容器名称
     ports:                                     # 对外暴露的端口定义
       - '82:8080'                              # 访问Jenkins服务端口
@@ -102,7 +102,33 @@ services:                                      # 集合
       - /usr/bin/docker:/usr/bin/docker        # 这是为了我们可以在容器内使用docker命令
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
+```
 
+### minio(分布式部署)
+> [镜像地址](https://quay.io/repository/minio/minio)<br>
+> [教程地址](https://www.jb51.net/article/258178.htm)
+```yaml
+version: "3.7"
+services:
+  minio:
+    image: "quay.io/minio/minio"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - "./data/data1:/data1"
+      - "./data/data2:/data2"
+      - "./data/data3:/data3"
+      - "./data/data4:/data4"
+    command: server --console-address ":9001" http://ip1:9000/data{1...4} http://ip2:9000/data{1...4}
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=12345678
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
 ```
 
 ### httpd
@@ -111,7 +137,7 @@ services:                                      # 集合
 version: "3.7"
 services:
   web1:
-    image: httpd:latest
+    image: httpd
     volumes:
       - ./web1:/usr/local/apache2/htdocs/
     ports:
@@ -163,7 +189,7 @@ docker run -d --name=alist --restart=always -p 5244:5244 -v /mnt/usb1-1/Apps/Ali
 version: '3.7'
 services:
   alist:
-    image: xhofe/alist-aria2:latest
+    image: xhofe/alist-aria2
     container_name: alist
     volumes:
       - /mnt/usb1-1/Apps/Alist:/opt/alist/data
