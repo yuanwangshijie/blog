@@ -3,7 +3,7 @@
 baseURL: "https://blog.qiang.uk/"
 title: 远望世界' Blog
 copyright: "© 2024 [远望世界](https://blog.qiang.uk/)"
-paginate: 6
+paginate: 5
 theme: [hugo-PaperMod]
 
 enableInlineShortcodes: true
@@ -34,24 +34,21 @@ languages:
       series: series
     menu:
       main:
-        - name: 文章
-          url:
+        - name: 归档
+          url: archives
           weight: 1
         - name: 搜索
           url: search
           weight: 2
-        - name: 分类
-          url: categories
-          weight: 3
         - name: 标签
           url: tags
+          weight: 3
+        - name: 分类
+          url: categories
           weight: 4
-        - name: 归档
-          url: archives
-          weight: 5
         - name: 随记
           url: https://memo.qiang.uk/
-          weight: 6
+          weight: 5
 
 outputs:
   home:
@@ -70,8 +67,8 @@ params:
   ShowReadingTime: true
   # disableSpecial1stPost: true
   displayFullLangName: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
+  ShowPostNavLinks: true # 是否显示上一篇和下一篇
+  ShowBreadCrumbs: false # 是否显示面包屑
   ShowCodeCopyButtons: true
   ShowRssButtonInSectionTermList: true
   ShowFullTextinRSS: true
@@ -104,6 +101,8 @@ params:
       url: "https://github.com/yuanwangshijie"
     - name: email
       url: "mailto:yuanwangshijie@gmail.com"
+    - name: rss
+      url: "https://blog.qiang.uk/index.xml"
 
   editPost:
     URL: "https://github.com/yuanwangshijie/hugo-blog/tree/main/content"
