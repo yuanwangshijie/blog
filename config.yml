@@ -4,7 +4,7 @@ baseURL: "https://blog.qiang.uk/"
 title: 远望世界' Blog
 copyright: "© 2024 [远望世界](https://blog.qiang.uk/)"
 paginate: 6
-theme: [ hugo-PaperMod ]
+theme: [hugo-PaperMod]
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -13,7 +13,7 @@ buildFuture: false
 buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
-mainsections: [ "posts" ]
+mainsections: ["posts"]
 defaultContentLanguage: "zh"
 hasCJKLanguage: true # 是否包括中日韩文字
 
@@ -35,7 +35,7 @@ languages:
     menu:
       main:
         - name: 文章
-          url: posts
+          url:
           weight: 1
         - name: 搜索
           url: search
@@ -79,10 +79,10 @@ params:
   ShowPageNums: true
   ShowToc: true
   # comments: true
-  images: [ "/icons/avatar.png" ]
+  images: ["/icons/avatar.png"]
 
   profileMode:
-    enabled: true
+    enabled: false
     title: 远望世界
     imageUrl: "/icons/avatar.png"
     imageTitle: 远望世界
@@ -94,17 +94,16 @@ params:
       - name: 随记
         url: https://memo.qiang.uk/
 
+  # CSS样式 post-entry.css
   homeInfoParams:
-    Title: "远望世界"
-    Content: 欢迎光临，这是我的个人博客。
+    Title: "自由在高处"
+    Content:
 
   socialIcons:
-    - name: email
-      url: "mailto:yuanwangshijie@gmail.com"
     - name: github
       url: "https://github.com/yuanwangshijie"
-    - name: x
-      url: "https://x.com/yuanwangshijie"
+    - name: email
+      url: "mailto:yuanwangshijie@gmail.com"
 
   editPost:
     URL: "https://github.com/yuanwangshijie/hugo-blog/tree/main/content"
