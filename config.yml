@@ -74,6 +74,7 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowRssButtonInSectionTermList: true
+  ShowFullTextinRSS: true
   ShowAllPagesInArchive: true
   ShowPageNums: true
   ShowToc: true
