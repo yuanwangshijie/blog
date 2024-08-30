@@ -3,18 +3,23 @@ title: 好用的Docker应用汇总
 date: 2023-02-01
 categories: ["工具"]
 tags: ["Docker"]
+weight: 1
 ---
 
-> 本文收集一些比较有趣的Docker应用，镜像版本更新可能会导致脚本或配置失效，如果无法使用请发邮件给我。
+> 本文收集一些比较有趣的 Docker 应用，镜像版本更新可能会导致脚本或配置失效，如果无法使用请发邮件给我。
 
 ## 一、安装环境
-* 系统 `Ubuntu` 已开启 `BBR加速` [BBR加速开启脚本](https://blog.ylx.me/archives/783.html)
-* 安装 `docker` 和 `docker-compose`最新版本 [教程地址](https://www.runoob.com/docker/ubuntu-docker-install.html)
-* 国内用户搭配镜像加速食用更佳 `https://docker.1v1.uk`
+
+- 系统 `Ubuntu` 已开启 `BBR加速` [BBR 加速开启脚本](https://blog.ylx.me/archives/783.html)
+- 安装 `docker` 和 `docker-compose`最新版本 [教程地址](https://www.runoob.com/docker/ubuntu-docker-install.html)
+- 国内用户搭配镜像加速食用更佳 `https://docker.1v1.uk`
 
 ## 二、应用汇总
+
 ### zerotier
+
 > [镜像地址](https://hub.docker.com/r/zerotier/zerotier) [教程地址](http://www.360doc.com/content/12/0121/07/11604731_1081143038.shtml)
+
 ```yaml
 services:
   zerotier:
@@ -36,7 +41,9 @@ services:
 ```
 
 ### watchtower(自动更新容器)
+
 > [镜像地址](https://hub.docker.com/r/containrrr/watchtower) [教程地址](https://blog.csdn.net/qq_21127151/article/details/129574398)<br>
+
 ```yaml
 services:
   watchtower:
@@ -51,8 +58,10 @@ services:
 ```
 
 ### nginx-web-ui
+
 > [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui) [教程地址](https://www.nginxwebui.cn/product.html)<br>
 > 首次登录初始化管理员账号密码
+
 ```yaml
 services:
   nginx-web-ui:
@@ -65,12 +74,14 @@ services:
       - ./www:/www
     environment:
       - TZ=Asia/Shanghai
-      - BOOT_OPTIONS=--server.port=8080 --spring.database.type=mysql --spring.datasource.url=jdbc:mysql://your-mysql-host:3306/nginx-web-ui --spring.datasource.username=root --spring.datasource.password=your-password 
+      - BOOT_OPTIONS=--server.port=8080 --spring.database.type=mysql --spring.datasource.url=jdbc:mysql://your-mysql-host:3306/nginx-web-ui --spring.datasource.username=root --spring.datasource.password=your-password
 ```
 
-### portainer-ce汉化版
+### portainer-ce 汉化版
+
 > [镜像地址](https://hub.docker.com/r/6053537/portainer-ce) [教程地址](https://imnks.com/3406.html)<br>
 > 首次登录初始化管理员账号密码
+
 ```yaml
 services:
   portainer-ce:
@@ -87,7 +98,9 @@ services:
 ```
 
 ### gitea
+
 > [镜像地址](https://hub.docker.com/r/gitea/gitea) [教程地址](https://docs.gitea.io/zh-cn/installation/install-with-docker/)
+
 ```yaml
 services:
   gitea:
@@ -105,7 +118,9 @@ services:
 ```
 
 ### gogs
+
 > [镜像地址](https://hub.docker.com/r/gogs/gogs) [教程地址](https://learnku.com/articles/36255)
+
 ```yaml
 services:
   gogs:
@@ -121,8 +136,10 @@ services:
 ```
 
 ### x-ui
+
 > [镜像地址](https://hub.docker.com/r/enwaiax/x-ui)<br>
 > 默认账号密码: `admin`/`admin`
+
 ```yaml
 services:
   xui:
@@ -139,20 +156,22 @@ services:
 ```
 
 ### jenkins
+
 > [镜像地址](https://hub.docker.com/r/jenkins/jenkins) [教程地址](https://segmentfault.com/a/1190000042279781)
+
 ```yaml
-services:                                      # 集合
+services: # 集合
   jenkins:
-    image: jenkins/jenkins:lts                 # 指定服务所使用的镜像
-    container_name: jenkins                    # 容器名称
-    restart: unless-stopped                    # 重启方式
-    user: root                                 # 为了避免一些权限问题 在这我使用了root
-    ports:                                     # 对外暴露的端口定义
-      - 8080:8080                              # 访问Jenkins服务端口
+    image: jenkins/jenkins:lts # 指定服务所使用的镜像
+    container_name: jenkins # 容器名称
+    restart: unless-stopped # 重启方式
+    user: root # 为了避免一些权限问题 在这我使用了root
+    ports: # 对外暴露的端口定义
+      - 8080:8080 # 访问Jenkins服务端口
       - 50000:50000
-    volumes:                                   # 卷挂载路径
-      - ./data:/var/jenkins_home               # 这是我们一开始创建的目录挂载到容器内的jenkins_home目录
-      - /usr/bin/docker:/usr/bin/docker        # 这是为了我们可以在容器内使用docker命令
+    volumes: # 卷挂载路径
+      - ./data:/var/jenkins_home # 这是我们一开始创建的目录挂载到容器内的jenkins_home目录
+      - /usr/bin/docker:/usr/bin/docker # 这是为了我们可以在容器内使用docker命令
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
     environment:
@@ -161,7 +180,10 @@ services:                                      # 集合
 ```
 
 ### minio(单机部署)
-> [镜像地址](https://hub.docker.com/r/minio/minio) [旧版教程](https://blog.csdn.net/weixin_45653525/article/details/128842091) [新版教程](https://blog.csdn.net/qq_57581439/article/details/126192492)
+
+> [镜像地址](https://hub.docker.com/r/minio/minio) [旧版教程](https://blog.csdn.net/weixin_45653525/article/details/128842091) [新版教程](https://blog.csdn.net/qq_57581439/article/details/126192492)<br>
+> 可以自行选择镜像版本，我感觉还是旧版的好用，上传的文件保持原有的格式
+
 ```yaml
 services:
   minio:
@@ -181,7 +203,9 @@ services:
 ```
 
 ### mysql
+
 > [镜像地址](https://hub.docker.com/_/mysql) [教程地址](https://www.cnblogs.com/Galaxy1/p/17806388.html) [内存优化](https://blog.csdn.net/weixin_43888891/article/details/122518719)<br>
+
 ```yaml
 services:
   mysql:
@@ -199,7 +223,9 @@ services:
       # 初始化mysql的root密码
       - MYSQL_ROOT_PASSWORD=your-mysql-password
 ```
-> my.cnf文件，请自行按需修改。
+
+> my.cnf 文件，请自行按需修改。
+
 ```
 [mysqld]
 user=mysql
@@ -219,7 +245,9 @@ default-character-set=utf8mb4
 ```
 
 ### postgres
+
 > [镜像地址](https://hub.docker.com/_/postgres) [教程地址](https://www.itcto.cn/jc/docker/docker-compose-postgresql/)
+
 ```yaml
 services:
   postgres:
@@ -238,7 +266,9 @@ services:
 ```
 
 ### mongo
+
 > [镜像地址](https://hub.docker.com/_/mongo) [教程地址](https://www.cnblogs.com/studyjobs/p/17626496.html)
+
 ```yaml
 services:
   mongo:
@@ -256,7 +286,9 @@ services:
 ```
 
 ### redis
+
 > [镜像地址](https://hub.docker.com/_/redis) [教程地址](https://www.jianshu.com/p/094078ef4347)
+
 ```yaml
 services:
   redis:
@@ -274,7 +306,9 @@ services:
 ```
 
 ### httpd
+
 > [镜像地址](https://hub.docker.com/_/httpd)
+
 ```yaml
 services:
   httpd1:
@@ -290,7 +324,9 @@ services:
 ```
 
 ### frps
+
 > [镜像地址](https://hub.docker.com/r/snowdreamtech/frps) [参考配置](https://dusays.com/636/)
+
 ```yaml
 services:
   frps:
@@ -305,7 +341,9 @@ services:
 ```
 
 ### frpc
+
 > [镜像地址](https://hub.docker.com/r/snowdreamtech/frpc) [参考配置](https://dusays.com/636/)
+
 ```yaml
 services:
   frpc:
@@ -319,9 +357,11 @@ services:
       - TZ=Asia/Shanghai
 ```
 
-### alist(预装aria2)
+### alist(预装 aria2)
+
 > [镜像地址](https://hub.docker.com/r/xhofe/alist-aria2) [教程地址](https://alist.nn.ci/zh/guide/install/docker.html)<br>
 > 获取初始账号密码: 在宿主机执行`docker exec -it 容器ID bash`进入容器, 执行`./alist admin set your-password`手动设置密码
+
 ```yaml
 services:
   alist:
@@ -342,7 +382,9 @@ services:
 ```
 
 ### rocketmq(单机部署)
+
 > [镜像地址](https://hub.docker.com/r/rocketmqinc/rocketmq) [教程地址](https://www.jianshu.com/p/9ed30a99a50a) [配置文件解释](https://blog.csdn.net/weixin_44606481/article/details/129780540)<br>
+
 ```yaml
 services:
   rocketmq-namesrv:
@@ -357,7 +399,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - JAVA_OPT_EXT=-Duser.home=/home/rocketmq -Xms512M -Xmx512M -Xmn128m
-    command: [ "sh","mqnamesrv" ]
+    command: ["sh", "mqnamesrv"]
 
   rocketmq-broker:
     image: rocketmqinc/rocketmq
@@ -373,7 +415,16 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - JAVA_OPT_EXT=-Duser.home=/home/broker -Xms512M -Xmx512M -Xmn128m
-    command: [ "sh","mqbroker","-c","/etc/rocketmq/broker.conf","-n","rocketmq-namesrv:9876","autoCreateTopicEnable=true" ]
+    command:
+      [
+        "sh",
+        "mqbroker",
+        "-c",
+        "/etc/rocketmq/broker.conf",
+        "-n",
+        "rocketmq-namesrv:9876",
+        "autoCreateTopicEnable=true",
+      ]
     depends_on:
       - rocketmq-namesrv
 
@@ -392,8 +443,10 @@ services:
       - rocketmq-namesrv
 ```
 
-### verdaccio(npm私服)
+### verdaccio(npm 私服)
+
 > [镜像地址](https://hub.docker.com/r/verdaccio/verdaccio) [教程地址](https://blog.csdn.net/jxy139/article/details/129198445)
+
 ```yaml
 services:
   verdaccio:
@@ -412,8 +465,10 @@ services:
       - VERDACCIO_USER_NAME=root
 ```
 
-### nexus(maven私服)
+### nexus(maven 私服)
+
 > [镜像地址](https://hub.docker.com/r/sonatype/nexus3) [教程地址](https://blog.csdn.net/qiaohao0206/article/details/125471721)
+
 ```yaml
 services:
   nexus:
@@ -429,8 +484,10 @@ services:
 ```
 
 ### nacos
+
 > [镜像地址](https://hub.docker.com/r/nacos/nacos-server) [官方文档](https://nacos.io/zh-cn/docs/quick-start-docker.html) [数据库初始化](https://github.com/alibaba/nacos/blob/2bb7193d1b311ec04c844b61612d6a151013ae88/config/src/main/resources/META-INF/mysql-schema.sql) [教程地址](https://www.cnblogs.com/studyjobs/p/18014237)<br>
 > 默认的账号和密码都是 nacos，
+
 ```yaml
 services:
   nacos:
@@ -469,7 +526,9 @@ services:
 ```
 
 ### vsftpd(ftp)
+
 > [镜像地址](https://hub.docker.com/r/fauria/vsftpd) [教程地址](http://zongming.net/read-1394/?h=ftp)
+
 ```yaml
 services:
   vsftpd:
@@ -491,9 +550,11 @@ services:
       - PASV_MAX_PORT=21200
 ```
 
-### code-server(网页版vscode)
-> [镜像地址](https://hub.docker.com/r/codercom/code-server) [github地址](https://github.com/coder/code-server)<br>
+### code-server(网页版 vscode)
+
+> [镜像地址](https://hub.docker.com/r/codercom/code-server) [github 地址](https://github.com/coder/code-server)<br>
 > 如果启动失败，日志显示没有权限创建文件或目录，可以试试给`./data`目录提升读写权限。
+
 ```yaml
 services:
   code-server:
@@ -512,8 +573,10 @@ services:
       - SUDO_PASSWORD=your-password
 ```
 
-### samba(samba服务器)
+### samba(samba 服务器)
+
 > [镜像地址](https://hub.docker.com/r/dperson/samba) [教程地址](https://juejin.cn/post/7250398315778998327)
+
 ```yaml
 services:
   samba:
@@ -531,7 +594,9 @@ services:
 ```
 
 ### lychee(瀑布流相册)
-> [镜像地址](https://hub.docker.com/r/lycheeorg/lychee) [github地址](https://github.com/LycheeOrg/Lychee-Docker/tree/master)
+
+> [镜像地址](https://hub.docker.com/r/lycheeorg/lychee) [github 地址](https://github.com/LycheeOrg/Lychee-Docker/tree/master)
+
 ```yaml
 services:
   lychee:
@@ -551,9 +616,10 @@ services:
       - DB_CONNECTION=sqlite
 ```
 
-
 ### lsky-pro(兰空图床)
-> [镜像地址](https://hub.docker.com/r/halcyonazure/lsky-pro-docker) [github地址](https://github.com/HalcyonAzure/lsky-pro-docker)
+
+> [镜像地址](https://hub.docker.com/r/halcyonazure/lsky-pro-docker) [github 地址](https://github.com/HalcyonAzure/lsky-pro-docker)
+
 ```yaml
 services:
   lsky-pro:
@@ -570,7 +636,9 @@ services:
 ```
 
 ### easyimage(简单图床)
-> [镜像地址](https://hub.docker.com/r/ddsderek/easyimage) [github地址](https://github.com/icret/EasyImages2.0)
+
+> [镜像地址](https://hub.docker.com/r/ddsderek/easyimage) [github 地址](https://github.com/icret/EasyImages2.0)
+
 ```yaml
 services:
   easyimage:
@@ -590,7 +658,9 @@ services:
 ```
 
 ### voce-chat(在线聊天室)
+
 > [镜像地址](https://hub.docker.com/r/privoce/vocechat-server) [官方文档](https://doc.voce.chat/zh-cn/)
+
 ```yaml
 services:
   voce-chat:
@@ -606,7 +676,9 @@ services:
 ```
 
 ### uptime-kuma(开源监控工具)
+
 > [镜像地址](https://hub.docker.com/r/louislam/uptime-kuma) [教程地址](https://blog.csdn.net/csdnzxm/article/details/123081322)
+
 ```yaml
 services:
   uptime-kuma:
@@ -621,9 +693,10 @@ services:
       - TZ=Asia/Shanghai
 ```
 
+### docker-registry(docker 仓库)
 
-### docker-registry(docker仓库)
 > [镜像地址](https://hub.docker.com/_/registry) [教程地址](https://blog.csdn.net/qq120631157/article/details/104398209)
+
 ```yaml
 services:
   docker-registry:
@@ -638,8 +711,10 @@ services:
       - TZ=Asia/Shanghai
 ```
 
-### rustdesk-server(RustDesk远程桌面服务端)
-> [镜像地址](https://hub.docker.com/r/rustdesk/rustdesk-server) [github地址](https://github.com/rustdesk/rustdesk-server#docker-images)
+### rustdesk-server(RustDesk 远程桌面服务端)
+
+> [镜像地址](https://hub.docker.com/r/rustdesk/rustdesk-server) [github 地址](https://github.com/rustdesk/rustdesk-server#docker-images)
+
 ```yaml
 services:
   rustdesk-server:
@@ -661,8 +736,10 @@ services:
       - ENCRYPTED_ONLY=1
 ```
 
-### dosgame(DOS游戏)
-> [镜像地址](https://hub.docker.com/r/oldiy/dosgame-web-docker) [github地址](https://github.com/rwv/chinese-dos-games)
+### dosgame(DOS 游戏)
+
+> [镜像地址](https://hub.docker.com/r/oldiy/dosgame-web-docker) [github 地址](https://github.com/rwv/chinese-dos-games)
+
 ```yaml
 services:
   dosgame:
@@ -675,8 +752,10 @@ services:
       - TZ=Asia/Shanghai
 ```
 
-### kuboard(k8s可视化面板)
+### kuboard(k8s 可视化面板)
+
 > [镜像地址](https://hub.docker.com/r/eipwork/kuboard) [教程地址](https://www.cnblogs.com/a120608yby/p/17354691.html)
+
 ```yaml
 services:
   kuboard:
@@ -694,8 +773,10 @@ services:
       - KUBOARD_AGENT_SERVER_TCP_PORT=10081
 ```
 
-### kubepi(k8s可视化面板)
+### kubepi(k8s 可视化面板)
+
 > [镜像地址](https://hub.docker.com/r/1panel/kubepi) [官方文档](https://github.com/1Panel-dev/KubePi/wiki)
+
 ```yaml
 services:
   kubepi:
@@ -710,7 +791,9 @@ services:
 ```
 
 ### rainbond(云原生平台)
+
 > [教程地址](https://www.rainbond.com/docs/installation/install-with-ui/)
+
 ```yaml
 services:
   rainbond:
@@ -726,7 +809,9 @@ services:
 ```
 
 ### hnet-web(在线网页代理)
+
 > [镜像地址](https://hub.docker.com/r/stilleshan/hideipnetwork-web) [教程地址](https://blog.tanglu.me/web-browser/)
+
 ```yaml
 services:
   hideipnetwork-web:
@@ -740,7 +825,9 @@ services:
 ```
 
 ### memos(备忘录)
-> [镜像地址](https://hub.docker.com/r/neosmemo/memos) [github地址](https://github.com/usememos/memos)
+
+> [镜像地址](https://hub.docker.com/r/neosmemo/memos) [github 地址](https://github.com/usememos/memos)
+
 ```yaml
 services:
   memos:
@@ -755,8 +842,10 @@ services:
       - TZ=Asia/Shanghai
 ```
 
-### neko(neko远程浏览器)
+### neko(neko 远程浏览器)
+
 > [镜像地址](https://hub.docker.com/r/m1k1o/neko) [教程地址](https://blog.tanglu.me/neko/)
+
 ```yaml
 services:
   neko:
@@ -780,7 +869,9 @@ services:
 ```
 
 ### lobe-chat(开源的高性能聊天机器人框架)
-> [镜像地址](https://hub.docker.com/r/lobehub/lobe-chat) [github地址](https://github.com/lobehub/lobe-chat) [环境变量](https://github.com/lobehub/lobe-chat/blob/main/src/config/server/provider.ts)
+
+> [镜像地址](https://hub.docker.com/r/lobehub/lobe-chat) [github 地址](https://github.com/lobehub/lobe-chat) [环境变量](https://github.com/lobehub/lobe-chat/blob/main/src/config/server/provider.ts)
+
 ```yaml
 services:
   lobe-chat:
@@ -799,8 +890,10 @@ services:
       - ANTHROPIC_PROXY_URL=your-anthropic-url
 ```
 
-### chatgpt-next-web(跨平台ChatGPT应用)
+### chatgpt-next-web(跨平台 ChatGPT 应用)
+
 > [镜像地址](https://hub.docker.com/r/yidadaa/chatgpt-next-web) [教程地址](https://github.com/Yidadaa/ChatGPT-Next-Web)
+
 ```yaml
 services:
   chatgpt:
@@ -818,7 +911,9 @@ services:
 ```
 
 ### pairdrop(在线文件传输)
-> [镜像地址](https://hub.docker.com/r/linuxserver/pairdrop) [github地址](https://github.com/schlagmichdoch/PairDrop)
+
+> [镜像地址](https://hub.docker.com/r/linuxserver/pairdrop) [github 地址](https://github.com/schlagmichdoch/PairDrop)
+
 ```yaml
 services:
   pair-drop:
@@ -836,7 +931,9 @@ services:
 ```
 
 ### it-tools(开发者工具箱)
-> [镜像地址](https://hub.docker.com/r/corentinth/it-tools) [github地址](https://github.com/CorentinTh/it-tools)
+
+> [镜像地址](https://hub.docker.com/r/corentinth/it-tools) [github 地址](https://github.com/CorentinTh/it-tools)
+
 ```yaml
 services:
   it-tools:
@@ -850,7 +947,9 @@ services:
 ```
 
 ### filecodebox(文件快递柜)
-> [镜像地址](https://hub.docker.com/r/lanol/filecodebox) [github地址](https://github.com/vastsa/FileCodeBox)
+
+> [镜像地址](https://hub.docker.com/r/lanol/filecodebox) [github 地址](https://github.com/vastsa/FileCodeBox)
+
 ```yaml
 services:
   file-code-box:
@@ -865,8 +964,10 @@ services:
       - TZ=Asia/Shanghai
 ```
 
-### briefing(WebRTC视频通话)
-> [镜像地址](https://hub.docker.com/r/holtwick/briefing) [github地址](https://github.com/holtwick/briefing)
+### briefing(WebRTC 视频通话)
+
+> [镜像地址](https://hub.docker.com/r/holtwick/briefing) [github 地址](https://github.com/holtwick/briefing)
+
 ```yaml
 services:
   briefing:
@@ -879,8 +980,10 @@ services:
       - TZ=Asia/Shanghai
 ```
 
-### emby(emby多媒体服务器-特别版)
+### emby(emby 多媒体服务器-特别版)
+
 > [镜像地址](https://hub.docker.com/r/lovechen/embyserver)
+
 ```yaml
 services:
   emby:
@@ -898,15 +1001,17 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - UID=0
-      - GID=0 
+      - GID=0
       - GIDLIST=0
       - NVIDIA_VISIBLE_DEVICES=all
     devices:
       - /dev/dri:/dev/dri
 ```
 
-### plex(plex多媒体服务器)
-> [镜像地址](https://hub.docker.com/r/linuxserver/plex) [获取claim](https://plex.tv/claim)
+### plex(plex 多媒体服务器)
+
+> [镜像地址](https://hub.docker.com/r/linuxserver/plex) [获取 claim](https://plex.tv/claim)
+
 ```yaml
 services:
   plex:
@@ -925,8 +1030,10 @@ services:
       - PLEX_CLAIM=your-claim
 ```
 
-### stash(stash多媒体管理)
-> [镜像地址](https://hub.docker.com/r/stashapp/stash) [github地址](https://github.com/stashapp/stash)
+### stash(stash 多媒体管理)
+
+> [镜像地址](https://hub.docker.com/r/stashapp/stash) [github 地址](https://github.com/stashapp/stash)
+
 ```yaml
 services:
   stash:
@@ -955,8 +1062,10 @@ services:
         max-size: "2m"
 ```
 
-### transmission(bt下载工具)
-> [镜像地址](https://registry.hub.docker.com/r/linuxserver/transmission) [transmission-web-ui中文增强版](https://github.com/ronggang/transmission-web-control)
+### transmission(bt 下载工具)
+
+> [镜像地址](https://registry.hub.docker.com/r/linuxserver/transmission) [transmission-web-ui 中文增强版](https://github.com/ronggang/transmission-web-control)
+
 ```yaml
 services:
   transmission:
@@ -980,7 +1089,9 @@ services:
 ```
 
 ### showdoc(在线文档)
+
 > [镜像地址](https://hub.docker.com/r/star7th/showdoc) [帮助文档](https://www.showdoc.com.cn/help/)
+
 ```yaml
 services:
   showdoc:
@@ -998,8 +1109,10 @@ services:
 ```
 
 ### odoo(开源的商业应用程序)
+
 > [镜像地址](https://hub.docker.com/_/odoo) [教程地址](https://www.cnblogs.com/gzxiaohai/p/17303629.html)<br>
 > 安装自定义模块需要配置`odoo.conf`，具体看教程。
+
 ```yaml
 services:
   odoo:
@@ -1019,9 +1132,11 @@ services:
       - PASSWORD=your-postgres-password
 ```
 
-### onlyoffice-server(onlyoffice在线文档服务端)
+### onlyoffice-server(onlyoffice 在线文档服务端)
+
 > [镜像地址](https://hub.docker.com/r/onlyoffice/documentserver)<br>
 > 如果要使用`jwt`，就去除`- JWT_ENABLED=false`
+
 ```yaml
 services:
   onlyoffice-server:
@@ -1036,7 +1151,9 @@ services:
 ```
 
 ### nextcloud(自建网盘)
+
 > [镜像地址](https://hub.docker.com/_/nextcloud)
+
 ```yaml
 services:
   nextcloud:
@@ -1056,8 +1173,10 @@ services:
 ```
 
 ### kodbox(可道云)
+
 > [镜像地址](https://hub.docker.com/r/kodcloud/kodbox)<br>
-> 免费版有10个用户的上限
+> 免费版有 10 个用户的上限
+
 ```yaml
 services:
   kodbox:
@@ -1073,8 +1192,10 @@ services:
 ```
 
 ### yourls(短链接工具)
-> [镜像地址](https://hub.docker.com/_/yourls) [github地址](https://github.com/YOURLS/YOURLS)<br>
+
+> [镜像地址](https://hub.docker.com/_/yourls) [github 地址](https://github.com/YOURLS/YOURLS)<br>
 > 首次登录需要初始化数据库，管理面板地址：`http://<your-site-ip>:8080/admin/`
+
 ```yaml
 services:
   yourls:
@@ -1095,8 +1216,10 @@ services:
 ```
 
 ### mattermost(在线聊天、协作、分享)
+
 > [镜像地址](https://hub.docker.com/r/mattermost/mattermost-team-edition) [教程地址](https://cloud.tencent.com/developer/article/2121477)
 > 需要手动创建数据库 `mattermost`
+
 ```yaml
 services:
   mattermost:
@@ -1127,8 +1250,10 @@ services:
       - MM_SERVICESETTINGS_SITEURL=https://mattermost.example.com
 ```
 
-### rocket.chat(在线IM聊天系统)
+### rocket.chat(在线 IM 聊天系统)
+
 > [镜像地址](https://hub.docker.com/_/rocket.chat) [密码特殊字符转义](https://www.alibabacloud.com/help/zh/mongodb/support/why-is-the-instance-not-connected-if-the-password-in-the-connection-string-contains-special-characters)
+
 ```yaml
 services:
   rocket-chat:

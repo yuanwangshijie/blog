@@ -5,7 +5,7 @@ categories: ["教程"]
 tags: ["Docker"]
 ---
 
-> 整理一些常用的Docker命令<br>
+> 整理一些常用的 Docker 命令<br>
 > 本文转自：https://zhuanlan.zhihu.com/p/54946336
 
 ## 一、常用命令
@@ -33,7 +33,7 @@ docker run...                                         #运行一个容器
 ## 二、高级命令
 
 ```
-# Advance use 
+# Advance use
 docker ps -f "status=exited"                                   #显示所有退出的容器
 docker ps -a -q                                                #显示所有容器id
 docker ps -f "status=exited" -q                                #显示所有退出容器的id
@@ -51,7 +51,7 @@ docker stats                                                   #显示容器统�
     docker stats -a                                            #显示所有容器的统计信息(包括没有运行的)
     docker stats -a --no-stream                                #显示所有容器的统计信息(包括没有运行的) ，只显示一次
     docker stats --no-stream | sort -k8 -h                     #统计容器信息并以使用流量作为倒序
-docker system 
+docker system
       docker system df           #显示硬盘占用
       docker system events       #显示容器的实时事件
       docker system info         #显示系统信息

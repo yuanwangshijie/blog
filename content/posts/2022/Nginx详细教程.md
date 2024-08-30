@@ -5,35 +5,36 @@ categories: ["教程"]
 tags: ["Nginx"]
 ---
 
-## 一、Nginx介绍
+## 一、Nginx 介绍
 
 ### 1.1 引言
 
 > 为什么要学习`Nginx`<br>
-> 问题1：客户端到底要将请求发送给哪台服务器<br>
-> 问题2：如果所有客户端的请求都发送给了服务器<br>
-> 问题3：客户端发送的请求可能是申请动态资源的，也有申请静态资源的<br>
+> 问题 1：客户端到底要将请求发送给哪台服务器<br>
+> 问题 2：如果所有客户端的请求都发送给了服务器<br>
+> 问题 3：客户端发送的请求可能是申请动态资源的，也有申请静态资源的<br>
 
 **服务器搭建集群后**
 
 ![](https://minio.qiang.uk/static/2023/05/15/7179424959c8ad4167cf68d69bbd4ea5.png)
 
-**在搭建集群后，使用Nginx做反向代理**
+**在搭建集群后，使用 Nginx 做反向代理**
 
 ![](https://minio.qiang.uk/static/2023/05/15/117f0fde1b4510eb26482d28f197cd58.png)
 
-### 1.2 Nginx介绍
+### 1.2 Nginx 介绍
 
-`Nginx`是由俄罗斯人研发的，应对`Rambler`的网站并发，并且2004年发布的第一个版本
+`Nginx`是由俄罗斯人研发的，应对`Rambler`的网站并发，并且 2004 年发布的第一个版本
 
-> **Nginx的特点**
-> 1. 稳定性极强，7*24小时不间断运行(就是一直运行)
-> 2. Nginx提供了非常丰富的配置实例
-> 3. 占用内存小，并发能力强（随便配置一下就是5w+，而tomcat的默认线程池是150）
+> **Nginx 的特点**
+>
+> 1. 稳定性极强，7\*24 小时不间断运行(就是一直运行)
+> 2. Nginx 提供了非常丰富的配置实例
+> 3. 占用内存小，并发能力强（随便配置一下就是 5w+，而 tomcat 的默认线程池是 150）
 
-## 二、Nginx的安装
+## 二、Nginx 的安装
 
-### 2.1 安装Nginx
+### 2.1 安装 Nginx
 
 使用`docker-compose`安装
 
@@ -47,12 +48,12 @@ vim docker-compose.yml
 
 ```
 version: '3.1'
-services: 
+services:
   nginx:
     restart: always
     image: daocloud.io/library/nginx:latest
     container_name: nginx
-    ports: 
+    ports:
       - 80:80
 ```
 
@@ -60,7 +61,7 @@ services:
 执行docker-compose up -d
 ```
 
-### 2.2 Nginx的配置文件
+### 2.2 Nginx 的配置文件
 
 `Nginx`的核心配置文件
 
@@ -143,7 +144,7 @@ server {
 # server_name代表Nginx接受请求的IP
 ```
 
-### 2.3 修改docker-compose文件
+### 2.3 修改 docker-compose 文件
 
 ```
 # 退出容器
@@ -155,12 +156,12 @@ docker-compose down
 
 ```
 version: '3.1'
-services: 
+services:
   nginx:
     restart: always
     image: daocloud.io/library/nginx:latest
     container_name: nginx
-    ports: 
+    ports:
       - 80:80
     volumes:
       - /opt/docker_nginx/conf.d/:/etc/nginx/conf.d
@@ -173,8 +174,7 @@ docker-compose bulid
 docker-compose up -d
 ```
 
-这时我们再次访问`80`端口是访问不到的，因为我们映射了数据卷之后还没有编写`server`块中的内容
-
+这时我们再次访问`80`端口是访问不到的，因为我们映射了数据卷之后还没有编写`server`块中的内容<br>
 接下来我们在`/opt/docker_nginx/conf.d`下新建`default.conf`，并插入如下内容
 
 ```
@@ -194,30 +194,31 @@ server {
 docker-compose restart
 ```
 
-## 三、Nginx的反向代理
+## 三、Nginx 的反向代理
 
 ### 3.1 正向代理和反向代理介绍
 
 > 正向代理：
+>
 > 1. 正向代理服务是由客户端设立的
 > 2. 客户端了解代理服务器和目标服务器都是谁
-> 3. 帮助咱们实现突破访问权限，提高访问的速度，对目标服务器隐藏客户端的ip地址
+> 3. 帮助咱们实现突破访问权限，提高访问的速度，对目标服务器隐藏客户端的 ip 地址
 
 ![](https://minio.qiang.uk/static/2023/05/15/6345c4de022284687b194f721190746e.png)
 
 > 反向代理：
->1. 反向代理服务器是配置在服务端的
->2. 客户端不知道访问的到底是哪一台服务器
->3. 达到负载均衡，并且可以隐藏服务器真正的ip地址
+>
+> 1.  反向代理服务器是配置在服务端的
+> 2.  客户端不知道访问的到底是哪一台服务器
+> 3.  达到负载均衡，并且可以隐藏服务器真正的 ip 地址
 
 ![](https://minio.qiang.uk/static/2023/05/15/21117a693cfa213840e7e732a134ce54.png)
 
-### 3.2 基于Nginx实现反向代理
+### 3.2 基于 Nginx 实现反向代理
 
 > 1. 准备一个目标服务器
-> 2. 启动tomcat服务器
-> 3. 编写nginx的配置文件(/opt/docker_nginx/conf.d/default.conf)，通过Nginx访问到tomcat服务器
-
+> 2. 启动 tomcat 服务器
+> 3. 编写 nginx 的配置文件(/opt/docker_nginx/conf.d/default.conf)，通过 Nginx 访问到 tomcat 服务器
 
 准备`Tomcat`服务器
 
@@ -244,21 +245,21 @@ server {
 ```
 
 ```
-# 重启nginx 
+# 重启nginx
 docker-compose restart
 ```
 
-这时我们访问`80`端口可以看到`8080`端口tomcat的默认首页
+这时我们访问`80`端口可以看到`8080`端口 tomcat 的默认首页
 
-### 3.3 关于Nginx的location路径映射
+### 3.3 关于 Nginx 的 location 路径映射
 
 ```
 优先级关系：
-(location = ) 
-    > (location /xxx/yyy/zzz) 
-    > (location ^~) 
-    > (location ~,~*) 
-    > (location /起始路径) 
+(location = )
+    > (location /xxx/yyy/zzz)
+    > (location ^~)
+    > (location ~,~*)
+    > (location /起始路径)
     > (location /)
 ```
 
@@ -325,12 +326,13 @@ server {
 docker-compose restart
 ```
 
-## 四、Nginx负载均衡
+## 四、Nginx 负载均衡
 
-> Nginx为我们默认提供了三种负载均衡的策略：
->1. 轮询： 将客户端发起的请求，平均分配给每一台服务器
->2. 权重： 会将客户端的请求，根据服务器的权重值不同，分配不同的数量
->3. ip_hash: 基于发起请求的客户端的ip地址不同，他始终会将请求发送到指定的服务器上 就是说如果这个客户端的请求的ip地址不变，那么处理请求的服务器将一直是同一个
+> Nginx 为我们默认提供了三种负载均衡的策略：
+>
+> 1.  轮询： 将客户端发起的请求，平均分配给每一台服务器
+> 2.  权重： 会将客户端的请求，根据服务器的权重值不同，分配不同的数量
+> 3.  ip_hash: 基于发起请求的客户端的 ip 地址不同，他始终会将请求发送到指定的服务器上 就是说如果这个客户端的请求的 ip 地址不变，那么处理请求的服务器将一直是同一个
 
 ### 4.1 轮询
 
@@ -393,10 +395,10 @@ server {
 }
 ```
 
-## 五、Nginx动静分离
+## 五、Nginx 动静分离
 
-> Nginx的并发能力公式： `worker_processes` * `worker_connections` / (4 or 2)，动态资源需要/4，静态资源需要/2<br>
-> Nginx通过动静分离来提升Nginx的并发能力，更快的给用户响应
+> Nginx 的并发能力公式： `worker_processes` \* `worker_connections` / (4 or 2)，动态资源需要/4，静态资源需要/2<br>
+> Nginx 通过动静分离来提升 Nginx 的并发能力，更快的给用户响应
 
 ### 5.1 动态资源代理
 
@@ -413,12 +415,12 @@ location / {
 
 ```
 version: '3.1'
-services: 
+services:
   nginx:
     restart: always
     image: daocloud.io/library/nginx:latest
     container_name: nginx
-    ports: 
+    ports:
       - 80:80
     volumes:
       - /opt/docker_nginx/conf.d/:/etc/nginx/conf.d
@@ -450,14 +452,15 @@ location / {
 docker-compose restart
 ```
 
-## 六、Nginx集群
+## 六、Nginx 集群
 
 ### 6.1 引言
 
-> 目的：避免单点nginx的宕机，导致整个程序的崩溃
-> * 准备多台nginx
-> * 准备keepalived，监听nginx的健康情况
-> * 准备haproxy，提供一个虚拟的路径，统一的去接收用户的请求
+> 目的：避免单点 nginx 的宕机，导致整个程序的崩溃
+>
+> - 准备多台 nginx
+> - 准备 keepalived，监听 nginx 的健康情况
+> - 准备 haproxy，提供一个虚拟的路径，统一的去接收用户的请求
 
 ![](https://minio.qiang.uk/static/2023/05/15/c06f3f566b0fa3ced92316763989e951.png)
 
@@ -561,7 +564,7 @@ vrrp_instance VI_1 {
     virtual_router_id 33
     priority 200    # 优先级
     advert_int 1
-    
+
     autheentication {
         auth_type PASS
         auth_pass letmein
@@ -591,7 +594,7 @@ vrrp_instance VI_1 {
     virtual_router_id 33
     priority 100    # 优先级
     advert_int 1
-    
+
     autheentication {
         auth_type PASS
         auth_pass letmein
@@ -615,7 +618,7 @@ global
     maxconn 4096
     daemon
     nbproc 4
-    
+
 defaults
     log 127.0.0.1 local3
     mode http
@@ -627,11 +630,11 @@ defaults
     timeout connect 5000ms
     timeout client 5000ms
     timeout server 5000ms
-    
+
 frontend main
     bind *:6301
     default_backend webserver
-    
+
 backend webserveer
     server nginx_master 127.20.127.50:80 check inter 2000 rise 2 fall 5
 ```
