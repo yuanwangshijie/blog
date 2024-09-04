@@ -61,7 +61,7 @@ services:
 
 [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui) [教程地址](https://www.nginxwebui.cn/product.html)  
 如果选择使用 sqlite 数据库，`BOOT_OPTIONS`只保留`--server.port=8080`即可。  
-首次登录初始化管理员账号密码，
+首次登录需要初始化管理员账号密码。
 
 ```yaml
 services:
