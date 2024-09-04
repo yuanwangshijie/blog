@@ -756,7 +756,7 @@ services:
 
 ### kuboard(k8s 可视化面板)
 
-[镜像地址](https://hub.docker.com/r/eipwork/kuboard) [教程地址](https://www.cnblogs.com/a120608yby/p/17354691.html)
+[镜像地址](https://hub.docker.com/r/eipwork/kuboard) [教程地址](https://kuboard.cn/install/v3/install-built-in.html#安装)
 
 ```yaml
 services:
@@ -765,13 +765,13 @@ services:
     container_name: kuboard
     restart: unless-stopped
     ports:
-      - 8090:80
+      - 8080:80
       - 10081:10081
     volumes:
       - ./data:/data
     environment:
       - TZ=Asia/Shanghai
-      - KUBOARD_ENDPOINT=http://ip:8090
+      - KUBOARD_ENDPOINT=http://<your-ip>:8080
       - KUBOARD_AGENT_SERVER_TCP_PORT=10081
 ```
 
