@@ -60,7 +60,8 @@ services:
 ### nginx-web-ui
 
 [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui) [教程地址](https://www.nginxwebui.cn/product.html)  
-首次登录初始化管理员账号密码
+如果选择使用 sqlite 数据库，`BOOT_OPTIONS`只保留`--server.port=8080`即可。  
+首次登录初始化管理员账号密码，
 
 ```yaml
 services:
@@ -74,6 +75,7 @@ services:
       - ./www:/www
     environment:
       - TZ=Asia/Shanghai
+      # - BOOT_OPTIONS=--server.port=8080 # 使用sqlite
       - BOOT_OPTIONS=--server.port=8080 --spring.database.type=mysql --spring.datasource.url=jdbc:mysql://your-mysql-host:3306/nginx-web-ui --spring.datasource.username=root --spring.datasource.password=your-password
 ```
 
@@ -204,7 +206,7 @@ services:
 
 ### mysql
 
-[镜像地址](https://hub.docker.com/_/mysql) [教程地址](https://www.cnblogs.com/Galaxy1/p/17806388.html) [内存优化](https://blog.csdn.net/weixin_43888891/article/details/122518719)  
+[镜像地址](https://hub.docker.com/_/mysql) [教程地址](https://www.cnblogs.com/Galaxy1/p/17806388.html) [内存优化](https://blog.csdn.net/weixin_43888891/article/details/122518719)
 
 ```yaml
 services:
@@ -383,7 +385,7 @@ services:
 
 ### rocketmq(单机部署)
 
-[镜像地址](https://hub.docker.com/r/rocketmqinc/rocketmq) [教程地址](https://www.jianshu.com/p/9ed30a99a50a) [配置文件解释](https://blog.csdn.net/weixin_44606481/article/details/129780540)  
+[镜像地址](https://hub.docker.com/r/rocketmqinc/rocketmq) [教程地址](https://www.jianshu.com/p/9ed30a99a50a) [配置文件解释](https://blog.csdn.net/weixin_44606481/article/details/129780540)
 
 ```yaml
 services:
