@@ -517,8 +517,8 @@ services:
       - JVM_XMN=256m
       - JVM_MS=512m
       - JVM_MMS=512m
-      # 启用账号密码验证
-      - NACOS_AUTH_ENABLE=true
+      # 是否开启鉴权
+      - NACOS_AUTH_ENABLE=false
       # 随便使用一个32个字符组成的字符串，生成 base64 字符串，填写到这里即可
       - NACOS_AUTH_TOKEN=VGhpc0lzTXlDdXN0b21TZWNyZXRLZXkwMTIzNDU2Nzg=
       # 随便填写
