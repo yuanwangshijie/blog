@@ -757,7 +757,8 @@ services:
 
 ### kuboard(k8s 可视化面板)
 
-[镜像地址](https://hub.docker.com/r/eipwork/kuboard) [教程地址](https://kuboard.cn/install/v3/install-built-in.html#安装)
+[镜像地址](https://hub.docker.com/r/eipwork/kuboard) [教程地址](https://kuboard.cn/install/v3/install-built-in.html#安装) [Nginx 代理](https://kuboard.cn/install/reverse-proxy.html#nginx-配置)  
+Nginx 代理路径`/`不配置`WebSocket`，`/k8s-ws/`配置`WebSocket`
 
 ```yaml
 services:
