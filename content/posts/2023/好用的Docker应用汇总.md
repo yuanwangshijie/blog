@@ -184,7 +184,7 @@ services: # 集合
 ### minio(单机部署)
 
 [镜像地址](https://hub.docker.com/r/minio/minio) [旧版教程](https://blog.csdn.net/weixin_45653525/article/details/128842091) [新版教程](https://blog.csdn.net/qq_57581439/article/details/126192492)  
-可以自行选择镜像版本，我感觉还是旧版的好用，上传的文件保持原有的格式
+可以自行选择镜像版本，旧版的文件保持原有的格式，感觉还是旧版的好用。
 
 ```yaml
 services:
@@ -206,7 +206,8 @@ services:
 
 ### mysql
 
-[镜像地址](https://hub.docker.com/_/mysql) [教程地址](https://www.cnblogs.com/Galaxy1/p/17806388.html) [内存优化](https://blog.csdn.net/weixin_43888891/article/details/122518719)
+[镜像地址](https://hub.docker.com/_/mysql) [教程地址](https://www.cnblogs.com/Galaxy1/p/17806388.html) [内存优化](https://blog.csdn.net/weixin_43888891/article/details/122518719)  
+注意事项：`my.cnf`的文件权限需要设置为`655`
 
 ```yaml
 services:
@@ -217,7 +218,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./config/my.cnf:/etc/mysql/my.cnf
+      - ./config/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./data:/var/lib/mysql
       - ./log:/var/log/mysql
     environment:
