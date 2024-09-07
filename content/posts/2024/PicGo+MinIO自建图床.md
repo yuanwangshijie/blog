@@ -47,5 +47,9 @@ MinIO 是一个基于 Apache License v2.0 开源协议的对象存储服务。�
 ### 2.3 安装并配置 PicGo 插件
 
 **下载**  
+在输入框搜索并下载如图所示的两个插件 `minio` 和 `rename-file`  
+前者用来连接 minio，后者用来修改上传的路径和名称。  
+配置完 minio 插件后，`相册-拉取云端相册` 可以从云端同步图片到软件的相册。
+![](https://minio.qiang.uk/static/2024/09/07/bf476e9035331b2457aba6914aa0505c.png)
 
 ### 2.4 测试上传图片
