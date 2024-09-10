@@ -184,7 +184,7 @@ services: # 集合
 ### minio(单机部署)
 
 [镜像地址](https://hub.docker.com/r/minio/minio) [旧版教程](https://blog.csdn.net/weixin_45653525/article/details/128842091) [新版教程](https://blog.csdn.net/qq_57581439/article/details/126192492)  
-可以自行选择镜像版本，旧版的文件保持原有的格式，感觉还是旧版的好用。
+可以自行选择镜像版本，旧版上传的文件会保持原格式，感觉还是旧版的好用。
 
 ```yaml
 services:
