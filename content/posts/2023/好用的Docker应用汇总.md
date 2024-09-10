@@ -1330,9 +1330,9 @@ Debug: false
 DisableSwitchTemplateInFrontend: false
 EnableIPChangeNotification: false
 EnablePlainIPInNotification: false
-GRPCHost: nezha.qiang.uk # 面板所在服务器的域名或ip
+GRPCHost: nezha.qiang.uk # 面板所在的服务器域名或ip
 GRPCPort: 5555 # 容器内面板和Agent通信的端口
-HTTPPort: 80 # 容器内的面板的端口
+HTTPPort: 80 # 容器内面板的端口
 IPChangeNotificationTag: default
 IgnoredIPNotification: ""
 IgnoredIPNotificationServerIDs: {}
