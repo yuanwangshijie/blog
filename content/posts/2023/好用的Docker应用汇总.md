@@ -175,7 +175,7 @@ services: # 集合
       - ./data:/var/jenkins_home # 这是我们一开始创建的目录挂载到容器内的jenkins_home目录
       - /usr/bin/docker:/usr/bin/docker # 这是为了我们可以在容器内使用docker命令
       - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose # 如果有问题，确认一下宿主机的docker-compose路径
+      - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose # docker-compose如果有问题，确认一下宿主机的docker-compose的路径
     environment:
       - TZ=Asia/Shanghai
       - JAVA_OPTS=-server -Xms1024m -Xmx1024m -Xmn512m
