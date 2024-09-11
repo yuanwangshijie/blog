@@ -1330,7 +1330,7 @@ Debug: false
 DisableSwitchTemplateInFrontend: false
 EnableIPChangeNotification: false
 EnablePlainIPInNotification: false
-GRPCHost: nezha.qiang.uk # 面板所在的服务器域名或ip
+GRPCHost: nezha.example.com # 面板所在的服务器域名或ip
 GRPCPort: 5555 # 容器内面板和Agent通信的端口
 HTTPPort: 80 # 容器内面板的端口
 IPChangeNotificationTag: default
@@ -1340,7 +1340,7 @@ Language: zh-CN
 Location: Asia/Shanghai
 MaxTCPPingValue: 1000
 Oauth2:
-  Admin: yuanwangshijie # 管理员列表，半角逗号隔开，这里填写github的用户名
+  Admin: username # 管理员列表，半角逗号隔开，这里填写github的用户名
   AdminGroups: ""
   ClientID: ***************** # 根据官方文档里的教程获取
   ClientSecret: ************************* # 根据官方文档里的教程获取
