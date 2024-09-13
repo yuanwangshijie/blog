@@ -184,7 +184,7 @@ services: # 集合
 ### minio(单机部署)
 
 [镜像地址](https://hub.docker.com/r/minio/minio) | [旧版教程](https://blog.csdn.net/weixin_45653525/article/details/128842091) | [新版教程](https://blog.csdn.net/qq_57581439/article/details/126192492)  
-这里选择旧版 minio，因为旧版 minio 页面简洁明了，而且上传的文件会保持原格式。  
+这里选择旧版 minio 镜像，是因为旧版 minio 页面简洁明了，并且上传的文件会保持原格式。  
 `RELEASE.2021-06-17T00-10-46Z` 这个版本是旧版 minio 最后一次更新。
 
 ```yaml
