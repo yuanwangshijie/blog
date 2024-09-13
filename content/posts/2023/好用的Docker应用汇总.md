@@ -1279,7 +1279,7 @@ services:
 
 [镜像地址](https://github.com/naiba/nezha/pkgs/container/nezha-dashboard) | [官方文档](https://nezha.wiki/guide/dashboard.html) | [github 地址](https://github.com/naiba/nezha) | [官方 config.yaml](https://github.com/naiba/nezha/blob/master/script/config.yaml)
 
-> 推荐使用官方的一键脚本部署哪吒面板和 Agent。  
+> 推荐使用官方的一键脚本部署。  
 > 这里是给~~像我一样~~有 docker 部署洁癖的人参考的。
 
 - 部署前根据官方文档获取 `Oauth2` 登录配置。
