@@ -196,7 +196,6 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - ./config:/root/.minio
       - ./data:/data
     environment:
       - TZ=Asia/Shanghai
