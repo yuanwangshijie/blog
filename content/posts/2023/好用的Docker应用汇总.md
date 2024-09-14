@@ -402,7 +402,7 @@ services:
       - ./data/namesrv/store:/home/rocketmq/store
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPT_EXT=-Duser.home=/home/rocketmq -Xms256m -Xmx256m -Xmn128m
+      - JAVA_OPT_EXT=-Duser.home=/home/rocketmq -Xms512m -Xmx512m -Xmn256m
     command: ["sh", "mqnamesrv"]
 
   rocketmq-broker:
