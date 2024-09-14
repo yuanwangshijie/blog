@@ -546,8 +546,8 @@ services:
       - JVM_MMS=256m
       # 是否开启鉴权，如果关闭，nacos面板也不需要登录就能访问。
       - NACOS_AUTH_ENABLE=true
-      # 随便使用一个32个字符组成的字符串，生成 base64 字符串，填写到这里即可。
-      - NACOS_AUTH_TOKEN=VG9rZW5Ub2tlblRva2VuVG9rZW5Ub2tlblRva2VuMzI=
+      # 随便用一个不少于32个字符组成的字符串，生成 base64 字符串，填写到这里即可。
+      - NACOS_AUTH_TOKEN=VG9rZW5Ub2tlblRva2VuVG9rZW5Ub2tlblRva2VuVG9rZW4=
       # 随便填写
       - NACOS_AUTH_IDENTITY_KEY=NacosKey
       # 随便填写
