@@ -744,7 +744,8 @@ services:
 
 ### rustdesk-server(RustDesk 远程桌面服务端)
 
-[镜像地址](https://hub.docker.com/r/rustdesk/rustdesk-server) | [github 地址](https://github.com/rustdesk/rustdesk-server#docker-images)
+[镜像地址](https://hub.docker.com/r/rustdesk/rustdesk-server) | [github 地址](https://github.com/rustdesk/rustdesk-server#docker-images)  
+部署完成后，执行 `docker run --rm --entrypoint /usr/bin/rustdesk-utils  rustdesk/rustdesk-server-s6 genkeypair` 获取 `Public Key` ，用于客户端填写服务器的 `key`。
 
 ```yaml
 services:
