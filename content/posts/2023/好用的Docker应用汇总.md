@@ -671,7 +671,7 @@ services:
 ```yaml
 services:
   easyimage:
-    image: ddsderek/easyimage:latest
+    image: ddsderek/easyimage
     container_name: easyimage
     restart: unless-stopped
     ports:
@@ -861,7 +861,7 @@ services:
 ```yaml
 services:
   memos:
-    image: neosmemo/memos:latest
+    image: neosmemo/memos
     container_name: memos
     restart: unless-stopped
     ports:
