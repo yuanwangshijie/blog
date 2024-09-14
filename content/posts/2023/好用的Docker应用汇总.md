@@ -547,11 +547,11 @@ services:
       # 是否开启鉴权
       - NACOS_AUTH_ENABLE=false
       # 随便使用一个32个字符组成的字符串，生成 base64 字符串，填写到这里即可
-      - NACOS_AUTH_TOKEN=VGhpc0lzTXlDdXN0b21TZWNyZXRLZXkwMTIzNDU2Nzg=
+      - NACOS_AUTH_TOKEN=VG9rZW5Ub2tlblRva2VuVG9rZW5Ub2tlblRva2VuMzI=
       # 随便填写
-      - NACOS_AUTH_IDENTITY_KEY=JobsKey
+      - NACOS_AUTH_IDENTITY_KEY=NacosKey
       # 随便填写
-      - NACOS_AUTH_IDENTITY_VALUE=JobsValue
+      - NACOS_AUTH_IDENTITY_VALUE=NacosValue
 ```
 
 ### vsftpd(ftp)
