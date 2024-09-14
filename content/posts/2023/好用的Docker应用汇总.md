@@ -178,7 +178,7 @@ services: # 集合
       - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose # docker-compose如果有问题，确认一下宿主机的docker-compose的路径
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPTS=-server -Xms512m -Xmx512m -Xmn256m -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=160m
+      - JAVA_OPTS=-server -Xms512m -Xmx512m -Xmn256m
 ```
 
 ### minio(单机部署)
@@ -402,7 +402,7 @@ services:
       - ./data/namesrv/store:/home/rocketmq/store
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPT_EXT=-Duser.home=/home/rocketmq -Xms512m -Xmx512m -Xmn256m -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=160m
+      - JAVA_OPT_EXT=-Duser.home=/home/rocketmq -Xms256m -Xmx256m -Xmn128m
     command: ["sh", "mqnamesrv"]
 
   rocketmq-broker:
@@ -418,7 +418,7 @@ services:
       - ./data/broker/store:/home/rocketmq/store
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPT_EXT=-Duser.home=/home/broker -Xms512m -Xmx512m -Xmn256m -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=160m
+      - JAVA_OPT_EXT=-Duser.home=/home/broker -Xms256m -Xmx256m -Xmn128m
     command:
       [
         "sh",
@@ -442,7 +442,7 @@ services:
       - ./data/console:/tmp
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false -Xms512m -Xmx512m -Xmn256m -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=160m
+      - JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false -Xms256m -Xmx256m -Xmn128m
     depends_on:
       - rocketmq-namesrv
 ```
@@ -543,7 +543,7 @@ services:
       - JVM_XMX=512m
       - JVM_XMN=256m
       - JVM_MS=64m
-      - JVM_MMS=160m
+      - JVM_MMS=256m
       # 是否开启鉴权
       - NACOS_AUTH_ENABLE=false
       # 随便使用一个32个字符组成的字符串，生成 base64 字符串，填写到这里即可
