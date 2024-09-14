@@ -386,7 +386,8 @@ services:
 
 ### rocketmq(单机部署)
 
-[镜像地址](https://hub.docker.com/r/rocketmqinc/rocketmq) | [教程地址](https://www.jianshu.com/p/9ed30a99a50a) | [配置文件解释](https://blog.csdn.net/weixin_44606481/article/details/129780540)
+[镜像地址](https://hub.docker.com/r/rocketmqinc/rocketmq) | [教程地址](https://www.jianshu.com/p/9ed30a99a50a) | [配置文件解释](https://blog.csdn.net/weixin_44606481/article/details/129780540)  
+部署需要前先创建 `./config/broker.conf` 文件，下面有示例。
 
 ```yaml
 services:
@@ -444,6 +445,31 @@ services:
       - JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false -Xms512M -Xmx512M -Xmn128m
     depends_on:
       - rocketmq-namesrv
+```
+
+下面是 `./config/broker.conf` 文件的示例
+
+```
+# 集群名称
+brokerClusterName = DefaultCluster
+# 节点名称
+brokerName = broker-a
+# 节点ID，0表示master，其他的正整数表示slave，不能小于0。
+brokerId = 0
+# Broker服务地址，内部使用填内网ip，如果是需要给外部使用填公网ip。
+brokerIP1 = 192.168.1.2
+# Broker角色
+brokerRole = ASYNC_MASTER
+# 刷盘方式
+flushDiskType = ASYNC_FLUSH
+# 在每天的什么时间删除已经超过文件保留时间的CommitLog，默认值04。
+deleteWhen = 04
+# 以小时计算的文件保留时间，默认值72小时。
+fileReservedTime = 72
+# 是否允许Broker自动创建Topic，建议线下开启，线上关闭。
+autoCreateTopicEnable = true
+# 是否允许Broker自动创建订阅组，建议线下开启，线上关闭。
+autoCreateSubscriptionGroup = true
 ```
 
 ### verdaccio(npm 私服)
