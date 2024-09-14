@@ -515,7 +515,7 @@ services:
 ### nacos
 
 [镜像地址](https://hub.docker.com/r/nacos/nacos-server) | [官方文档](https://nacos.io/zh-cn/docs/quick-start-docker.html) | [数据库初始化](https://github.com/alibaba/nacos/blob/2bb7193d1b311ec04c844b61612d6a151013ae88/config/src/main/resources/META-INF/mysql-schema.sql) | [教程地址](https://www.cnblogs.com/studyjobs/p/18014237)  
-默认的账号和密码都是 nacos，
+默认的账号和密码都是 `nacos`
 
 ```yaml
 services:
