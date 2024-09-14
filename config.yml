@@ -47,7 +47,7 @@ languages:
           url: categories
           weight: 4
         - name: 随记
-          url: https://memo.qiang.uk/
+          url: https://memos.qiang.uk/
           weight: 5
 
 outputs:
@@ -90,7 +90,7 @@ params:
       - name: 文章
         url: posts
       - name: 随记
-        url: https://memo.qiang.uk/
+        url: https://memos.qiang.uk/
 
   # CSS样式 post-entry.css
   homeInfoParams:
