@@ -60,7 +60,6 @@ services:
 ### nginx-web-ui
 
 [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui) | [教程地址](https://www.nginxwebui.cn/product.html)  
-如果选择使用 sqlite 数据库，`BOOT_OPTIONS` 只保留 `--server.port=8080` 参数即可。  
 首次登录需要初始化管理员账号密码。
 
 ```yaml
@@ -76,8 +75,7 @@ services:
       - ./www:/www
     environment:
       - TZ=Asia/Shanghai
-      # - BOOT_OPTIONS=--server.port=8080 # 使用sqlite
-      - BOOT_OPTIONS=--server.port=8080 --spring.database.type=mysql --spring.datasource.url=jdbc:mysql://<mysql_host>:3306/nginx-web-ui --spring.datasource.username=<mysql_user> --spring.datasource.password=<mysql_password>
+      - BOOT_OPTIONS=--server.port=8080
 ```
 
 ### portainer-ce 汉化版
