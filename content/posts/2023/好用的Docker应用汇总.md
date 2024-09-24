@@ -208,7 +208,7 @@ services:
 ### mysql
 
 [镜像地址](https://hub.docker.com/_/mysql) | [教程地址](https://www.cnblogs.com/Galaxy1/p/17806388.html) | [内存优化](https://blog.csdn.net/weixin_43888891/article/details/122518719)  
-注意事项：`my.cnf`的文件权限需要设置为`655`
+**注意事项**：`my.cnf`的文件权限需要设置为`655`
 
 ```yaml
 services:
@@ -291,7 +291,8 @@ services:
 
 ### redis
 
-[镜像地址](https://hub.docker.com/_/redis) | [教程地址](https://www.jianshu.com/p/094078ef4347)
+[镜像地址](https://hub.docker.com/_/redis) | [教程地址](https://www.jianshu.com/p/094078ef4347)  
+部署前先创建 `./config/redis.conf` 文件，文件内容参考下方。
 
 ```yaml
 services:
@@ -307,6 +308,33 @@ services:
     environment:
       - TZ=Asia/Shanghai
     command: redis-server /etc/redis/redis.conf
+```
+
+redis.conf 文件，请自行按需修改。
+
+```
+#开启远程可连接
+#bind 127.0.0.1
+#自定义密码
+requirepass 12345678
+#指定 Redis 监听端口(默认:6379)
+port 6379
+#客户端闲置指定时长后关闭连接(单位:秒。0:关闭该功能)
+timeout 0
+# 900s内如果至少一次写操作则执行bgsave进行RDB持久化操作
+save 900 1
+# 在300s内，如果至少有10个key进行了修改，则进行持久化操作
+save 300 10
+#在60s内，如果至少有10000个key进行了修改，则进行持久化操作
+save 60 10000
+#是否压缩数据存储(默认:yes。Redis采用LZ 压缩，如果为了节省 CPU 时间，可以关闭该选项，但会导致数据库文件变的巨大)
+rdbcompression yes
+#指定本地数据文件名(默认:dump.rdb)
+dbfilename dump.rdb
+#指定本地数据文件存放目录
+dir /data
+#指定日志文件位置(如果是相对路径，redis会将日志存放到指定的dir目录下)
+logfile "redis.log"
 ```
 
 ### httpd
