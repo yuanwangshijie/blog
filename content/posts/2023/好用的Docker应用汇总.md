@@ -1354,9 +1354,6 @@ services:
       - 5555:5555
     volumes:
       - ./data:/dashboard/data
-      - ./static-custom/static:/dashboard/resource/static/custom:ro
-      - ./theme-custom/template:/dashboard/resource/template/theme-custom:ro
-      - ./dashboard-custom/template:/dashboard/resource/template/dashboard-custom:ro
 ```
 
 下方是我的`./data/config.yaml`文件，请自行按需修改。
