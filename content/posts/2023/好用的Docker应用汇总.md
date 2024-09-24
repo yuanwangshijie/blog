@@ -60,7 +60,7 @@ services:
 ### nginx-web-ui
 
 [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui) | [教程地址](https://www.nginxwebui.cn/product.html)  
-如果选择使用 sqlite 数据库，`BOOT_OPTIONS`只保留`--server.port=8080`即可。  
+如果选择使用 sqlite 数据库，`BOOT_OPTIONS` 只保留 `--server.port=8080` 参数即可。  
 首次登录需要初始化管理员账号密码。
 
 ```yaml
@@ -69,6 +69,7 @@ services:
     image: cym1102/nginxwebui
     container_name: nginx-web-ui
     restart: unless-stopped
+    privileged: true
     network_mode: host
     volumes:
       - ./data:/home/nginxWebUI
@@ -76,7 +77,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
       # - BOOT_OPTIONS=--server.port=8080 # 使用sqlite
-      - BOOT_OPTIONS=--server.port=8080 --spring.database.type=mysql --spring.datasource.url=jdbc:mysql://your-mysql-host:3306/nginx-web-ui --spring.datasource.username=root --spring.datasource.password=your-password
+      - BOOT_OPTIONS=--server.port=8080 --spring.database.type=mysql --spring.datasource.url=jdbc:mysql://<mysql-host>:3306/nginx-web-ui --spring.datasource.username=<mysql-user> --spring.datasource.password=<mysql-password>
 ```
 
 ### portainer-ce 汉化版
@@ -808,7 +809,7 @@ services:
 
 ### kubepi(k8s 可视化面板)
 
-[镜像地址](https://hub.docker.com/r/1panel/kubepi) | [官方文档](https://github.com/1Panel-dev/KubePi/wiki)
+[镜像地址](https://hub.docker.com/r/1panel/kubepi) | [github 地址](https://github.com/1Panel-dev/KubePi)
 
 ```yaml
 services:
