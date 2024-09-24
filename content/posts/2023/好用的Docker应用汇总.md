@@ -77,7 +77,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
       # - BOOT_OPTIONS=--server.port=8080 # 使用sqlite
-      - BOOT_OPTIONS=--server.port=8080 --spring.database.type=mysql --spring.datasource.url=jdbc:mysql://<mysql-host>:3306/nginx-web-ui --spring.datasource.username=<mysql-user> --spring.datasource.password=<mysql-password>
+      - BOOT_OPTIONS=--server.port=8080 --spring.database.type=mysql --spring.datasource.url=jdbc:mysql://<mysql_host>:3306/nginx-web-ui --spring.datasource.username=<mysql_user> --spring.datasource.password=<mysql_password>
 ```
 
 ### portainer-ce 汉化版
@@ -200,8 +200,8 @@ services:
       - ./data:/data
     environment:
       - TZ=Asia/Shanghai
-      - MINIO_ROOT_USER=minio
-      - MINIO_ROOT_PASSWORD=your-minio-password
+      - MINIO_ROOT_USER=<minio-user>
+      - MINIO_ROOT_PASSWORD=<minio-password>
     command: server /data
 ```
 
@@ -225,7 +225,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
       # 初始化mysql的root密码
-      - MYSQL_ROOT_PASSWORD=your-mysql-password
+      - MYSQL_ROOT_PASSWORD=<mysql_password>
 ```
 
 my.cnf 文件，请自行按需修改。
@@ -265,7 +265,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=your-postgres-password
+      - POSTGRES_PASSWORD=<password>
       - POSTGRES_DB=postgres
 ```
 
@@ -285,8 +285,8 @@ services:
       - ./data:/data/db
     environment:
       - TZ=Asia/Shanghai
-      - MONGO_INITDB_ROOT_USERNAME=<your-mogo-user>
-      - MONGO_INITDB_ROOT_PASSWORD=<your-mogo-password>
+      - MONGO_INITDB_ROOT_USERNAME=<mogo_user>
+      - MONGO_INITDB_ROOT_PASSWORD=<mogo_password>
 ```
 
 ### redis
@@ -364,7 +364,7 @@ services:
 ### alist(预装 aria2)
 
 [镜像地址](https://hub.docker.com/r/xhofe/alist-aria2) | [教程地址](https://alist.nn.ci/zh/guide/install/docker.html)  
-获取初始账号密码: 在宿主机执行`docker exec -it 容器ID bash`进入容器, 执行`./alist admin set your-password`手动设置密码
+获取初始账号密码: 在宿主机执行 `docker exec -it 容器ID bash` 进入容器, 执行 `./alist admin set your-password` 手动设置密码
 
 ```yaml
 services:
@@ -534,10 +534,10 @@ services:
       - TZ=Asia/Shanghai
       - MODE=standalone
       - SPRING_DATASOURCE_PLATFORM=mysql
-      - MYSQL_SERVICE_HOST=your-mysql-host
+      - MYSQL_SERVICE_HOST=<mysql_host>
       - MYSQL_SERVICE_PORT=3306
-      - MYSQL_SERVICE_USER=root
-      - MYSQL_SERVICE_PASSWORD=your-mysql-password
+      - MYSQL_SERVICE_USER=<mysql_user>
+      - MYSQL_SERVICE_PASSWORD=<mysql_password>
       - MYSQL_SERVICE_DB_NAME=nacos
       - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
       - JVM_XMS=512m
@@ -576,8 +576,8 @@ services:
       - ./logs/vsftpd.log:/var/log/vsftpd.log
     environment:
       - TZ=Asia/Shanghai
-      - FTP_USER=root
-      - FTP_PASS=your-password
+      - FTP_USER=<ftp_user>
+      - FTP_PASS=<ftp_password>
       - PASV_MIN_PORT=21100
       - PASV_MAX_PORT=21200
 ```
@@ -585,7 +585,7 @@ services:
 ### code-server(网页版 vscode)
 
 [镜像地址](https://hub.docker.com/r/codercom/code-server) | [github 地址](https://github.com/coder/code-server)  
-如果启动失败，日志显示没有权限创建文件或目录，可以试试给`./data`目录提升读写权限。
+如果启动失败，日志显示没有权限创建文件或目录，可以试试给 `./data` 目录提升读写权限。
 
 ```yaml
 services:
@@ -601,8 +601,8 @@ services:
       - TZ=Asia/Shanghai
       - PUID=0
       - PGID=0
-      - PASSWORD=your-password
-      - SUDO_PASSWORD=your-password
+      - PASSWORD=<site_password>
+      - SUDO_PASSWORD=<site_password>
 ```
 
 ### samba(samba 服务器)
@@ -622,7 +622,7 @@ services:
       - ./data:/mount
     environment:
       - TZ=Asia/Shanghai
-    command: '-u "username1;password1" -u "username2;password2" -s "share;/mount/;yes;yes;yes;all;none" -s "public;/mount/;yes;no;no;all;none"'
+    command: '-u "user1;password1" -u "user2;password2" -s "share;/mount/;yes;yes;yes;all;none" -s "public;/mount/;yes;no;no;all;none"'
 ```
 
 ### lychee(瀑布流相册)
@@ -788,7 +788,7 @@ services:
 ### kuboard(k8s 可视化面板)
 
 [镜像地址](https://hub.docker.com/r/eipwork/kuboard) | [教程地址](https://kuboard.cn/install/v3/install-built-in.html#安装) | [Nginx 代理](https://kuboard.cn/install/reverse-proxy.html#nginx-配置)  
-Nginx 代理路径注意事项：`/`不要配置`WebSocket`，`/k8s-ws/`需要配置`WebSocket`
+Nginx 代理路径注意事项：`/` 不要配置 `websocket`，`/k8s-ws/` 需要配置 `websocket`
 
 ```yaml
 services:
@@ -803,7 +803,7 @@ services:
       - ./data:/data
     environment:
       - TZ=Asia/Shanghai
-      - KUBOARD_ENDPOINT=http://<your-ip>:8080
+      - KUBOARD_ENDPOINT=http://<site-ip>:8080
       - KUBOARD_AGENT_SERVER_TCP_PORT=10081
 ```
 
@@ -894,9 +894,9 @@ services:
       - SYS_ADMIN
     environment:
       - TZ=Asia/Shanghai
-      - NEKO_SCREEN='1920x1080@60'
-      - NEKO_PASSWORD=neko
-      - NEKO_PASSWORD_ADMIN=admin
+      - NEKO_SCREEN='1920x1080@60' # 默认画质
+      - NEKO_PASSWORD=<site_password> # 普通用户访问密码
+      - NEKO_PASSWORD_ADMIN=<site_admin_password> # 管理员访问密码
       - NEKO_EPR=52000-52100
       - NEKO_NAT1TO1=127.0.0.1
       - NEKO_FILE_TRANSFER_ENABLED=true
@@ -916,12 +916,12 @@ services:
       - 3210:3210
     environment:
       - TZ=Asia/Shanghai
-      - ACCESS_CODE=your-password
-      - OLLAMA_PROXY_URL=your-ollama-url
-      - OPENAI_API_KEY=your-openai-key
-      - OPENAI_PROXY_URL=your-openai-url
-      - ANTHROPIC_API_KEY=your-anthropic-key
-      - ANTHROPIC_PROXY_URL=your-anthropic-url
+      - ACCESS_CODE=<site_password> #可选
+      - OLLAMA_PROXY_URL=<ollama_api_url> #可选
+      - OPENAI_API_KEY=<openai_api_key> #可选
+      - OPENAI_PROXY_URL=<openai_api_url> #可选
+      - ANTHROPIC_API_KEY=<anthropic_api_key> #可选
+      - ANTHROPIC_PROXY_URL=<anthropic_api_url> #可选
 ```
 
 ### chatgpt-next-web(跨平台 ChatGPT 应用)
@@ -938,10 +938,10 @@ services:
       - 3000:3000
     environment:
       - TZ=Asia/Shanghai
-      - OPENAI_API_KEY=your-key
-      - CODE=your-password
-      - BASE_URL=https://your-openai-api-url/v1
-      - OLLAMA_PROXY_URL=https://your-ollama-api-url/v1
+      - OPENAI_API_KEY=<openai_api_key> #可选
+      - CODE=<site_password> #可选
+      - BASE_URL=<openai_api_url> #可选
+      - OLLAMA_PROXY_URL=<ollama_api_url> #可选
 ```
 
 ### pairdrop(在线文件传输)
@@ -1061,7 +1061,7 @@ services:
       - PUID=1000
       - PGID=1000
       - VERSION=docker
-      - PLEX_CLAIM=your-claim
+      - PLEX_CLAIM=<your_claim>
 ```
 
 ### stash(stash 多媒体管理)
@@ -1118,8 +1118,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TRANSMISSION_WEB_HOME=/config/transmission-web-ui
-      - USER=your-username
-      - PASS=your-password
+      - USER=<site_username>
+      - PASS=<site_password>
 ```
 
 ### showdoc(在线文档)
@@ -1145,7 +1145,7 @@ services:
 ### odoo(开源的商业应用程序)
 
 [镜像地址](https://hub.docker.com/_/odoo) | [教程地址](https://www.cnblogs.com/gzxiaohai/p/17303629.html)  
-安装自定义模块需要配置`odoo.conf`，具体看教程。
+安装自定义模块需要配置 `odoo.conf`，具体看教程。
 
 ```yaml
 services:
@@ -1161,15 +1161,15 @@ services:
       - ./addons:/mnt/extra-addons
     environment:
       - TZ=Asia/Shanghai
-      - HOST=your-postgres-host
-      - USER=your-postgres-user
-      - PASSWORD=your-postgres-password
+      - HOST=<postgres_host>
+      - USER=<postgres_user>
+      - PASSWORD=<postgres_password>
 ```
 
 ### onlyoffice-server(onlyoffice 在线文档服务端)
 
 [镜像地址](https://hub.docker.com/r/onlyoffice/documentserver)  
-如果要使用`jwt`，就去除`- JWT_ENABLED=false`
+如果要使用 `jwt`，就去除 `- JWT_ENABLED=false`
 
 ```yaml
 services:
@@ -1200,9 +1200,9 @@ services:
       - ./data:/var/www/html
     environment:
       - TZ=Asia/Shanghai
-      - MYSQL_HOST=your-mysql-host
-      - MYSQL_USER=your-mysql-user
-      - MYSQL_PASSWORD=your-mysql-password
+      - MYSQL_HOST=<mysql_host>
+      - MYSQL_USER=<mysql_user>
+      - MYSQL_PASSWORD=<mysql_password>
       - MYSQL_DATABASE=nextcloud
 ```
 
@@ -1228,7 +1228,7 @@ services:
 ### yourls(短链接工具)
 
 [镜像地址](https://hub.docker.com/_/yourls) | [github 地址](https://github.com/YOURLS/YOURLS)  
-首次登录需要初始化数据库，管理面板地址：`http://<your-site-ip>:8080/admin/`
+首次登录需要初始化数据库，管理面板地址：`http://<your_site_ip>:8080/admin/`
 
 ```yaml
 services:
@@ -1240,13 +1240,13 @@ services:
       - 8080:80
     environment:
       - TZ=Asia/Shanghai
-      - YOURLS_DB_HOST=your-mysql-host
-      - YOURLS_DB_USER=your-mysql-user
-      - YOURLS_DB_PASS=your-mysql-password
+      - YOURLS_DB_HOST=<mysql_host>
+      - YOURLS_DB_USER=<mysql_user>
+      - YOURLS_DB_PASS=<mysql_password>
       - YOURLS_DB_NAME=yourls
       - YOURLS_SITE=https://example.com
-      - YOURLS_USER=your-site-user
-      - YOURLS_PASS=your-site-password
+      - YOURLS_USER=<site_user>
+      - YOURLS_PASS=<site_password>
 ```
 
 ### mattermost(在线聊天、协作、分享)
@@ -1301,8 +1301,8 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - ROOT_URL=https://rocket-chat.example.com
-      - MONGO_URL=mongodb://<mongo-user>:<mongo-password>@<mongo-host>:27017/rocket-chat?authSource=admin
-      - MONGO_OPLOG_URL=mongodb://<mongo-user>:<mongo-password>@<mongo-host>:27017/local?authSource=admin
+      - MONGO_URL=mongodb://<mongo_user>:<mongo_password>@<mongo_host>:27017/rocket-chat?authSource=admin
+      - MONGO_OPLOG_URL=mongodb://<mongo_user>:<mongo_password>@<mongo_host>:27017/local?authSource=admin
 ```
 
 ### nezha(哪吒监控-面板)
