@@ -1356,7 +1356,7 @@ services:
       - ./data:/dashboard/data
 ```
 
-下方是我的`./data/config.yaml`文件，请自行按需修改。
+下方是我的 `./data/config.yaml` 文件，请自行按需修改。
 
 ```
 AvgPingCount: 2
