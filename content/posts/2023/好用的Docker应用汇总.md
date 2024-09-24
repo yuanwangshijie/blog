@@ -630,7 +630,7 @@ services:
       - PUID=0
       - PGID=0
       - PASSWORD=<site_password>
-      - SUDO_PASSWORD=<site_password>
+      - SUDO_PASSWORD=<sudo_password>
 ```
 
 ### samba(samba 服务器)
