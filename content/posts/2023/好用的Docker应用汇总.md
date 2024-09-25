@@ -715,6 +715,22 @@ services:
       - DEBUG=false
 ```
 
+### draw.io(流程图绘制)
+
+[镜像地址](https://hub.docker.com/r/jgraph/drawio) | [github 地址](https://github.com/jgraph/drawio) | [教程地址](https://blog.uusite.com/cloud/deploy/218.html)
+
+```yaml
+services:
+  draw:
+    image: jgraph/drawio
+    container_name: draw
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    environment:
+      - TZ=Asia/Shanghai
+```
+
 ### voce-chat(在线聊天室)
 
 [镜像地址](https://hub.docker.com/r/privoce/vocechat-server) | [官方文档](https://doc.voce.chat/zh-cn/)
@@ -1290,7 +1306,6 @@ services:
     pids_limit: 200
     ports:
       - 8065:8065
-      - 8443:8443
     security_opt:
       - no-new-privileges:true
     tmpfs:
