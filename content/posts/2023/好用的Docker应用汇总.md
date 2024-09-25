@@ -206,7 +206,7 @@ services:
 ### mysql
 
 [镜像地址](https://hub.docker.com/_/mysql) | [教程地址](https://www.cnblogs.com/Galaxy1/p/17806388.html) | [内存优化](https://blog.csdn.net/weixin_43888891/article/details/122518719)  
-**注意事项**：`./config/my.cnf` 的文件权限需要设置为 `655`
+**注意事项**：`./config/my.cnf` 文件的权限需要设置为 `655`
 
 ```yaml
 services:
