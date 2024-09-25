@@ -718,7 +718,7 @@ services:
 ### draw.io(流程图绘制)
 
 [镜像地址](https://hub.docker.com/r/jgraph/drawio) | [github 地址](https://github.com/jgraph/drawio) | [教程地址](https://blog.uusite.com/cloud/deploy/218.html)  
-启动前先创建 `./data` 目录，并设置目录权限为 `777`
+启动后在工具栏 `Extras` -> `Language` 选择语言，刷新页面生效。
 
 ```yaml
 services:
@@ -728,8 +728,6 @@ services:
     restart: unless-stopped
     ports:
       - 8080:8080
-    volumes:
-      - ./data:/usr/local/tomcat/webapps/draw/js
     environment:
       - TZ=Asia/Shanghai
 ```
