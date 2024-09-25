@@ -610,7 +610,7 @@ services:
 
 ### code-server(网页版 vscode)
 
-[镜像地址](https://hub.docker.com/r/codercom/code-server) | [github 地址](https://github.com/coder/code-server)  
+[镜像地址](https://hub.docker.com/r/codercom/code-server) | [Github 地址](https://github.com/coder/code-server)  
 启动前先创建 `./data` 目录，并设置目录权限为 `777`
 
 ```yaml
@@ -653,7 +653,7 @@ services:
 
 ### lychee(瀑布流相册)
 
-[镜像地址](https://hub.docker.com/r/lycheeorg/lychee) | [github 地址](https://github.com/LycheeOrg/Lychee-Docker/tree/master)
+[镜像地址](https://hub.docker.com/r/lycheeorg/lychee) | [Github 地址](https://github.com/LycheeOrg/Lychee-Docker/tree/master)
 
 ```yaml
 services:
@@ -676,7 +676,7 @@ services:
 
 ### lsky-pro(兰空图床)
 
-[镜像地址](https://hub.docker.com/r/halcyonazure/lsky-pro-docker) | [github 地址](https://github.com/HalcyonAzure/lsky-pro-docker)
+[镜像地址](https://hub.docker.com/r/halcyonazure/lsky-pro-docker) | [Github 地址](https://github.com/HalcyonAzure/lsky-pro-docker)
 
 ```yaml
 services:
@@ -695,7 +695,7 @@ services:
 
 ### easyimage(简单图床)
 
-[镜像地址](https://hub.docker.com/r/ddsderek/easyimage) | [github 地址](https://github.com/icret/EasyImages2.0)
+[镜像地址](https://hub.docker.com/r/ddsderek/easyimage) | [Github 地址](https://github.com/icret/EasyImages2.0)
 
 ```yaml
 services:
@@ -717,7 +717,7 @@ services:
 
 ### draw.io(流程图绘制)
 
-[镜像地址](https://hub.docker.com/r/jgraph/drawio) | [github 地址](https://github.com/jgraph/drawio) | [教程地址](https://blog.uusite.com/cloud/deploy/218.html)  
+[镜像地址](https://hub.docker.com/r/jgraph/drawio) | [Github 地址](https://github.com/jgraph/drawio) | [教程地址](https://blog.uusite.com/cloud/deploy/218.html)  
 启动后在工具栏 `Extras` -> `Language` 选择语言，刷新页面生效。
 
 ```yaml
@@ -788,7 +788,7 @@ services:
 
 ### rustdesk-server(RustDesk 远程桌面服务端)
 
-[镜像地址](https://hub.docker.com/r/rustdesk/rustdesk-server) | [github 地址](https://github.com/rustdesk/rustdesk-server#docker-images)  
+[镜像地址](https://hub.docker.com/r/rustdesk/rustdesk-server) | [Github 地址](https://github.com/rustdesk/rustdesk-server#docker-images) | [教程地址](https://www.hcjike.com/archives/GyeSDHJT)  
 部署完成后，查看 `./data/id_ed25519.pub` 文件获取公钥，用于客户端填写服务器的 `key`。
 
 ```yaml
@@ -814,7 +814,7 @@ services:
 
 ### dosgame(DOS 游戏)
 
-[镜像地址](https://hub.docker.com/r/oldiy/dosgame-web-docker) | [github 地址](https://github.com/rwv/chinese-dos-games)
+[镜像地址](https://hub.docker.com/r/oldiy/dosgame-web-docker) | [Github 地址](https://github.com/rwv/chinese-dos-games)
 
 ```yaml
 services:
@@ -852,7 +852,7 @@ services:
 
 ### kubepi(k8s 可视化面板)
 
-[镜像地址](https://hub.docker.com/r/1panel/kubepi) | [github 地址](https://github.com/1Panel-dev/KubePi)
+[镜像地址](https://hub.docker.com/r/1panel/kubepi) | [Github 地址](https://github.com/1Panel-dev/KubePi)
 
 ```yaml
 services:
@@ -903,7 +903,7 @@ services:
 
 ### memos(备忘录)
 
-[镜像地址](https://hub.docker.com/r/neosmemo/memos) | [github 地址](https://github.com/usememos/memos)
+[镜像地址](https://hub.docker.com/r/neosmemo/memos) | [Github 地址](https://github.com/usememos/memos)
 
 ```yaml
 services:
@@ -947,7 +947,7 @@ services:
 
 ### lobe-chat(开源的高性能聊天机器人框架)
 
-[镜像地址](https://hub.docker.com/r/lobehub/lobe-chat) | [github 地址](https://github.com/lobehub/lobe-chat) | [环境变量](https://github.com/lobehub/lobe-chat/blob/main/src/config/server/provider.ts)
+[镜像地址](https://hub.docker.com/r/lobehub/lobe-chat) | [Github 地址](https://github.com/lobehub/lobe-chat) | [环境变量](https://github.com/lobehub/lobe-chat/blob/main/src/config/server/provider.ts)
 
 ```yaml
 services:
@@ -989,7 +989,7 @@ services:
 
 ### pairdrop(在线文件传输)
 
-[镜像地址](https://hub.docker.com/r/linuxserver/pairdrop) | [github 地址](https://github.com/schlagmichdoch/PairDrop)
+[镜像地址](https://hub.docker.com/r/linuxserver/pairdrop) | [Github 地址](https://github.com/schlagmichdoch/PairDrop)
 
 ```yaml
 services:
@@ -1009,7 +1009,7 @@ services:
 
 ### it-tools(开发者工具箱)
 
-[镜像地址](https://hub.docker.com/r/corentinth/it-tools) | [github 地址](https://github.com/CorentinTh/it-tools)
+[镜像地址](https://hub.docker.com/r/corentinth/it-tools) | [Github 地址](https://github.com/CorentinTh/it-tools)
 
 ```yaml
 services:
@@ -1025,7 +1025,7 @@ services:
 
 ### filecodebox(文件快递柜)
 
-[镜像地址](https://hub.docker.com/r/lanol/filecodebox) | [github 地址](https://github.com/vastsa/FileCodeBox)
+[镜像地址](https://hub.docker.com/r/lanol/filecodebox) | [Github 地址](https://github.com/vastsa/FileCodeBox)
 
 ```yaml
 services:
@@ -1043,7 +1043,7 @@ services:
 
 ### briefing(WebRTC 视频通话)
 
-[镜像地址](https://hub.docker.com/r/holtwick/briefing) | [github 地址](https://github.com/holtwick/briefing)
+[镜像地址](https://hub.docker.com/r/holtwick/briefing) | [Github 地址](https://github.com/holtwick/briefing)
 
 ```yaml
 services:
@@ -1109,7 +1109,7 @@ services:
 
 ### stash(stash 多媒体管理)
 
-[镜像地址](https://hub.docker.com/r/stashapp/stash) | [github 地址](https://github.com/stashapp/stash)
+[镜像地址](https://hub.docker.com/r/stashapp/stash) | [Github 地址](https://github.com/stashapp/stash)
 
 ```yaml
 services:
@@ -1270,7 +1270,7 @@ services:
 
 ### yourls(短链接工具)
 
-[镜像地址](https://hub.docker.com/_/yourls) | [github 地址](https://github.com/YOURLS/YOURLS)  
+[镜像地址](https://hub.docker.com/_/yourls) | [Github 地址](https://github.com/YOURLS/YOURLS)  
 首次登录需要初始化数据库，管理面板地址：`http://<your_site_ip>:8080/admin/`
 
 ```yaml
@@ -1349,7 +1349,7 @@ services:
 
 ### nezha(哪吒监控-面板)
 
-[镜像地址](https://github.com/naiba/nezha/pkgs/container/nezha-dashboard) | [官方文档](https://nezha.wiki/guide/dashboard.html) | [github 地址](https://github.com/naiba/nezha) | [官方 config.yaml](https://github.com/naiba/nezha/blob/master/script/config.yaml)
+[镜像地址](https://github.com/naiba/nezha/pkgs/container/nezha-dashboard) | [官方文档](https://nezha.wiki/guide/dashboard.html) | [Github 地址](https://github.com/naiba/nezha) | [官方 config.yaml](https://github.com/naiba/nezha/blob/master/script/config.yaml)
 
 > 推荐使用官方的一键脚本部署。  
 > 这里是给~~像我一样~~有 docker 部署洁癖的人参考的。
