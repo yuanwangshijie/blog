@@ -611,7 +611,7 @@ services:
 ### code-server(网页版 vscode)
 
 [镜像地址](https://hub.docker.com/r/codercom/code-server) | [github 地址](https://github.com/coder/code-server)  
-如果启动失败，日志显示没有权限创建文件或目录，可以试试给 `./data` 目录提升读写权限。
+启动前先创建 `./data` 目录，并设置目录权限为 `777`
 
 ```yaml
 services:
@@ -717,7 +717,8 @@ services:
 
 ### draw.io(流程图绘制)
 
-[镜像地址](https://hub.docker.com/r/jgraph/drawio) | [github 地址](https://github.com/jgraph/drawio) | [教程地址](https://blog.uusite.com/cloud/deploy/218.html)
+[镜像地址](https://hub.docker.com/r/jgraph/drawio) | [github 地址](https://github.com/jgraph/drawio) | [教程地址](https://blog.uusite.com/cloud/deploy/218.html)  
+启动前先创建 `./data` 目录，并设置目录权限为 `777`
 
 ```yaml
 services:
@@ -727,6 +728,8 @@ services:
     restart: unless-stopped
     ports:
       - 8080:8080
+    volumes:
+      - ./data:/usr/local/tomcat/webapps/draw/js
     environment:
       - TZ=Asia/Shanghai
 ```
