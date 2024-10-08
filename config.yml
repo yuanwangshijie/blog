@@ -92,7 +92,7 @@ params:
       - name: 随记
         url: https://memo.qiang.uk/
 
-  # CSS样式 post-entry.css
+  # 主页样式 post-entry.css 和 zmedia.css
   homeInfoParams:
     Title: "自由在高处"
     Content:
