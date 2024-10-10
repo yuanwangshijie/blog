@@ -677,7 +677,7 @@ services:
 ### lsky-pro(兰空图床)
 
 [镜像地址](https://hub.docker.com/r/halcyonazure/lsky-pro-docker) | [Github 地址](https://github.com/HalcyonAzure/lsky-pro-docker)  
-如果使用 Nginx 反代 https ，页面或图片加载有问题，执行下面的命令  
+使用 https 域名访问，出现页面或图片加载问题，则执行下面的命令。  
 Tips：将 `lsky-pro` 改为自己容器的名字
 
 ```
