@@ -676,7 +676,13 @@ services:
 
 ### lsky-pro(兰空图床)
 
-[镜像地址](https://hub.docker.com/r/halcyonazure/lsky-pro-docker) | [Github 地址](https://github.com/HalcyonAzure/lsky-pro-docker)
+[镜像地址](https://hub.docker.com/r/halcyonazure/lsky-pro-docker) | [Github 地址](https://github.com/HalcyonAzure/lsky-pro-docker)  
+如果使用了 Nginx 反代后，页面或图片加载有问题，执行下面的命令  
+Tips：将 `lsky-pro` 改为自己容器的名字
+
+```
+docker exec -it lsky-pro sed -i '32 a \\\Illuminate\\Support\\Facades\\URL::forceScheme('"'"'https'"'"');' /var/www/html/app/Providers/AppServiceProvider.php
+```
 
 ```yaml
 services:
