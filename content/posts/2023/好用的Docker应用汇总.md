@@ -65,7 +65,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - LANG=chs
-      - WG_HOST=xxx.qiang.uk
+      - WG_HOST=wireguard.example.com
       - PASSWORD_HASH=$$2a$$12$$Vklji2n4Xa3kDn7X0yv2DO9Mu8KYZs1ugqWyk6ITKellEnMBAWeVa
 ```
 
