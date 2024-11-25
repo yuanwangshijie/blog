@@ -40,7 +40,7 @@ services:
     command: ["你的网络ID"]
 ```
 
-### wg-easy(wireguard 可视化面板)
+### wg-easy(wireguard 服务端可视化面板)
 
 [GitHub 地址](https://github.com/wg-easy/wg-easy/blob/master/docker-compose.yml) | [教程地址](https://newzone.top/services/dockers-on-nas/wireguard.html#_1-部署-wireguard-服务端) | [客户端下载](https://www.wireguard.com/install/)  
 执行`docker run -it ghcr.io/wg-easy/wg-easy wgpw 'YOUR_PASSWORD'` 后获得 `PASSWORD_HASH`，填写到`docker-compose.yml` 里的时候需要去掉**单引号**，并且把 `$` 替换为 `$$` 。
