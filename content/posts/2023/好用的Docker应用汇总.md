@@ -40,6 +40,35 @@ services:
     command: ["你的网络ID"]
 ```
 
+### wg-easy(wireguard 可视化面板)
+
+[GitHub 地址](https://github.com/wg-easy/wg-easy/blob/master/docker-compose.yml) | [教程地址](https://newzone.top/services/dockers-on-nas/wireguard.html#_1-部署-wireguard-服务端) | [客户端下载](https://www.wireguard.com/install/)  
+执行`docker run -it ghcr.io/wg-easy/wg-easy wgpw 'YOUR_PASSWORD'` 后获得 `PASSWORD_HASH`，填写到`docker-compose.yml` 里的时候需要去掉**单引号**，并且把 `$` 替换为 `$$` 。
+
+```yaml
+services:
+  wg-easy:
+    image: ghcr.io/wg-easy/wg-easy
+    container_name: wg-easy
+    restart: unless-stopped
+    ports:
+      - "51820:51820/udp"
+      - "51821:51821/tcp"
+    volumes:
+      - ./data:/etc/wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1
+    environment:
+      - TZ=Asia/Shanghai
+      - LANG=chs
+      - WG_HOST=xxx.qiang.uk
+      - PASSWORD_HASH=$$2a$$12$$Vklji2n4Xa3kDn7X0yv2DO9Mu8KYZs1ugqWyk6ITKellEnMBAWeVa
+```
+
 ### watchtower(自动更新容器)
 
 [镜像地址](https://hub.docker.com/r/containrrr/watchtower) | [教程地址](https://blog.csdn.net/qq_21127151/article/details/129574398)
