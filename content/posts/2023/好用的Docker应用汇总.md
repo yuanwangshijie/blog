@@ -67,7 +67,6 @@ services:
       - LANG=chs
       - WG_HOST=wireguard.example.com
       - PASSWORD_HASH=$$2a$$12$$Vklji2n4Xa3kDn7X0yv2DO9Mu8KYZs1ugqWyk6ITKellEnMBAWeVa
-      - WG_ALLOWED_IPS=10.8.0.0/24
 ```
 
 ### watchtower(自动更新容器)
