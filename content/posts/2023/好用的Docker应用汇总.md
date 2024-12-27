@@ -72,6 +72,23 @@ services:
       - WG_DEFAULT_DNS=10.8.0.1
 ```
 
+### MT-insightface(人脸识别 API)
+
+[镜像地址](https://hub.docker.com/r/devfox101/mt-photos-insightface-unofficial) | [教程地址](https://mtmt.tech/docs/advanced/insightface_api/)  
+这里用了 `MT Photos` 的打包好的人脸识别 API, 教程地址里有国内镜像
+
+```yaml
+services:
+  face:
+    image: devfox101/mt-photos-insightface-unofficial
+    container_name: face
+    restart: unless-stopped
+    ports:
+      - 8066:8066
+    environment:
+      - API_AUTH_KEY=<your_key>
+```
+
 ### watchtower(自动更新容器)
 
 [镜像地址](https://hub.docker.com/r/containrrr/watchtower) | [教程地址](https://blog.csdn.net/qq_21127151/article/details/129574398)
@@ -230,8 +247,8 @@ services:
       - ./data:/data
     environment:
       - TZ=Asia/Shanghai
-      - MINIO_ROOT_USER=<minio-user>
-      - MINIO_ROOT_PASSWORD=<minio-password>
+      - MINIO_ROOT_USER=<minio_user>
+      - MINIO_ROOT_PASSWORD=<minio_password>
     command: server /data
 ```
 
