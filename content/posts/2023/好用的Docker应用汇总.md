@@ -297,12 +297,12 @@ default-character-set=utf8mb4
 
 ### postgres
 
-[镜像地址](https://hub.docker.com/_/postgres) | [教程地址](https://www.itcto.cn/jc/docker/docker-compose-postgresql/)
+[镜像地址](https://hub.docker.com/r/pgvector/pgvector) | [教程地址](https://www.itcto.cn/jc/docker/docker-compose-postgresql/)
 
 ```yaml
 services:
   postgres:
-    image: postgres
+    image: pgvector/pgvector:pg17
     container_name: postgres
     restart: unless-stopped
     ports:
