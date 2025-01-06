@@ -226,7 +226,7 @@ services: # 集合
       - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose # docker-compose如果有问题，确认一下宿主机的docker-compose的路径
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPTS=-server -Xms512m -Xmx512m -Xmn256m
+      - JAVA_OPTS=-server -Xms512m -Xmx512m -XX:+UseG1GC
 ```
 
 ### minio(单机部署)
@@ -478,7 +478,7 @@ services:
       - ./data/namesrv/store:/home/rocketmq/store
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPT_EXT=-Duser.home=/home/rocketmq -Xms512m -Xmx512m -Xmn256m
+      - JAVA_OPT_EXT=-Duser.home=/home/rocketmq -Xms512m -Xmx512m -XX:+UseG1GC
     command: ["sh", "mqnamesrv"]
 
   rocketmq-broker:
@@ -494,7 +494,7 @@ services:
       - ./data/broker/store:/home/rocketmq/store
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPT_EXT=-Duser.home=/home/broker -Xms512m -Xmx512m -Xmn256m
+      - JAVA_OPT_EXT=-Duser.home=/home/broker -Xms512m -Xmx512m -XX:+UseG1GC
     command:
       [
         "sh",
@@ -518,7 +518,7 @@ services:
       - ./data/console:/tmp
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false -Xms256m -Xmx256m -Xmn128m
+      - JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false -Xms256m -Xmx256m -XX:+UseG1GC
     depends_on:
       - rocketmq-namesrv
 ```
@@ -618,8 +618,6 @@ services:
       - JVM_XMS=512m
       - JVM_XMX=512m
       - JVM_XMN=256m
-      - JVM_MS=64m
-      - JVM_MMS=256m
       # 是否开启鉴权
       # 开启(true)：服务注册需要配置账号密码，nacos面板需要账号密码才能访问。
       # 关闭(false)：服务注册不需要配置账号密码，nacos面板不需要账号密码就能直接访问。
