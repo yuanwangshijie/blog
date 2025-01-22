@@ -1112,35 +1112,28 @@ services:
 
 ### emby(emby 多媒体服务器-特别版)
 
-[镜像地址](https://hub.docker.com/r/lovechen/embyserver)
+[镜像地址](https://hub.docker.com/r/amilys/embyserver)
 
 ```yaml
 services:
   emby:
-    image: lovechen/embyserver
+    image: amilys/embyserver
     container_name: emby
     restart: unless-stopped
+    privileged: true
     ports:
       - 8096:8096
-      - 8920:8920
-      - 1900:1900/udp
-      - 7359:7359/udp
     volumes:
-      - ./data:/config
-      - ./your-media-path:/media
+      - ./config:/config
+      - /your_media_path:/your_media_path
     environment:
       - TZ=Asia/Shanghai
-      - UID=0
-      - GID=0
-      - GIDLIST=0
-      - NVIDIA_VISIBLE_DEVICES=all
-    devices:
-      - /dev/dri:/dev/dri
 ```
 
 ### plex(plex 多媒体服务器)
 
-[镜像地址](https://hub.docker.com/r/linuxserver/plex) | [获取 claim](https://plex.tv/claim)
+[镜像地址](https://hub.docker.com/r/linuxserver/plex) | [获取 claim](https://plex.tv/claim)  
+访问端口 `32400`
 
 ```yaml
 services:
@@ -1150,8 +1143,8 @@ services:
     restart: unless-stopped
     network_mode: host
     volumes:
-      - ./data:/config
-      - ./your-media-path:/media
+      - ./config:/config
+      - /your_media_path:/your_media_path
     environment:
       - TZ=Asia/Shanghai
       - PUID=1000
@@ -1177,13 +1170,13 @@ services:
       - ./data/generated:/generated
       - ./data/metadata:/metadata
       - ./data/cache:/cache
-      - ./your-media-path:/media
+      - /your_media_path:/your_media_path
     environment:
       - TZ=Asia/Shanghai
       - STASH_GENERATED=/generated/
       - STASH_METADATA=/metadata/
       - STASH_CACHE=/cache/
-      - STASH_STASH=/media/
+      - STASH_STASH=/your_media_path/
       - STASH_PORT=9999
     logging:
       driver: "json-file"
