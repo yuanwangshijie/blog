@@ -1124,7 +1124,7 @@ services:
     ports:
       - 8096:8096
     volumes:
-      - ./config:/config
+      - ./data:/config
       - /your_media_path:/your_media_path
     environment:
       - TZ=Asia/Shanghai
@@ -1143,7 +1143,7 @@ services:
     restart: unless-stopped
     network_mode: host
     volumes:
-      - ./config:/config
+      - ./data:/config
       - /your_media_path:/your_media_path
     environment:
       - TZ=Asia/Shanghai
