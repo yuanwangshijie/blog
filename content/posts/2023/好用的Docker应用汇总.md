@@ -1128,6 +1128,9 @@ services:
       - /your_media_path:/your_media_path
     environment:
       - TZ=Asia/Shanghai
+      # 如果刮削不正常就尝试走代理
+      # - http_proxy=http://<ip>:<port>
+      # - https_proxy=http://<ip>:<port>
 ```
 
 ### plex(plex 多媒体服务器)
@@ -1151,6 +1154,9 @@ services:
       - PGID=1000
       - VERSION=docker
       - PLEX_CLAIM=<your_claim>
+      # 如果刮削不正常就尝试走代理
+      # - http_proxy=http://<ip>:<port>
+      # - https_proxy=http://<ip>:<port>
 ```
 
 ### stash(stash 多媒体管理)
