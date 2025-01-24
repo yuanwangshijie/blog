@@ -1110,7 +1110,7 @@ services:
       - TZ=Asia/Shanghai
 ```
 
-### emby(emby 多媒体服务器-特别版)
+### emby(emby 媒体服务器-学习版)
 
 [镜像地址](https://hub.docker.com/r/amilys/embyserver)
 
@@ -1133,7 +1133,7 @@ services:
       # - https_proxy=http://<ip>:<port>
 ```
 
-### plex(plex 多媒体服务器)
+### plex(plex 媒体服务器)
 
 [镜像地址](https://hub.docker.com/r/linuxserver/plex) | [获取 claim](https://plex.tv/claim)  
 访问端口 `32400`
@@ -1159,7 +1159,7 @@ services:
       # - https_proxy=http://<ip>:<port>
 ```
 
-### stash(stash 多媒体管理)
+### stash(stash 媒体服务器)
 
 [镜像地址](https://hub.docker.com/r/stashapp/stash) | [Github 地址](https://github.com/stashapp/stash)
 
