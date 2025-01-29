@@ -302,7 +302,7 @@ default-character-set=utf8mb4
 ```yaml
 services:
   postgres:
-    image: pgvector/pgvector:pg17
+    image: pgvector/pgvector
     container_name: postgres
     restart: unless-stopped
     ports:
