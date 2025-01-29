@@ -313,6 +313,7 @@ services:
       - TZ=Asia/Shanghai
       - POSTGRES_USER=<postgres_user>
       - POSTGRES_PASSWORD=<postgres_password>
+      - POSTGRES_DB=postgres
 ```
 
 ### mongo
@@ -898,7 +899,7 @@ services:
       - ./data:/data
     environment:
       - TZ=Asia/Shanghai
-      - KUBOARD_ENDPOINT=http://<site-ip>:8080
+      - KUBOARD_ENDPOINT=http://<ip>:8080
       - KUBOARD_AGENT_SERVER_TCP_PORT=10081
 ```
 
