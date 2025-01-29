@@ -297,7 +297,7 @@ default-character-set=utf8mb4
 
 ### postgres(带有 pgvector 插件)
 
-[镜像地址](https://hub.docker.com/r/pgvector/pgvector) | [教程地址](https://www.itcto.cn/jc/docker/docker-compose-postgresql/) | [Github 地址](https://github.com/pgvector/pgvector)
+[镜像地址](https://hub.docker.com/r/pgvector/pgvector) | [Github 地址](https://github.com/pgvector/pgvector) | [教程地址](https://www.itcto.cn/jc/docker/docker-compose-postgresql/)
 
 ```yaml
 services:
@@ -311,9 +311,8 @@ services:
       - ./data:/var/lib/postgresql/data
     environment:
       - TZ=Asia/Shanghai
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=<password>
-      - POSTGRES_DB=postgres
+      - POSTGRES_USER=<postgres_user>
+      - POSTGRES_PASSWORD=<postgres_password>
 ```
 
 ### mongo
