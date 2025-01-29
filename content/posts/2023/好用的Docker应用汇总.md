@@ -295,7 +295,7 @@ default-character-set=utf8mb4
 default-character-set=utf8mb4
 ```
 
-### postgres
+### postgres(带有 pgvector 插件)
 
 [镜像地址](https://hub.docker.com/r/pgvector/pgvector) | [教程地址](https://www.itcto.cn/jc/docker/docker-compose-postgresql/)
 
