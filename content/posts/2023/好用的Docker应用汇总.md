@@ -1129,8 +1129,8 @@ services:
     environment:
       - TZ=Asia/Shanghai
       # 如果刮削不正常就尝试走代理
-      # - http_proxy=http://<ip>:<port>
-      # - https_proxy=http://<ip>:<port>
+      # - HTTP_PROXY=http://<ip>:<port>
+      # - HTTPS_PROXY=http://<ip>:<port>
 ```
 
 ### plex(plex 媒体服务器)
@@ -1155,8 +1155,8 @@ services:
       - VERSION=docker
       - PLEX_CLAIM=<your_claim>
       # 如果刮削不正常就尝试走代理
-      # - http_proxy=http://<ip>:<port>
-      # - https_proxy=http://<ip>:<port>
+      # - HTTP_PROXY=http://<ip>:<port>
+      # - HTTPS_PROXY=http://<ip>:<port>
 ```
 
 ### stash(stash 媒体服务器)
