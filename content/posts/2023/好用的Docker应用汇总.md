@@ -1488,3 +1488,22 @@ Site:
   ViewPassword: ""
 TLS: false
 ```
+
+### trilium(在线笔记)
+
+[镜像地址](https://hub.docker.com/r/nriver/trilium-cn) | [Github 地址](https://github.com/Nriver/trilium-translation)
+
+```yaml
+services:
+  trilium-cn:
+    image: nriver/trilium-cn
+    container_name: trilium-cn
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    volumes:
+      - ./data:/root/trilium-data
+    environment:
+      - TZ=Asia/Shanghai
+      - TRILIUM_DATA_DIR=/root/trilium-data
+```
