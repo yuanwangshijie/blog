@@ -1508,9 +1508,9 @@ services:
       - TRILIUM_DATA_DIR=/root/trilium-data
 ```
 
-### trilium(在线笔记)
+### n8n(开源低代码平台)
 
-[镜像地址](https://hub.docker.com/r/n8nio/n8n) | [教程地址](https://n8n.akashio.com/article/n8n-deployment-method)
+[镜像地址](https://hub.docker.com/r/n8nio/n8n)| [GitHub 地址](https://github.com/n8n-io/n8n) | [教程地址](https://n8n.akashio.com/article/n8n-deployment-method)
 
 ```yaml
 services:
