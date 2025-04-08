@@ -1507,3 +1507,25 @@ services:
       - TZ=Asia/Shanghai
       - TRILIUM_DATA_DIR=/root/trilium-data
 ```
+
+### trilium(在线笔记)
+
+[镜像地址](https://hub.docker.com/r/n8nio/n8n) | [教程地址](https://n8n.akashio.com/article/n8n-deployment-method)
+
+```yaml
+services:
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - 5678:5678
+    volumes:
+      - ./data:/home/node/.n8n
+    environment:
+      - GENERIC_TIMEZONE=Asia/Shanghai
+      - N8N_PROTOCOL=https
+      - N8N_HOST=n8n.example.com
+      - WEBHOOK_URL=https://n8n.example.com/
+      - N8N_SECURE_COOKIE=false
+```
