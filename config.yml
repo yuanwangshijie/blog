@@ -2,7 +2,7 @@
 # contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
 baseURL: "https://blog.qiang.uk/"
 title: 远望世界' Blog
-copyright: "© 2024 [远望世界](https://blog.qiang.uk/)"
+copyright: "© 2025 [远望世界](https://blog.qiang.uk/)"
 paginate: 5
 theme: [hugo-PaperMod]
 
