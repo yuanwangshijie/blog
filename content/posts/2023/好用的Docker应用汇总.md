@@ -1054,8 +1054,10 @@ services:
       - TZ=Asia/Shanghai
       - PUID=1000
       - PGID=1000
-      - RATE_LIMIT=false
       - WS_FALLBACK=false
+      - RTC_CONFIG=false
+      - RATE_LIMIT=false
+      - DEBUG_MODE=false
 ```
 
 ### it-tools(开发者工具箱)
