@@ -70,6 +70,7 @@ services:
       - WG_DEFAULT_ADDRESS=10.8.0.x
       - WG_ALLOWED_IPS=10.8.0.0/24
       - WG_DEFAULT_DNS=8.8.8.8
+      - WG_PERSISTENT_KEEPALIVE=25
 ```
 
 ### MT-insightface(人脸识别 API)
