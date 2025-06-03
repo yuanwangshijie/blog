@@ -479,7 +479,7 @@ services:
       - ./data/namesrv/store:/home/rocketmq/store
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPT_EXT=-Duser.home=/home/rocketmq -Xms512m -Xmx512m -XX:+UseG1GC
+      - JAVA_OPT_EXT=-Duser.home=/home/rocketmq -Xms512m -Xmx512m
     command: ["sh", "mqnamesrv"]
 
   rocketmq-broker:
@@ -495,7 +495,7 @@ services:
       - ./data/broker/store:/home/rocketmq/store
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPT_EXT=-Duser.home=/home/broker -Xms512m -Xmx512m -XX:+UseG1GC
+      - JAVA_OPT_EXT=-Duser.home=/home/broker -Xms512m -Xmx512m
     command:
       [
         "sh",
@@ -519,7 +519,7 @@ services:
       - ./data/console:/tmp
     environment:
       - TZ=Asia/Shanghai
-      - JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false -Xms256m -Xmx256m -XX:+UseG1GC
+      - JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false -Xms256m -Xmx256m
     depends_on:
       - rocketmq-namesrv
 ```
