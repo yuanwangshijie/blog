@@ -461,6 +461,30 @@ services:
       - UMASK=022
 ```
 
+### emqx(mqtt 消息服务器)
+
+[镜像地址](https://dhcdn.qiang.uk/r/emqx/emqx) | [教程地址](https://blog.csdn.net/apple_74262176/article/details/143093752)
+
+```yaml
+services:
+  emqx:
+    image: emqx/emqx:5.8
+    container_name: emqx
+    restart: unless-stopped
+    ports:
+      - 1883:1883
+      - 8083:8083
+      - 8084:8084
+      - 8883:8883
+      - 18083:18083
+    volumes:
+      - ./data/etc:/opt/emqx/etc
+      - ./data/data:/opt/emqx/data
+      - ./data/log:/opt/emqx/log
+    environment:
+      - TZ=Asia/Shanghai
+```
+
 ### rocketmq(单机部署)
 
 [镜像地址](https://hub.docker.com/r/rocketmqinc/rocketmq) | [教程地址](https://www.jianshu.com/p/9ed30a99a50a) | [配置文件解释](https://blog.csdn.net/weixin_44606481/article/details/129780540)  
