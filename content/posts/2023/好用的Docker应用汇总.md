@@ -463,7 +463,8 @@ services:
 
 ### emqx(mqtt 消息服务器)
 
-[镜像地址](https://dhcdn.qiang.uk/r/emqx/emqx) | [教程地址](https://blog.csdn.net/apple_74262176/article/details/143093752)
+[镜像地址](https://dhcdn.qiang.uk/r/emqx/emqx) | [教程地址](https://blog.csdn.net/apple_74262176/article/details/143093752)  
+部署前先在主机创建 `etc`、`data`、`log`，然后临时启动一个容器，把容器内对应的目录拷贝到主机，详细步骤可以看教程。
 
 ```yaml
 services:
@@ -488,7 +489,7 @@ services:
 ### rocketmq(单机部署)
 
 [镜像地址](https://hub.docker.com/r/rocketmqinc/rocketmq) | [教程地址](https://www.jianshu.com/p/9ed30a99a50a) | [配置文件解释](https://blog.csdn.net/weixin_44606481/article/details/129780540)  
-部署需要前先创建 `./config/broker.conf` 文件，下面有示例。
+部署前先创建 `./config/broker.conf` 文件，下面有示例。
 
 ```yaml
 services:
