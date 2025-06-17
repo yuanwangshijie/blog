@@ -12,7 +12,7 @@ weight: 1
 
 - 系统 `Ubuntu` 已开启 `BBR加速` [BBR 加速开启脚本](https://blog.ylx.me/archives/783.html)
 - 安装 `docker` 和 `docker-compose`最新版本 [教程地址](https://www.runoob.com/docker/ubuntu-docker-install.html)
-- 国内用户搭配镜像加速食用更佳 `https://docker.1v1.uk`
+- 国内用户搭配镜像加速食用更佳 `https://dhcdn.qiang.uk`
 
 ## 二、应用汇总
 
@@ -23,7 +23,7 @@ weight: 1
 ```yaml
 services:
   zerotier:
-    image: zerotier/zerotier
+    image: zerotier/zerotier:1.14.2
     container_name: zerotier
     restart: unless-stopped
     privileged: true
@@ -48,7 +48,7 @@ services:
 ```yaml
 services:
   wg-easy:
-    image: ghcr.nju.edu.cn/wg-easy/wg-easy
+    image: ghcr.nju.edu.cn/wg-easy/wg-easy:15
     container_name: wg-easy
     restart: unless-stopped
     ports:
@@ -76,12 +76,12 @@ services:
 ### MT-insightface(人脸识别 API)
 
 [镜像地址](https://hub.docker.com/r/devfox101/mt-photos-insightface-unofficial) | [教程地址](https://mtmt.tech/docs/advanced/insightface_api/)  
-这里用了 `MT Photos` 的打包好的人脸识别 API, 教程地址里有国内镜像
+这里用了 `MT Photos` 的打包好的人脸识别 API, 教程地址里有国内镜像。
 
 ```yaml
 services:
   face:
-    image: devfox101/mt-photos-insightface-unofficial
+    image: devfox101/mt-photos-insightface-unofficial:latest
     container_name: face
     restart: unless-stopped
     ports:
@@ -97,7 +97,7 @@ services:
 ```yaml
 services:
   watchtower:
-    image: containrrr/watchtower
+    image: containrrr/watchtower:latest
     container_name: watchtower
     restart: unless-stopped
     network_mode: host
@@ -110,12 +110,12 @@ services:
 ### nginx-web-ui
 
 [镜像地址](https://hub.docker.com/r/cym1102/nginxwebui) | [教程地址](https://www.nginxwebui.cn/product.html)  
-首次登录需要初始化管理员账号密码。
+首次登录初始化管理员账号密码。
 
 ```yaml
 services:
   nginx-web-ui:
-    image: cym1102/nginxwebui
+    image: cym1102/nginxwebui:4.3.0
     container_name: nginx-web-ui
     restart: unless-stopped
     privileged: true
@@ -131,12 +131,12 @@ services:
 ### portainer-ce 汉化版
 
 [镜像地址](https://hub.docker.com/r/6053537/portainer-ce) | [教程地址](https://imnks.com/3406.html)  
-首次登录初始化管理员账号密码
+首次登录初始化管理员账号密码。
 
 ```yaml
 services:
   portainer-ce:
-    image: 6053537/portainer-ce
+    image: 6053537/portainer-ce:2.21.4
     container_name: portainer-ce
     restart: unless-stopped
     ports:
@@ -155,7 +155,7 @@ services:
 ```yaml
 services:
   gitea:
-    image: gitea/gitea
+    image: gitea/gitea:1.24
     container_name: gitea
     restart: unless-stopped
     ports:
@@ -175,7 +175,7 @@ services:
 ```yaml
 services:
   gogs:
-    image: gogs/gogs
+    image: gogs/gogs:0.13
     container_name: gogs
     restart: unless-stopped
     ports:
@@ -189,12 +189,12 @@ services:
 ### x-ui
 
 [镜像地址](https://hub.docker.com/r/enwaiax/x-ui) | [教程地址](https://hub.docker.com/r/enwaiax/x-ui)  
-默认账号密码: `admin`/`admin`
+默认账号密码: `admin`/`admin` 。
 
 ```yaml
 services:
   x-ui:
-    image: enwaiax/x-ui
+    image: enwaiax/x-ui:latest
     container_name: x-ui
     restart: unless-stopped
     ports:
@@ -261,7 +261,7 @@ services:
 ```yaml
 services:
   mysql:
-    image: mysql:lts
+    image: mysql:8.4.5
     container_name: mysql
     restart: unless-stopped
     ports:
@@ -324,7 +324,7 @@ services:
 ```yaml
 services:
   mongo:
-    image: mongo
+    image: mongo:8.0.10
     container_name: mongo
     restart: unless-stopped
     ports:
@@ -340,12 +340,12 @@ services:
 ### redis
 
 [镜像地址](https://hub.docker.com/_/redis) | [教程地址](https://www.jianshu.com/p/094078ef4347)  
-部署前先创建 `./config/redis.conf` 文件，文件内容参考下方。
+启动前先创建 `./config/redis.conf` 文件，文件内容参考下方。
 
 ```yaml
 services:
   redis:
-    image: redis
+    image: redis:8.0.2
     container_name: redis
     restart: unless-stopped
     ports:
@@ -391,9 +391,9 @@ logfile "redis.log"
 
 ```yaml
 services:
-  httpd1:
-    image: httpd
-    container_name: httpd1
+  httpd:
+    image: httpd:2.4.63
+    container_name: httpd
     restart: unless-stopped
     ports:
       - 8080:80
@@ -410,7 +410,7 @@ services:
 ```yaml
 services:
   frps:
-    image: snowdreamtech/frps
+    image: snowdreamtech/frps:0.62.1
     container_name: frps
     restart: unless-stopped
     network_mode: host
@@ -427,7 +427,7 @@ services:
 ```yaml
 services:
   frpc:
-    image: snowdreamtech/frpc
+    image: snowdreamtech/frpc:0.62.1
     container_name: frpc
     restart: unless-stopped
     network_mode: host
@@ -440,12 +440,12 @@ services:
 ### alist(预装 aria2)
 
 [镜像地址](https://hub.docker.com/r/xhofe/alist-aria2) | [教程地址](https://alist.nn.ci/zh/guide/install/docker.html)  
-获取初始账号密码: 在宿主机执行 `docker exec -it 容器ID bash` 进入容器, 执行 `./alist admin set your-password` 手动设置密码
+获取初始账号密码: 在宿主机执行 `docker exec -it 容器ID bash` 进入容器, 执行 `./alist admin set your-password` 手动设置密码。
 
 ```yaml
 services:
   alist:
-    image: xhofe/alist-aria2
+    image: xhofe/alist-aria2:v3.41.0
     container_name: alist
     restart: unless-stopped
     ports:
@@ -464,12 +464,12 @@ services:
 ### emqx(mqtt 消息服务器)
 
 [镜像地址](https://dhcdn.qiang.uk/r/emqx/emqx) | [教程地址](https://blog.csdn.net/apple_74262176/article/details/143093752)  
-部署前先在主机创建 `etc`、`data`、`log`，然后临时启动一个容器，把容器内对应的目录拷贝到主机，详细步骤可以看教程。
+启动前先在主机创建 `etc`、`data`、`log`，然后临时启动一个容器，把容器内对应的目录拷贝到主机，详细步骤可以看教程。
 
 ```yaml
 services:
   emqx:
-    image: emqx/emqx:5.8
+    image: emqx/emqx:5.8.6
     container_name: emqx
     restart: unless-stopped
     ports:
@@ -488,13 +488,13 @@ services:
 
 ### rocketmq(单机部署)
 
-[镜像地址](https://hub.docker.com/r/rocketmqinc/rocketmq) | [教程地址](https://www.jianshu.com/p/9ed30a99a50a) | [配置文件解释](https://blog.csdn.net/weixin_44606481/article/details/129780540)  
-部署前先创建 `./config/broker.conf` 文件，下面有示例。
+[镜像地址](https://hub.docker.com/r/rocketmqinc/rocketmq) | [教程地址](https://rocketmq.apache.org/zh/docs/quickStart/03quickstartWithDockercompose/) | [配置文件解释](https://blog.csdn.net/weixin_44606481/article/details/129780540)  
+启动前先配置 `./config/broker.conf` 文件，下面有示例。
 
 ```yaml
 services:
   rocketmq-namesrv:
-    image: rocketmqinc/rocketmq
+    image: rocketmqinc/rocketmq:4.4.0
     container_name: rocketmq-namesrv
     restart: unless-stopped
     ports:
@@ -508,7 +508,7 @@ services:
     command: ["sh", "mqnamesrv"]
 
   rocketmq-broker:
-    image: rocketmqinc/rocketmq
+    image: rocketmqinc/rocketmq:4.4.0
     container_name: rocketmq-broker
     restart: unless-stopped
     ports:
@@ -535,7 +535,7 @@ services:
       - rocketmq-namesrv
 
   rocketmq-console:
-    image: styletang/rocketmq-console-ng
+    image: styletang/rocketmq-console-ng:1.0.0
     container_name: rocketmq-console
     restart: unless-stopped
     ports:
@@ -576,12 +576,13 @@ autoCreateSubscriptionGroup = true
 
 ### verdaccio(npm 私服)
 
-[镜像地址](https://hub.docker.com/r/verdaccio/verdaccio) | [教程地址](https://blog.csdn.net/jxy139/article/details/129198445)
+[镜像地址](https://hub.docker.com/r/verdaccio/verdaccio) | [教程地址](https://blog.csdn.net/jxy139/article/details/129198445)  
+启动前先配置 `./data/conf/config.yaml` 文件，配置内容看教程示例。
 
 ```yaml
 services:
   verdaccio:
-    image: verdaccio/verdaccio
+    image: verdaccio/verdaccio:6.1.3
     container_name: verdaccio
     restart: unless-stopped
     ports:
@@ -598,12 +599,13 @@ services:
 
 ### nexus(maven 私服)
 
-[镜像地址](https://hub.docker.com/r/sonatype/nexus3) | [教程地址](https://blog.csdn.net/qiaohao0206/article/details/125471721)
+[镜像地址](https://hub.docker.com/r/sonatype/nexus3) | [教程地址](https://blog.csdn.net/qiaohao0206/article/details/125471721)  
+启动前先创建 `./data` 目录，并设置目录权限为 `777` 。
 
 ```yaml
 services:
   nexus:
-    image: sonatype/nexus3
+    image: sonatype/nexus3:3.81.1
     container_name: nexus
     restart: unless-stopped
     ports:
@@ -617,7 +619,7 @@ services:
 ### nacos
 
 [镜像地址](https://hub.docker.com/r/nacos/nacos-server) | [官方文档](https://nacos.io/zh-cn/docs/quick-start-docker.html) | [数据库初始化](https://github.com/alibaba/nacos/blob/2bb7193d1b311ec04c844b61612d6a151013ae88/config/src/main/resources/META-INF/mysql-schema.sql) | [教程地址](https://www.cnblogs.com/studyjobs/p/18014237)  
-默认的账号和密码都是 `nacos`
+启动前需要初始化数据库，默认的账号和密码都是 `nacos` 。
 
 ```yaml
 services:
@@ -663,7 +665,7 @@ services:
 ```yaml
 services:
   vsftpd:
-    image: fauria/vsftpd
+    image: fauria/vsftpd:latest
     container_name: vsftpd
     restart: unless-stopped
     ports:
@@ -684,12 +686,12 @@ services:
 ### code-server(网页版 vscode)
 
 [镜像地址](https://hub.docker.com/r/codercom/code-server) | [GitHub 地址](https://github.com/coder/code-server)  
-启动前先创建 `./data` 目录，并设置目录权限为 `777`
+启动前先创建 `./data` 目录，并设置目录权限为 `777` 。
 
 ```yaml
 services:
   code-server:
-    image: codercom/code-server
+    image: codercom/code-server:4.100.3
     container_name: code-server
     restart: unless-stopped
     ports:
@@ -711,7 +713,7 @@ services:
 ```yaml
 services:
   samba:
-    image: dperson/samba
+    image: dperson/samba:latest
     container_name: samba
     restart: unless-stopped
     ports:
@@ -750,8 +752,7 @@ services:
 ### lsky-pro(兰空图床)
 
 [镜像地址](https://hub.docker.com/r/halcyonazure/lsky-pro-docker) | [GitHub 地址](https://github.com/HalcyonAzure/lsky-pro-docker)  
-如果使用 https 访问，出现页面或图片加载问题，就执行下面的命令。  
-Tips：将 `lsky-pro` 改为自己容器的名字
+如果使用 https 访问，出现页面或图片加载问题，就执行下面的命令，注意将 `lsky-pro` 改为自己容器的名字。
 
 ```
 docker exec -it lsky-pro sed -i '32 a \\\Illuminate\\Support\\Facades\\URL::forceScheme('"'"'https'"'"');' /var/www/html/app/Providers/AppServiceProvider.php
