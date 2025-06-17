@@ -109,8 +109,7 @@ services:
 
 ### nginx-web-ui
 
-[镜像地址](https://hub.docker.com/r/cym1102/nginxwebui) | [教程地址](https://www.nginxwebui.cn/product.html)  
-首次登录初始化管理员账号密码。
+[镜像地址](https://hub.docker.com/r/cym1102/nginxwebui) | [教程地址](https://www.nginxwebui.cn/product.html)
 
 ```yaml
 services:
@@ -130,8 +129,7 @@ services:
 
 ### portainer-ce 汉化版
 
-[镜像地址](https://hub.docker.com/r/6053537/portainer-ce) | [教程地址](https://imnks.com/3406.html)  
-首次登录初始化管理员账号密码。
+[镜像地址](https://hub.docker.com/r/6053537/portainer-ce) | [教程地址](https://imnks.com/3406.html)
 
 ```yaml
 services:
@@ -733,7 +731,7 @@ services:
 ```yaml
 services:
   lychee:
-    image: lycheeorg/lychee
+    image: lycheeorg/lychee:v6.6.9
     container_name: lychee
     restart: unless-stopped
     ports:
@@ -761,7 +759,7 @@ docker exec -it lsky-pro sed -i '32 a \\\Illuminate\\Support\\Facades\\URL::forc
 ```yaml
 services:
   lsky-pro:
-    image: halcyonazure/lsky-pro-docker
+    image: halcyonazure/lsky-pro-docker:latest
     container_name: lsky-pro
     restart: unless-stopped
     ports:
@@ -780,7 +778,7 @@ services:
 ```yaml
 services:
   easyimage:
-    image: ddsderek/easyimage
+    image: ddsderek/easyimage:v2.8.6
     container_name: easyimage
     restart: unless-stopped
     ports:
@@ -803,7 +801,7 @@ services:
 ```yaml
 services:
   draw:
-    image: jgraph/drawio
+    image: jgraph/drawio:latest
     container_name: draw
     restart: unless-stopped
     ports:
@@ -819,7 +817,7 @@ services:
 ```yaml
 services:
   voce-chat:
-    image: privoce/vocechat-server
+    image: privoce/vocechat-server:v0.4.3
     container_name: voce-chat
     restart: unless-stopped
     ports:
@@ -837,7 +835,7 @@ services:
 ```yaml
 services:
   uptime-kuma:
-    image: louislam/uptime-kuma
+    image: louislam/uptime-kuma:1.23.16
     container_name: uptime-kuma
     restart: unless-stopped
     ports:
@@ -854,9 +852,9 @@ services:
 
 ```yaml
 services:
-  docker-registry:
-    image: registry
-    container_name: docker-registry
+  registry:
+    image: registry:3.0.0
+    container_name: registry
     restart: unless-stopped
     ports:
       - 5000:5000
@@ -868,13 +866,13 @@ services:
 
 ### rustdesk-server(RustDesk 远程桌面服务端)
 
-[镜像地址](https://hub.docker.com/r/rustdesk/rustdesk-server) | [GitHub 地址](https://github.com/rustdesk/rustdesk-server#docker-images) | [教程地址](https://www.hcjike.com/archives/GyeSDHJT)  
-部署完成后，查看 `./data/id_ed25519.pub` 文件获取公钥，用于客户端填写服务器的 `key`。
+[镜像地址](https://hub.docker.com/r/rustdesk/rustdesk-server-s6) | [GitHub 地址](https://github.com/rustdesk/rustdesk-server#docker-images) | [教程地址](https://www.hcjike.com/archives/GyeSDHJT)  
+启动后查看 `./data/id_ed25519.pub` 文件获取公钥，用于客户端填写服务器的 `key`。
 
 ```yaml
 services:
   rustdesk-server:
-    image: rustdesk/rustdesk-server-s6
+    image: rustdesk/rustdesk-server-s6:1.1.14
     container_name: rustdesk-server
     restart: unless-stopped
     ports:
@@ -897,7 +895,7 @@ services:
 ```yaml
 services:
   dosgame:
-    image: oldiy/dosgame-web-docker
+    image: oldiy/dosgame-web-docker:latest
     container_name: dosgame
     restart: unless-stopped
     ports:
@@ -914,7 +912,7 @@ Nginx 代理路径注意事项：`/` 不要配置 `websocket`，`/k8s-ws/` 需�
 ```yaml
 services:
   kuboard:
-    image: eipwork/kuboard:v3
+    image: eipwork/kuboard:v3.5.2.7
     container_name: kuboard
     restart: unless-stopped
     ports:
@@ -935,30 +933,12 @@ services:
 ```yaml
 services:
   kubepi:
-    image: 1panel/kubepi
+    image: 1panel/kubepi:latest
     container_name: kubepi
     restart: unless-stopped
     privileged: true
     ports:
       - 8080:80
-    environment:
-      - TZ=Asia/Shanghai
-```
-
-### rainbond(云原生平台)
-
-[教程地址](https://www.rainbond.com/docs/installation/install-with-ui/)
-
-```yaml
-services:
-  rainbond:
-    image: registry.cn-hangzhou.aliyuncs.com/goodrain/rainbond:v5.15.0-release-allinone
-    container_name: rainbond
-    restart: unless-stopped
-    network_mode: host
-    volumes:
-      - ./.ssh:/root/.ssh
-      - ./data:/app/data
     environment:
       - TZ=Asia/Shanghai
 ```
@@ -970,7 +950,7 @@ services:
 ```yaml
 services:
   hideipnetwork-web:
-    image: stilleshan/hideipnetwork-web
+    image: stilleshan/hideipnetwork-web:latest
     container_name: hideipnetwork-web
     restart: unless-stopped
     ports:
@@ -986,7 +966,7 @@ services:
 ```yaml
 services:
   memos:
-    image: neosmemo/memos
+    image: neosmemo/memos:0.24.0
     container_name: memos
     restart: unless-stopped
     ports:
@@ -1004,10 +984,10 @@ services:
 ```yaml
 services:
   neko:
-    image: m1k1o/neko:firefox
+    image: m1k1o/neko:chromium
     container_name: neko
-    restart: "unless-stopped"
-    shm_size: "2gb"
+    restart: unless-stopped
+    shm_size: 2gb
     ports:
       - 8080:8080
       - 52000-52100:52000-52100/udp
@@ -1015,9 +995,9 @@ services:
       - SYS_ADMIN
     environment:
       - TZ=Asia/Shanghai
-      - NEKO_SCREEN='1920x1080@60' # 默认画质
-      - NEKO_PASSWORD=<site_password> # 普通用户访问密码
-      - NEKO_PASSWORD_ADMIN=<site_admin_password> # 管理员访问密码
+      - NEKO_SCREEN=1920x1080@60
+      - NEKO_PASSWORD=<site_password>
+      - NEKO_PASSWORD_ADMIN=<site_admin_password>
       - NEKO_EPR=52000-52100
       - NEKO_NAT1TO1=127.0.0.1
       - NEKO_FILE_TRANSFER_ENABLED=true
@@ -1030,7 +1010,7 @@ services:
 ```yaml
 services:
   lobe-chat:
-    image: lobehub/lobe-chat
+    image: lobehub/lobe-chat:latest
     container_name: lobe-chat
     restart: unless-stopped
     ports:
@@ -1052,7 +1032,7 @@ services:
 ```yaml
 services:
   chatgpt:
-    image: yidadaa/chatgpt-next-web
+    image: yidadaa/chatgpt-next-web:latest
     container_name: chatgpt
     restart: unless-stopped
     ports:
@@ -1072,7 +1052,7 @@ services:
 ```yaml
 services:
   pair-drop:
-    image: linuxserver/pairdrop
+    image: linuxserver/pairdrop:latest
     container_name: pair-drop
     restart: unless-stopped
     ports:
@@ -1094,7 +1074,7 @@ services:
 ```yaml
 services:
   it-tools:
-    image: corentinth/it-tools
+    image: corentinth/it-tools:latest
     container_name: it-tools
     restart: unless-stopped
     ports:
@@ -1110,7 +1090,7 @@ services:
 ```yaml
 services:
   file-code-box:
-    image: lanol/filecodebox:beta
+    image: lanol/filecodebox:latest
     container_name: file-code-box
     restart: unless-stopped
     ports:
@@ -1128,7 +1108,7 @@ services:
 ```yaml
 services:
   briefing:
-    image: holtwick/briefing
+    image: holtwick/briefing:latest
     container_name: briefing
     restart: unless-stopped
     ports:
@@ -1144,7 +1124,7 @@ services:
 ```yaml
 services:
   emby:
-    image: amilys/embyserver
+    image: amilys/embyserver:latest
     container_name: emby
     restart: unless-stopped
     privileged: true
@@ -1168,7 +1148,7 @@ services:
 ```yaml
 services:
   plex:
-    image: linuxserver/plex
+    image: linuxserver/plex:latest
     container_name: plex
     restart: unless-stopped
     network_mode: host
@@ -1193,11 +1173,11 @@ services:
 ```yaml
 services:
   stash:
-    image: stashapp/stash
+    image: stashapp/stash:latest
     container_name: stash
     restart: unless-stopped
     ports:
-      - "9999:9999"
+      - 9999:9999
     volumes:
       - ./data/config:/root/.stash
       - ./data/generated:/generated
@@ -1225,7 +1205,7 @@ services:
 ```yaml
 services:
   transmission:
-    image: linuxserver/transmission
+    image: linuxserver/transmission:2.94-r3-ls53
     container_name: transmission
     restart: unless-stopped
     ports:
@@ -1251,7 +1231,7 @@ services:
 ```yaml
 services:
   showdoc:
-    image: star7th/showdoc
+    image: star7th/showdoc:latest
     container_name: showdoc
     restart: unless-stopped
     privileged: true
@@ -1272,7 +1252,7 @@ services:
 ```yaml
 services:
   odoo:
-    image: odoo
+    image: odoo:17.0
     container_name: odoo
     restart: unless-stopped
     ports:
@@ -1296,7 +1276,7 @@ services:
 ```yaml
 services:
   onlyoffice-server:
-    image: onlyoffice/documentserver
+    image: onlyoffice/documentserver:latest
     container_name: onlyoffice-server
     restart: unless-stopped
     ports:
@@ -1313,7 +1293,7 @@ services:
 ```yaml
 services:
   nextcloud:
-    image: nextcloud
+    image: nextcloud:latest
     container_name: nextcloud
     restart: unless-stopped
     ports:
@@ -1336,7 +1316,7 @@ services:
 ```yaml
 services:
   kodbox:
-    image: kodcloud/kodbox
+    image: kodcloud/kodbox:latest
     container_name: kodbox
     restart: unless-stopped
     ports:
@@ -1350,12 +1330,12 @@ services:
 ### yourls(短链接工具)
 
 [镜像地址](https://hub.docker.com/_/yourls) | [GitHub 地址](https://github.com/YOURLS/YOURLS)  
-首次登录需要初始化数据库，管理面板地址：`http://<your_site_ip>:8080/admin/`
+管理面板地址：`http://<your_site_ip>:8080/admin/`
 
 ```yaml
 services:
   yourls:
-    image: yourls
+    image: yourls:latest
     container_name: yourls
     restart: unless-stopped
     ports:
@@ -1379,7 +1359,7 @@ services:
 ```yaml
 services:
   mattermost:
-    image: mattermost/mattermost-team-edition
+    image: mattermost/mattermost-team-edition:latest
     container_name: mattermost
     restart: unless-stopped
     read_only: false
@@ -1412,7 +1392,7 @@ services:
 ```yaml
 services:
   rocket-chat:
-    image: rocket.chat
+    image: rocket.chat:latest
     container_name: rocket-chat
     restart: unless-stopped
     ports:
@@ -1428,92 +1408,19 @@ services:
 
 ### nezha(哪吒监控-面板)
 
-[镜像地址](https://github.com/naiba/nezha/pkgs/container/nezha-dashboard) | [官方文档](https://nezha.wiki/guide/dashboard.html) | [GitHub 地址](https://github.com/naiba/nezha) | [官方 config.yaml](https://github.com/naiba/nezha/blob/master/script/config.yaml)
-
-> 推荐使用官方的一键脚本部署。  
-> 这里是给~~像我一样~~有 docker 部署洁癖的人参考的。
-
-- 部署前根据官方文档获取 `Oauth2` 登录配置。
-- 根据官方的 `config.yaml` 示例或下方我提供的示例，创建 `./data/config.yaml` 文件。
-- 修改文件里 `Oauth2` 登录相关的配置，然后就可以部署了。
-- 成功部署后，剩下的配置可以在面板的管理后台慢慢配置。
+[官方文档](https://nezha.wiki/guide/dashboard.html) | [GitHub 地址](https://github.com/naiba/nezha) | [教程地址](https://emohe.cn/posts/10/)  
+后台路径 `/dashboard` 默认用户名密码 `admin/admin` 。
 
 ```yaml
 services:
   nezha:
-    image: ghcr.nju.edu.cn/naiba/nezha-dashboard
+    image: ghcr.nju.edu.cn/nezhahq/nezha:latest
     container_name: nezha
     restart: unless-stopped
     ports:
-      - 8008:80
-      - 5555:5555
+      - 8008:8008
     volumes:
       - ./data:/dashboard/data
-```
-
-下方是我的 `./data/config.yaml` 文件，请自行按需修改。
-
-```
-AvgPingCount: 2
-Cover: 0
-DDNS:
-  AccessID: ""
-  AccessSecret: ""
-  Enable: false
-  MaxRetries: 3
-  Profiles:
-    example:
-      AccessID: ""
-      AccessSecret: ""
-      Provider: ""
-      WebhookHeaders: ""
-      WebhookMethod: ""
-      WebhookRequestBody: ""
-      WebhookURL: ""
-  Provider: webhook
-  WebhookHeaders: ""
-  WebhookMethod: ""
-  WebhookRequestBody: ""
-  WebhookURL: ""
-Debug: false
-DisableSwitchTemplateInFrontend: false
-EnableIPChangeNotification: false
-EnablePlainIPInNotification: false
-GRPCHost: nezha.example.com # 面板所在的服务器域名或ip
-GRPCPort: 5555 # 容器内面板和Agent通信的端口
-HTTPPort: 80 # 容器内面板的端口
-IPChangeNotificationTag: default
-IgnoredIPNotification: ""
-IgnoredIPNotificationServerIDs: {}
-Language: zh-CN
-Location: Asia/Shanghai
-MaxTCPPingValue: 1000
-Oauth2:
-  Admin: username # 管理员列表，半角逗号隔开，这里填写github的用户名
-  AdminGroups: ""
-  ClientID: ***************** # 根据官方文档里的教程获取
-  ClientSecret: ************************* # 根据官方文档里的教程获取
-  Endpoint: "" # 如gitea自建需要设置
-  OidcAutoCreate: false
-  OidcAutoLogin: false
-  OidcDisplayName: OIDC
-  OidcGroupClaim: groups
-  OidcIssuer: ""
-  OidcLoginClaim: sub
-  OidcLogoutURL: ""
-  OidcRegisterURL: ""
-  OidcScopes: openid,profile,email
-  Type: github # Oauth2 登录接入类型，github/gitlab/jihulab/gitee/gitea
-ProxyGRPCPort: 0
-Site:
-  Brand: 哪吒监控 # 站点名称
-  CookieName: nezha-dashboard # 浏览器 Cookie 字段名，可不改
-  CustomCode: ""
-  CustomCodeDashboard: ""
-  DashboardTheme: default
-  Theme: default
-  ViewPassword: ""
-TLS: false
 ```
 
 ### trilium(在线笔记)
@@ -1523,7 +1430,7 @@ TLS: false
 ```yaml
 services:
   trilium-cn:
-    image: nriver/trilium-cn
+    image: nriver/trilium-cn:0.63.7
     container_name: trilium-cn
     restart: unless-stopped
     ports:
@@ -1542,7 +1449,7 @@ services:
 ```yaml
 services:
   n8n:
-    image: n8nio/n8n
+    image: n8nio/n8n:latest
     container_name: n8n
     restart: unless-stopped
     ports:
