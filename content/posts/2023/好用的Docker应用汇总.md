@@ -1409,7 +1409,7 @@ services:
 ### nezha(哪吒监控-面板)
 
 [官方文档](https://nezha.wiki/guide/dashboard.html) | [GitHub 地址](https://github.com/naiba/nezha) | [教程地址](https://emohe.cn/posts/10/)  
-后台路径 `/dashboard` 默认用户名密码 `admin/admin` 。
+后台路径 `/dashboard` ，默认账号密码 `admin/admin` 。
 
 ```yaml
 services:
