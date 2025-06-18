@@ -1108,7 +1108,7 @@ services:
 ```yaml
 services:
   briefing:
-    image: holtwick/briefing:latest
+    image: holtwick/briefing:3.1.10
     container_name: briefing
     restart: unless-stopped
     ports:
