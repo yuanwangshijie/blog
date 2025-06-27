@@ -702,6 +702,8 @@ services:
       - PGID=0
       - PASSWORD=<site_password>
       - SUDO_PASSWORD=<sudo_password>
+      # - HTTP_PROXY=http://<ip>:<port>
+      # - HTTPS_PROXY=http://<ip>:<port>
 ```
 
 ### samba(samba 服务器)
