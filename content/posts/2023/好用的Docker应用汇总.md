@@ -1465,3 +1465,35 @@ services:
       - WEBHOOK_URL=https://n8n.example.com/
       - N8N_SECURE_COOKIE=false
 ```
+
+### openai-edge-tts(文本转语音)
+
+[镜像地址](https://hub.docker.com/r/travisvn/openai-edge-tts) | [GitHub 地址](https://github.com/travisvn/openai-edge-tts) | [模型列表](https://tts.travisvn.com/)
+
+```yaml
+services:
+  openai-edge-tts:
+    image: travisvn/openai-edge-tts:latest
+    container_name: openai-edge-tts
+    restart: unless-stopped
+    ports:
+      - 5050:5050
+    environment:
+      - TZ=Asia/Shanghai
+      - PORT=5050
+      - API_KEY=<your_api_key>
+```
+
+调用示例，需要替换 `your_api_key` 。
+
+```
+curl -X POST http://localhost:5050/v1/audio/speech \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer your_api_key" \
+  -d '{
+    "model": "tts-1",
+    "input": "远望世界，你好。",
+    "voice": "zh-CN-XiaoxiaoNeural"
+  }' \
+  --output speech.mp3
+```
