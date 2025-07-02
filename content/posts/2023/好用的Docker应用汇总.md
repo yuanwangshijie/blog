@@ -1492,7 +1492,7 @@ curl -X POST http://localhost:5050/v1/audio/speech \
   -H "Authorization: Bearer your_api_key" \
   -d '{
     "model": "tts-1",
-    "input": "远望世界，你好。",
+    "input": "你好，远望世界。",
     "voice": "zh-CN-XiaoxiaoNeural"
   }' \
   --output speech.mp3
