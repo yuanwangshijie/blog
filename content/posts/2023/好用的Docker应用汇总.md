@@ -1498,3 +1498,23 @@ curl -X POST http://localhost:5050/v1/audio/speech \
   }' \
   --output speech.mp3
 ```
+
+### teamspeak(团队语音服务端)
+
+[镜像地址](https://hub.docker.com/_/teamspeak) | [教程地址](https://www.cnblogs.com/Yogile/p/17632826.html) | [客户端下载](https://www.teamspeak.com/zh-CN/downloads/#ts3client) | [汉化包下载](https://github.com/VigorousPro/TS3-Translation_zh-CN/releases)
+
+```yaml
+services:
+  teamspeak:
+    image: teamspeak:3.13.7
+    container_name: teamspeak
+    restart: unless-stopped
+    ports:
+      - 9987:9987/udp
+      - 30033:30033
+    volumes:
+      - ./data:/var/ts3server
+    environment:
+      - TZ=Asia/Shanghai
+      - TS3SERVER_LICENSE=accept
+```
