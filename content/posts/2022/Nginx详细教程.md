@@ -16,11 +16,11 @@ tags: ["Nginx"]
 
 **服务器搭建集群后**
 
-![](https://minio.qiang.uk/static/2023/05/15/7179424959c8ad4167cf68d69bbd4ea5.png)
+![](https://minio.qiang.uk/blog/20250714/1944699257205862402.png)
 
 **在搭建集群后，使用 Nginx 做反向代理**
 
-![](https://minio.qiang.uk/static/2023/05/15/117f0fde1b4510eb26482d28f197cd58.png)
+![](https://minio.qiang.uk/blog/20250714/1944699373438414849.png)
 
 ### 1.2 Nginx 介绍
 
@@ -204,7 +204,7 @@ docker-compose restart
 > 2. 客户端了解代理服务器和目标服务器都是谁
 > 3. 帮助咱们实现突破访问权限，提高访问的速度，对目标服务器隐藏客户端的 ip 地址
 
-![](https://minio.qiang.uk/static/2023/05/15/6345c4de022284687b194f721190746e.png)
+![](https://minio.qiang.uk/blog/20250714/1944699454115852289.png)
 
 > 反向代理：
 >
@@ -212,7 +212,7 @@ docker-compose restart
 > 2.  客户端不知道访问的到底是哪一台服务器
 > 3.  达到负载均衡，并且可以隐藏服务器真正的 ip 地址
 
-![](https://minio.qiang.uk/static/2023/05/15/21117a693cfa213840e7e732a134ce54.png)
+![](https://minio.qiang.uk/blog/20250714/1944699555743838209.png)
 
 ### 3.2 基于 Nginx 实现反向代理
 
@@ -462,7 +462,7 @@ docker-compose restart
 > - 准备 keepalived，监听 nginx 的健康情况
 > - 准备 haproxy，提供一个虚拟的路径，统一的去接收用户的请求
 
-![](https://minio.qiang.uk/static/2023/05/15/c06f3f566b0fa3ced92316763989e951.png)
+![](https://minio.qiang.uk/blog/20250714/1944698860789608449.png)
 
 ### 6.2 搭建
 

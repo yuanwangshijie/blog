@@ -12,7 +12,7 @@ tags: ["MybatisPlus"]
 
 queryWrapper 是 mybatis plus 中实现查询的对象封装操作类，他的层级关系如下
 
-![](https://minio.qiang.uk/static/2023/05/15/cad3b32290a0e3ddb3333e0446a9236b.png)
+![](https://minio.qiang.uk/blog/20250714/1944699151924637698.png)
 
 在上面的图片中<br>
 **Wrapper** ：条件构造抽象类，最顶端父类，抽象类中提供 4 个方法西面贴源码展示<br>
@@ -101,7 +101,7 @@ public interface IPbListBlackMapper extends BaseMapper<PbListBlack> {
 
 ## 三、QueryWrapper 的方法
 
-![](https://minio.qiang.uk/static/2023/05/15/aebc887412db817d00f9e2a6b0550a30.png)
+![](https://minio.qiang.uk/blog/20250714/1944698704077828097.png)
 
 ## 四、总结
 
