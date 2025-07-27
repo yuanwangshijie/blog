@@ -52,8 +52,8 @@ services:
     container_name: wg-easy
     restart: unless-stopped
     ports:
-      - "51820:51820/udp"
-      - "51821:51821/tcp"
+      - 51820:51820/udp
+      - 51821:51821/tcp
     volumes:
       - ./data:/etc/wireguard
     cap_add:
