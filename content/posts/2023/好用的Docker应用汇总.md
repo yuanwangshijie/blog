@@ -435,28 +435,31 @@ services:
       - TZ=Asia/Shanghai
 ```
 
-### alist(预装 aria2)
+### openlist(集成 Aria2、qBittorrent、Caddy)
 
-[镜像地址](https://hub.docker.com/r/xhofe/alist-aria2) | [教程地址](https://alist.nn.ci/zh/guide/install/docker.html)  
-获取初始账号密码: 在宿主机执行 `docker exec -it 容器ID bash` 进入容器, 执行 `./alist admin set your-password` 手动设置密码。
+[GitHub 地址](https://github.com/huancun/Openlist-EX-container) | [参考配置](https://github.com/huancun/Openlist-EX-container/blob/main/docker-compose.yml)  
+执行 `docker logs openlist` 获取初始密码。
 
 ```yaml
 services:
-  alist:
-    image: xhofe/alist-aria2:v3.41.0
-    container_name: alist
+services:
+  openlist:
+    image: ghcr.io/huancun/openlist-ex-container:latest
+    container_name: openlist
     restart: unless-stopped
     ports:
-      - 5244:5244
-      - 6800:6800
+      - 5244:8080
     volumes:
-      - ./data:/opt/alist/data
-      - ./mydata:/mydata
+      - ./data:/data
     environment:
       - TZ=Asia/Shanghai
-      - PUID=0
-      - PGID=0
-      - UMASK=022
+      - CADDY_DOMAIN=http://<openlist_domain>
+      - CADDY_WEB_PORT=8080
+      - ARIA2_TOKEN=<aria2_token>
+      - ARIA2_TRACKER_UPDATE=enable
+      - OPENLIST_PORT=61600
+      - ARIA2_PORT=61601
+      - QBT_WEBUI_PORT=61602
 ```
 
 ### emqx(mqtt 消息服务器)
