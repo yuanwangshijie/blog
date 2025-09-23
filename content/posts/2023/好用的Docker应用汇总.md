@@ -1521,3 +1521,22 @@ services:
       - TZ=Asia/Shanghai
       - TS3SERVER_LICENSE=accept
 ```
+
+### xiaomusic(小爱音箱音乐播放)
+
+[镜像地址](https://hub.docker.com/r/hanxi/xiaomusic) | [GitHub 地址](https://github.com/hanxi/xiaomusic)
+
+```yaml
+services:
+  xiaomusic:
+    image: hanxi/xiaomusic
+    container_name: xiaomusic
+    restart: unless-stopped
+    ports:
+      - 58090:8090
+    volumes:
+      - ./data/xiaomusic_music:/app/music
+      - ./data/xiaomusic_conf:/app/conf
+    environment:
+      XIAOMUSIC_PUBLIC_PORT: 58090
+```
