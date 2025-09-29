@@ -259,7 +259,7 @@ services:
 ```yaml
 services:
   mysql:
-    image: mysql:8.4.5
+    image: mysql:8.0.43-debian
     container_name: mysql
     restart: unless-stopped
     ports:
