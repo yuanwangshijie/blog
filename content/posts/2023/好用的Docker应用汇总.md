@@ -442,7 +442,6 @@ services:
 
 ```yaml
 services:
-services:
   openlist:
     image: ghcr.io/huancun/openlist-ex-container:latest
     container_name: openlist
@@ -1529,7 +1528,7 @@ services:
 ```yaml
 services:
   xiaomusic:
-    image: hanxi/xiaomusic
+    image: hanxi/xiaomusic:latest
     container_name: xiaomusic
     restart: unless-stopped
     ports:
@@ -1539,4 +1538,23 @@ services:
       - ./data/xiaomusic_conf:/app/conf
     environment:
       XIAOMUSIC_PUBLIC_PORT: 58090
+```
+
+### FileCodeBox(文件快递柜)
+
+[GitHub 地址](https://github.com/vastsa/FileCodeBox) | [教程地址](https://fcb-docs.aiuo.net/)  
+后台管理路径：`http://<ip>:<port>/#/admin`，默认密码 `FileCodeBox2023`。
+
+```yaml
+services:
+  filecodebox:
+    image: lanol/filecodebox:latest
+    container_name: filecodebox
+    restart: unless-stopped
+    ports:
+      - 12345:12345
+    volumes:
+      - ./data:/app/data
+    environment:
+      - TZ=Asia/Shanghai
 ```
