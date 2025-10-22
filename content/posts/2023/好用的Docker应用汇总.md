@@ -1558,3 +1558,28 @@ services:
     environment:
       - TZ=Asia/Shanghai
 ```
+
+### v2raya(v2ray 客户端)
+
+[GitHub 地址](https://github.com/v2rayA/v2rayA) | [教程地址](https://v2raya.org/docs/prologue/installation/docker/)  
+管理面板路径：`http://<ip>:2017`。
+
+```yaml
+services:
+  v2raya:
+    image: mzz2017/v2raya
+    container_name: v2raya
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    volumes:
+      - ./data:/etc/v2raya
+      - /etc/resolv.conf:/etc/resolv.conf
+      - /lib/modules:/lib/modules:ro
+    environment:
+      - TZ=Asia/Shanghai
+      - V2RAYA_LOG_FILE=/tmp/v2raya.log
+      - V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray
+      - V2RAYA_NFTABLES_SUPPORT=off
+      - IPTABLES_MODE=legacy
+```
