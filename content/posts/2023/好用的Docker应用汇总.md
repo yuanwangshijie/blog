@@ -296,7 +296,8 @@ default-character-set=utf8mb4
 
 ### postgres(带有 pgvector 插件)
 
-[镜像地址](https://hub.docker.com/r/pgvector/pgvector) | [GitHub 地址](https://github.com/pgvector/pgvector) | [教程地址](https://www.itcto.cn/jc/docker/docker-compose-postgresql/)
+[镜像地址](https://hub.docker.com/r/pgvector/pgvector) | [GitHub 地址](https://github.com/pgvector/pgvector) | [教程地址](https://www.itcto.cn/jc/docker/docker-compose-postgresql/)  
+首次使用需要执行 `CREATE EXTENSION vector;` 启用 `vector` 插件。
 
 ```yaml
 services:
