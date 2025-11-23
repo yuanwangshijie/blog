@@ -1568,7 +1568,7 @@ services:
 ```yaml
 services:
   v2raya:
-    image: mzz2017/v2raya
+    image: mzz2017/v2raya:latest
     container_name: v2raya
     restart: unless-stopped
     privileged: true
