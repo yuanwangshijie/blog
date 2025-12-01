@@ -1584,3 +1584,17 @@ services:
       - V2RAYA_NFTABLES_SUPPORT=off
       - IPTABLES_MODE=legacy
 ```
+
+### file-transfer-go(webrtc 的文件传输/文字传输/桌面共享)
+
+[GitHub 地址](https://github.com/MatrixSeven/file-transfer-go) | [教程地址](https://transfer.52python.cn/help/)
+
+```yaml
+services:
+  transfer:
+    image: matrixseven/file-transfer-go:latest
+    container_name: transfer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+```
