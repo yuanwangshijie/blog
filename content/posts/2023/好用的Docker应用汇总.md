@@ -211,7 +211,7 @@ services:
 ```yaml
 services:
   jenkins:
-    image: jenkins/jenkins:lts-jdk8
+    image: jenkins/jenkins:lts
     container_name: jenkins
     restart: unless-stopped
     user: root 
