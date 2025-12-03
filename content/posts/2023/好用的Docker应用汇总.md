@@ -209,20 +209,19 @@ services:
 [镜像地址](https://hub.docker.com/r/jenkins/jenkins) | [教程地址](https://segmentfault.com/a/1190000042279781)
 
 ```yaml
-services: # 集合
+services:
   jenkins:
-    image: jenkins/jenkins:lts # 指定服务所使用的镜像
-    container_name: jenkins # 容器名称
-    restart: unless-stopped # 重启方式
-    user: root # 为了避免一些权限问题 在这我使用了root
-    ports: # 对外暴露的端口定义
-      - 8080:8080 # 访问Jenkins服务端口
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    restart: unless-stopped
+    user: root 
+    ports:
+      - 8080:8080
       - 50000:50000
-    volumes: # 卷挂载路径
-      - ./data:/var/jenkins_home # 这是我们一开始创建的目录挂载到容器内的jenkins_home目录
-      - /usr/bin/docker:/usr/bin/docker # 这是为了我们可以在容器内使用docker命令
+    volumes:
+      - ./data:/var/jenkins_home
+      - /usr/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose # docker-compose如果有问题，确认一下宿主机的docker-compose的路径
     environment:
       - TZ=Asia/Shanghai
       - JAVA_OPTS=-server -Xms512m -Xmx512m -XX:+UseG1GC
