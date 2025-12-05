@@ -1598,7 +1598,7 @@ services:
       - 8080:8080
 ```
 
-### file-transfer-go(webrtc 的文件传输/文字传输/桌面共享)
+### dbhub(MCP 数据库网关)
 
 [GitHub 地址](https://github.com/bytebase/dbhub) | [教程地址](https://dbhub.ai/) | [config.toml 配置](https://dbhub.ai/config/multi-database)  
 启动前先在同级目录下新建并配置 `config.toml` 。
