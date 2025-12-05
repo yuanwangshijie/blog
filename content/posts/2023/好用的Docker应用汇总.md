@@ -214,7 +214,7 @@ services:
     image: jenkins/jenkins:lts
     container_name: jenkins
     restart: unless-stopped
-    user: root 
+    user: root
     ports:
       - 8080:8080
       - 50000:50000
@@ -1596,4 +1596,38 @@ services:
     restart: unless-stopped
     ports:
       - 8080:8080
+```
+
+### file-transfer-go(webrtc 的文件传输/文字传输/桌面共享)
+
+[GitHub 地址](https://github.com/bytebase/dbhub) | [教程地址](https://dbhub.ai/) | [config.toml 配置](https://dbhub.ai/config/multi-database)  
+启动前先在同级目录下新建并配置 `config.toml` 。
+
+```yaml
+services:
+  dbhub:
+    image: bytebase/dbhub:latest
+    container_name: dbhub
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    volumes:
+      - ./config.toml:/config.toml
+    environment:
+      - DBHUB_LOG_LEVEL=info
+    command:
+      - --transport
+      - "http"
+      - --port
+      - "8080"
+      - --config
+      - "/config.toml"
+# 这部分是为了连接 dify 用的, 连接的时候使用 dbhub 容器 在 docker_ssrf_proxy_network 网段的 ip
+#    networks:
+#      - default
+#      - ssrf_proxy_network
+#networks:
+#  ssrf_proxy_network:
+#    external: true
+#    name: docker_ssrf_proxy_network
 ```
