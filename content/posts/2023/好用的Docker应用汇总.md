@@ -1596,6 +1596,8 @@ services:
     restart: unless-stopped
     ports:
       - 8080:8080
+    environment:
+      - TZ=Asia/Shanghai
 ```
 
 ### DBHub(MCP 数据库网关)
@@ -1630,4 +1632,24 @@ services:
 #  ssrf_proxy_network:
 #    external: true
 #    name: docker_ssrf_proxy_network
+```
+
+### convertx(在线文件转换)
+
+[GitHub 地址](https://github.com/C4illin/ConvertX)  
+首次登录初始化账号密码。
+
+```yaml
+services:
+  convertx:
+    image: ghcr.nju.edu.cn/c4illin/convertx
+    container_name: convertx
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    volumes:
+      - ./data:/app/data
+    environment:
+      - TZ=Asia/Shanghai
+      - HTTP_ALLOWED=true
 ```
