@@ -452,6 +452,8 @@ services:
       - ./data:/data
     environment:
       - TZ=Asia/Shanghai
+      # 如果想直接通过 IP 访问，保留空值。
+      # 如果前面有 nginx / caddy 等反向代理，设置为 "http://<你的域名>"
       - CADDY_DOMAIN=http://<openlist_domain>
       - CADDY_WEB_PORT=8080
       - ARIA2_TOKEN=<aria2_token>
