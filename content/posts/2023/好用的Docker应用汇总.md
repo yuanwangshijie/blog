@@ -113,11 +113,10 @@ services:
 
 ```yaml
 services:
-  nginx-web-ui:
-    image: cym1102/nginxwebui:4.3.0
-    container_name: nginx-web-ui
+  nginxwebui:
+    image: cym1102/nginxwebui:latest
+    container_name: nginxwebui
     restart: unless-stopped
-    privileged: true
     network_mode: host
     volumes:
       - ./data:/home/nginxWebUI
@@ -186,7 +185,7 @@ services:
 
 ### x-ui
 
-[镜像地址](https://hub.docker.com/r/enwaiax/x-ui) | [教程地址](https://hub.docker.com/r/enwaiax/x-ui)  
+[镜像地址](https://hub.docker.com/r/enwaiax/x-ui)  
 默认账号密码: `admin`/`admin` 。
 
 ```yaml
@@ -195,9 +194,7 @@ services:
     image: enwaiax/x-ui:latest
     container_name: x-ui
     restart: unless-stopped
-    ports:
-      - 54321:54321
-      - 12345:12345
+    network_mode: host
     volumes:
       - ./data:/etc/x-ui
     environment:
