@@ -185,7 +185,7 @@ services:
 
 ### x-ui
 
-[镜像地址](https://hub.docker.com/r/enwaiax/x-ui)  
+[镜像地址](https://hub.docker.com/r/enwaiax/x-ui) | [GitHub 地址](https://github.com/vaxilu/x-ui)  
 默认账号密码: `admin`/`admin` 。
 
 ```yaml
