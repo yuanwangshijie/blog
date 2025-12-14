@@ -432,32 +432,25 @@ services:
       - TZ=Asia/Shanghai
 ```
 
-### openlist(集成 Aria2、qBittorrent、Caddy)
+### openlist(在线网盘 预装 Aria)
 
-[GitHub 地址](https://github.com/huancun/Openlist-EX-container) | [参考配置](https://github.com/huancun/Openlist-EX-container/blob/main/docker-compose.yml)  
+[镜像地址](https://hub.docker.com/r/openlistteam/openlist) | [GitHub 地址](https://github.com/OpenListTeam/OpenList)  
 执行 `docker logs openlist` 获取初始密码。
 
 ```yaml
 services:
   openlist:
-    image: ghcr.io/huancun/openlist-ex-container:latest
+    image: openlistteam/openlist:latest-aria2
     container_name: openlist
     restart: unless-stopped
+    user: 0:0
     ports:
-      - 5244:8080
+      - 5244:5244
     volumes:
-      - ./data:/data
+      - ./data:/opt/openlist/data
     environment:
       - TZ=Asia/Shanghai
-      # 如果想直接通过 IP 访问，保留空值。
-      # 如果前面有 nginx / caddy 等反向代理，设置为 "http://<你的域名>"
-      - CADDY_DOMAIN=http://<openlist_domain>
-      - CADDY_WEB_PORT=8080
-      - ARIA2_TOKEN=<aria2_token>
-      - ARIA2_TRACKER_UPDATE=enable
-      - OPENLIST_PORT=61600
-      - ARIA2_PORT=61601
-      - QBT_WEBUI_PORT=61602
+      - UMASK=022
 ```
 
 ### emqx(mqtt 消息服务器)
